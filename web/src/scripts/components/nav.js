@@ -1,13 +1,50 @@
 import { component } from 'picoapp'
 
 export default component((node) => {
+  $(document).ready(function() {
+    if ($(window).width() > 1025) {
+      setTimeout(function() {
+        $('nav').addClass('max-w100')
+        $('header').toggleClass('nav-open')
+        $('.menuIcon img').toggleClass('r-90')
+        $('.navItem:eq(0)').toggleClass('l:o0 t-x')
+        setTimeout(function() {
+          $('.navItem:eq(1)').toggleClass('l:o0 t-x')
+        }, 50)
+        setTimeout(function() {
+          $('.navItem:eq(2)').toggleClass('l:o0 t-x')
+        }, 100)
+        setTimeout(function() {
+          $('.navItem:eq(3)').toggleClass('l:o0 t-x')
+        }, 200)
+        setTimeout(function() {
+          $('.navItem').toggleClass('vsn')
+        }, 200)
+        if ($('.contact')[0]) {
+          $('.countContainer').fadeToggle(300)
+        }
+        if ($('.blog, .article')[0]) {
+          $('.socialWrap').fadeToggle(300)
+        }
+        if ($('.home')[0]) {
+          $('.navItem').removeClass('c-oblack')
+        }
+        if ($('.work')[0]) {
+          $('.pTitleWrap').fadeToggle(300)
+        }
+      }, 1000)
+    }
+  })
+
   $('.menuIcon').on('mouseenter', function() {
     if ($('header').hasClass('nav-open')) {
       setTimeout(function() {
         $('.navItem, .navItemBG').addClass('vsn')
+        $('nav').addClass('max-w100')
       }, 300)
     } else {
       $('.navItem, .navItemBG').removeClass('vsn')
+      $('nav').removeClass('max-w100')
     }
     $('header').toggleClass('nav-open')
     $('.menuIcon img').toggleClass('r-90')
@@ -40,6 +77,7 @@ export default component((node) => {
 
   $('header').on('mouseleave', function() {
     if ($('header').hasClass('nav-open')) {
+      $('nav').addClass('max-w100')
       $('header').toggleClass('nav-open')
       $('.menuIcon img').toggleClass('r-90')
       $('.navItem:eq(0)').toggleClass('l:o0 t-x')

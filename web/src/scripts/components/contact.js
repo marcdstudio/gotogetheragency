@@ -179,4 +179,7 @@ export default component((node) => {
       }
     })
   })
+  $('.backBtn').hover(function() {
+    $(this).toggleClass('fill-tan')
+  })
 })

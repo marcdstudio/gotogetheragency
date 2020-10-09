@@ -86,7 +86,7 @@ export default component((node) => {
         $('.usContent').removeClass('show')
       }
     })
-  } else if ($('.article, .blog')[0]) {
+  } else if ($('.article')[0]) {
     //===== SCROLL BAR =====//
 
     const Scroll = Scrollbar.init(node)
@@ -95,6 +95,13 @@ export default component((node) => {
       var st = s.offset.y
       var stp = st / 10
       $('.plx').css('transform', 'translateY(-' + stp + 'px) scale(1.2)')
+    })
+  } else if ($('.blog')[0]) {
+    const Scroll = Scrollbar.init(node)
+    Scroll.addListener((s) => {
+      var st = s.offset.y
+      var stp = st / 2
+      $('.marquee div').css('transform', 'translateX(-' + stp + 'px)')
     })
   } else {
     Scrollbar.init(node)

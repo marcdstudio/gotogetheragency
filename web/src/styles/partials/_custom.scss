@@ -57,6 +57,14 @@ img {
 
 //========== ELEMENTS ==========//
 
+.scrollbar-track {
+  background: transparent !important;
+}
+
+.scrollbar-track-y {
+  width: 6px !important;
+}
+
 .apane,
 .apanetan {
   height: 100vh;
@@ -99,6 +107,17 @@ img {
 }
 
 /* CONTACT */
+
+.backBtn {
+  &.fill-tan {
+    path {
+      fill: $tan;
+    }
+  }
+  path {
+    transition: fill 0.2s ease;
+  }
+}
 
 .fmcnt {
   padding: 1rem;
@@ -333,6 +352,7 @@ nav {
   border: 1px solid $grey;
   border-radius: 50%;
   border-color: $tan;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   &:hover {
     background: $red;
     border-color: $red;
@@ -566,14 +586,14 @@ nav {
     }
   }
 }
-// .homeThumb {
-//   img {
-//     transition: transform 0.4s ease;
-//     &:hover {
-//       transform: scale(1.07);
-//     }
-//   }
-// }
+.homeThumb {
+  img {
+    transition: transform 0.4s ease;
+    &:hover {
+      transform: scale(1.07);
+    }
+  }
+}
 
 .bg-cream {
   background-color: $cream;
@@ -769,3 +789,13 @@ nav {
 }
 @media screen and (max-width: 415px) {
 }
+
+/*! purgecss start ignore */
+
+*:focus,
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/*! purgecss end ignore */
