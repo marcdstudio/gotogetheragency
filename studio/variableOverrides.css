@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'graphik-regular';
+  src: url('/static/Graphik-Regular-Web.woff2') format('woff2'),
+    url('/static/fonts/Graphik-Regular-Web.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'reckless';
+  src: url('/static/RecklessNeue-Regular.woff2') format('woff2'),
+    url('/static/RecklessNeue-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+/* @import url('./graphik-regular.woff2'); */
+
+:root {
+  --brand-primary: #0f0e0e;
+  --brand-secondary: #0f0e0e;
+  --body-bg: #e2dddc;
+  --body-text: #0f0e0e;
+
+  --component-bg: #e2dddc;
+  --component-text-color: #0f0e0e;
+  --component-border-color: #625d60;
+
+  --main-navigation-color: #0f0e0e;
+  --main-navigation-color--inverted: #e2dddc;
+
+  --font-family-sans-serif: graphik-regular, sans-serif, 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-family-serif: graphik-regular, serif;
+  --font-family-monospace: graphik-regular, sans-serif;
+  --font-family-base: graphik-regular, sans-serif;
+
+  --default-button-primary-color: #ff595a;
+  --default-button-primary-color--inverted: var(--brand-primary--inverted);
+  --default-button-success-color: var(--state-success-color);
+  --default-button-success-color--inverted: var(
+    --state-success-color--inverted
+  );
+  --default-button-warning-color: var(--state-warning-color);
+  --default-button-warning-color--inverted: var(
+    --state-warning-color--inverted
+  );
+  --default-button-danger-color: var(--state-danger-color);
+  --default-button-danger-color--inverted: var(--state-danger-color--inverted);
+
+  --headings-font-family: reckless, sans-serif, 'Oxygen', 'Ubuntu', 'Cantarell',
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}

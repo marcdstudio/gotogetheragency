@@ -1,7 +1,7 @@
 {
   "root": true,
   "project": {
-    "name": "together"
+    "name": "Together"
   },
   "api": {
     "projectId": "0p9uwmou",
@@ -33,6 +33,14 @@
     {
       "implements": "part:@sanity/dashboard/config",
       "path": "./dashboard.js"
+    },
+    {
+      "implements": "part:@sanity/base/brand-logo",
+      "path": "./logo/logo.js"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./variableOverrides.css"
     }
   ]
 }
