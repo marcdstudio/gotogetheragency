@@ -1,0 +1,7 @@
+<div class="df aic jcc x max-w880 ma pb160 pt160">
+    <div class="h1 c-tan">
+        {% for text in module.content %}
+            {{ text | blocksToHtml | safe }}
+        {% endfor %}
+    </div>
+</div>

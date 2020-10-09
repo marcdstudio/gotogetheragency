@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    {% include 'head.njk' %}
+  </head>
+
+  <body class="sans f18">
+
+    <div id="root" class="">
+
+      <div class="apane"></div>
+      <div class="apanetan"></div>
+
+      {% include 'header.njk' %}
+
+      <main class="" data-router-wrapper="data-router-wrapper">
+        {{ content | safe }}
+      </main>
+
+    </div>
+
+    <script src="{% webpackAsset 'main.js' %}"></script>
+
+  </body>
+</html>

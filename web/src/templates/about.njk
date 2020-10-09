@@ -1,0 +1,121 @@
+---
+layout: base.njk
+title: About
+---
+
+<div class="modules about" data-router-view="default" data-component="about">
+  <div class="fix x y vh100 left l:pl0">
+    <div class="vh100 x pl40 s:pl150 l:pl0 l:ph80 df aic jcc fw l:fnw youBlock abs top left">
+      <div class="recki c-tan x l:w50 mega df aie l:aic l:jce h50 l:y youTitle">
+        You
+      </div>
+      <div class="x l:w50 df l:aic l:jcc h50 l:y">
+        <div class="l:max-w350 s:max-w300 max-w250 blockText youContent f16 l:f18">
+          {% for text in aboutContent.youText.blockText %}
+            {{ text | blocksToHtml | safe }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="vh100 x pr40 s:pr150 l:pr0 l:pl0 l:ph80 df fcr l:fr aic jcc fw l:fnw usBlock abs top left o0">
+      <div class="x l:w50 df l:aic jce l:jce h50 l:y">
+        <div class="l:max-w350 s:max-w300 max-w250 blockText tr usContent f16 l:f18">
+          {% for text in aboutContent.usText.blockText %}
+            {{ text | blocksToHtml | safe }}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="recki c-tan x l:w50 mega df aie jce l:aic l:jcc h50 l:y usTitle">
+        Us
+      </div>
+    </div>
+
+    <div class="vh100 x l:pl0 l:ph80 df aic jcc fnw mega c-tan recki toBlock abs top left o0">
+      Together
+    </div>
+  </div>
+  <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll" style="overflow-x:visible">
+
+    <div class="" style="height:350vh;min-height:2000px"></div>
+
+    <div class="x df aic jcc fw s:fnw txt3Up">
+      {% for icon in aboutContent.text3Up %}
+        <div class="w100 x s:w30 df aic jcc y fc mb70 s:mb0">
+          <div class="mb0">
+            <img class="max-w100" src="{{ icon.icon }}" alt="{{ icon.altText }}"/>
+          </div>
+          <div class="mb15 c-tan">
+            <h2>
+              {{ icon.title }}
+            </h2>
+          </div>
+          <div class="blockText tc max-w200 s:max-w180 l:max-w250 f16 l:f18">
+            {% for text in icon.body %}
+              {{ text | blocksToHtml | safe }}
+            {% endfor %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="full">
+      <div class="df aic jcc x max-w250 s:max-w550 l:max-w880 ma l:pv160 s:pt160 pt30">
+        <div class="h1 fadeltr c-tan" data-component="splitText">
+          {% for text in aboutContent.largeTextBlock.content %}
+            {{ text | blocksToHtml | safe }}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="full max-w550 l:max-w10000 df fw l:fnw x ma pl20 s:pl0 pb160 pt60 l:pt0 fw w100">
+      <div class="df fc l:mr40 bthalf fw serviceColumn">
+        {% for service in aboutContent.servicesLeft %}
+          <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
+            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
+              <img class="dn s:db" style="width: 1.5rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="db s:dn" style="width: 1rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+            </div>
+            <div>
+              <div class="serviceTitle">
+                <h3 class="c-tan">{{service.blockTitle}}</h3>
+              </div>
+              <div class="serviceBlockText oh l:f18 s:f16 f14 s:pr0 pr40">
+                {% for text in service.blockText %}
+                  {{ text | blocksToHtml | safe }}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+      <div class="df fc l:mr40 bthalf fw serviceColumn sc2">
+        {% for service in aboutContent.servicesRight %}
+          <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
+            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
+              <img class="dn s:db" style="width: 1.5rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="db s:dn" style="width: 1rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+            </div>
+            <div>
+              <div class="serviceTitle">
+                <h3 class="c-tan">{{service.blockTitle}}</h3>
+              </div>
+              <div class="serviceBlockText oh l:f18 f16">
+                {% for text in service.blockText %}
+                  {{ text | blocksToHtml | safe }}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% set form = 'about'%}
+    <div class="rel x">
+      {% include 'contactForm.njk' %}
+    </div>
+    <div class="full mt250">
+      {% include 'footer.njk' %}
+    </div>
+    {# {% debug aboutContent %} #}
+  </div>

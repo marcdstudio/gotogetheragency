@@ -1,0 +1,172 @@
+---
+layout: base.njk
+permalink: /blog/{{ article.slug }}/
+pagination:
+  alias: article
+  data: article
+  size: 1
+renderData:
+  title: "{{ article.title }}"
+---
+
+<div class="article rel full" data-router-view="default" data-component="article">
+  <div class="dn l:df socialWrap l:fix left aic jcc fc" style="width: 24rem;" data-component="socials">
+    <a class="facebook mb30" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+      <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
+    </a>
+    {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
+      <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
+    </a> #}
+    <a class="twitter mb30" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+      <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
+    {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
+      <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
+    </a> #}
+    <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
+      <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
+    </a>
+  </div>
+  <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll">
+
+    <div class="db s:dn left ml20 mt150 mb30">
+      <div class="df aic">
+        <a class="df aic" href="/blog/" data-transition="blog">
+          <img class="dn s:db r90" src="/assets/icons/arrow_toggle.svg"/>
+          <img class="db s:dn r90" style="width:1rem" src="/assets/icons/arrow_toggle.svg"/>
+          <span class="f10 s:f12 l:f14 graphm ttu ls1em ml10 s:ml20 c-grey">All Posts</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="x ma articlePoster dskh oh s:mt180 l:mt0" data-component="reveal">
+      <img class="x y o-cover plx" src="{{ article.poster }}"/>
+    </div>
+
+    <div class="dn s:db abs left mt35 ml30 l:ml0">
+      <div class="df aic">
+        <a class="df aic" href="/blog/" data-transition="blog">
+          <img class="r90" src="/assets/icons/arrow_toggle.svg"/>
+          <span class="f12 l:f14 graphm ttu ls1em ml20 c-grey">All Posts</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="dn s:df l:dn abs l:fix left aic jcc fc mt230" style="width: 18rem;">
+      <a class="facebook" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+        <img class="articleIcon mb30 l:mb0" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
+      </a>
+      {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
+        <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
+      </a> #}
+      <a class="twitter" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+        <img class="articleIcon mb30" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
+      {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
+        <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
+      </a> #}
+      <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
+        <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
+      </a>
+    </div>
+
+    <div class="mla l:ma max-w650 l:max-w800 rel ph20 s:pr30 l:pr0 mb100 s:mb150 l:mb200">
+      <h2 class="x mla articleTitle max-w450 l:max-w600 mt20 s:mt25 ph20 s:pl0 s:pr60 l:pr0">
+        {{ article.title }}
+      </h2>
+      <div class="mt10 x mla articleMeta ph20 s:ph0 s:max-w450 l:max-w600 c-grey">
+        <div class="artDateAuth df aic mt15 s:mt35">
+          <div class="journalDate graphm f10 s:f14" data-component="xdates">{{ article.date }}</div>
+          <div class="ml20 s:ml30 ttu graphm f10 s:f14">
+            {{ article.author }}</div>
+        </div>
+      </div>
+
+      <div class="db s:dn df mt40 ph20">
+        <a class="facebook mr30" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+          <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
+        </a>
+        {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
+        <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
+      </a> #}
+        <a class="twitter mr30" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+          <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
+        {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
+        <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
+      </a> #}
+        <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
+          <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
+        </a>
+      </div>
+
+      <div class="s:ph0 ma mt40 l:mt80 articleContent reck max-w650 l:max-w800 f16 l:f18">
+        {% for block in article.aboutContent %}
+          {% if block.children %}
+            {{ block | blocksToHtml | safe }}
+          {% else %}
+            {% if block.wideImg %}
+              <div class="articleImgWide" data-component="reveal">
+                {# <img class="w100" src="{{ block.image }}" alt="{{ block.altText }}"/> #}
+                <img alt="{{ block.altText }}" class="lazy x" src="{{ block.image }}"/>
+              </div>
+            {% elseif block.carouselImg %}
+              <div class="articleCarousel" data-component="flickity">
+                {% for image in block.image %}
+                  <img src="{{ image.image }}"/>
+                {% endfor %}
+              </div>
+            {% else %}
+              <div class="articleImg" data-component="reveal">
+                <img alt="{{ block.altText }}" class="lazy x" data-src="{{ block.image }}" data-srcset="{{ block.image }} 400w,
+                  {{ block.image }} 800w" data-sizes="100w"/>
+              </div>
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="maxfull mt20 mb5 light-green mainTag">
+        {% for tag in article.allTags %}
+          {% if loop.first %}
+            <span class="caps">View more from</span>
+            <span class="articleTag light-green">
+              <a href="/news/{{ tag.slug.current }}">{{  tag.title }}</a>
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      <div class="maxfull x ma flcs mb25 sugArt" data-component="">
+        {% for tag in article.allTags %}
+          {% if loop.first %}
+            {% set firstTag = tag.title %}
+            {% for soloArticle in journal %}
+              {% for tag in soloArticle.allTags %}
+                {% if firstTag == tag.title %}
+                  <div class="w33 m1">
+                    <div class="h48r">
+                      <a href="/journal/{{ soloArticle.slug }}">
+                        <img class="x ofit" src="{{ soloArticle.poster }}" alt="{{ soloArticle.posterAlt }}"/>
+                      </a>
+                    </div>
+                    <div class="mt1">
+                      {{ soloArticle.title }}
+                    </div>
+                    <div class="journalDate small light-green mt-5">
+                      {{ soloArticle.date }}
+                    </div>
+                    <div class="mt1">
+                      {% for tag in soloArticle.allTags %}
+                        <a class="articleTag light-green mr1" href="/news/{{ tag.slug.current }}">
+                          {{ tag.title }}
+                        </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% include 'subscribe.njk' %}
+    {% include 'footerNews.njk' %}
+  </div>
+</div>

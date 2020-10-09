@@ -1,0 +1,38 @@
+{
+  "root": true,
+  "project": {
+    "name": "together"
+  },
+  "api": {
+    "projectId": "0p9uwmou",
+    "dataset": "production"
+  },
+  "plugins": [
+    "@sanity/base",
+    "@sanity/components",
+    "@sanity/default-layout",
+    "@sanity/default-login",
+    "@sanity/desk-tool",
+    "@sanity/dashboard",
+    "dashboard-widget-netlify"
+  ],
+  "env": {
+    "development": {
+      "plugins": ["@sanity/vision"]
+    }
+  },
+  "parts": [
+    {
+      "name": "part:@sanity/base/schema",
+      "path": "./index.js"
+    },
+    {
+      "name": "part:@sanity/desk-tool/structure",
+      "path": "./deskStructure.js"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./dashboard.js"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+* {
+  box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+html {
+  font-size: 10px;
+  background: $oblack;
+  // transition: background-color 0.3s ease;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  color: $cream;
+}
+
+body {
+  font-family: graphik-regular, sans-serif;
+  line-height: 1.5;
+}
+
+::selection {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+*:focus {
+  outline: none;
+}
+
+textarea {
+  resize: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  line-height: 1;
+}
+
+h1,
+.h1 {
+  font-size: 8.4rem;
+  font-family: reckless-italic, sans-serif;
+  line-height: 1.2;
+}
+
+h2,
+.h2 {
+  font-size: 5.4rem;
+  font-family: reckless-regular, sans-serif;
+  line-height: 1.2;
+}
+
+h3,
+.h3 {
+  font-size: 2.8rem;
+  font-family: reckless-regular, sans-serif;
+  line-height: 1.5;
+}
+
+.mega {
+  font-size: 30rem;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+[data-router-view] {
+  @include hidden;
+}

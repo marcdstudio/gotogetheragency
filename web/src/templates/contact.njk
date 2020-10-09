@@ -1,0 +1,11 @@
+---
+layout: base.njk
+title: About
+---
+<div class="modules contact" data-router-view="default">
+    <div class="scrollContainer x vh100 oy z3 rel" data-component="smoothScroll" style="overflow-x:visible">
+        {% set form = 'contact' %}
+        {% include 'contactForm.njk' %}
+        {% include 'footerNews.njk' %}
+    </div>
+</div>

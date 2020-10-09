@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" style="background-color: #E2DDDC;">
+
+    <head>
+        {% include 'head.njk' %}
+    </head>
+
+    <body class="f18 c-black">
+
+        <div id="root">
+
+            {% include 'header.njk' %}
+
+            <main class="full" data-router-wrapper="data-router-wrapper">
+                {{ content | safe }}
+            </main>
+
+            {% include 'footerNews.njk' %}
+
+        </div>
+
+        <script src="{% webpackAsset 'main.js' %}"></script>
+
+    </body>
+</html>
