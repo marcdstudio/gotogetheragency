@@ -798,4 +798,12 @@ textarea:focus {
   outline: none;
 }
 
+.scrollbar-track {
+  background: transparent !important;
+}
+
+.scrollbar-track-y {
+  width: 6px !important;
+}
+
 /*! purgecss end ignore */
