@@ -43,11 +43,23 @@ export default () =>
               S.listItem()
                 .title('Articles')
                 .icon(() => <Emoji style={{ fontSize: 24 }} text="🖋" />)
-                .child(S.documentTypeList('article').title('All Articles')),
+                .child(
+                  S.documentList()
+                    .title('All Articles')
+                    .filter('_type == "article" '),
+                ),
               S.listItem()
                 .title('Projects')
                 .icon(() => <Emoji style={{ fontSize: 24 }} text="🎨" />)
-                .child(S.documentTypeList('project').title('Projects')),
+                .child(
+                  S.documentList()
+                    .title('All Projects')
+                    .filter('_type == "project" '),
+                ),
+              // S.listItem()
+              //   .title('Projects')
+              //   .icon(() => <Emoji style={{ fontSize: 24 }} text="🎨" />)
+              //   .child(S.documentTypeList('project').title('Projects')),
               S.listItem()
                 .title('Contact')
                 .icon(() => <Emoji style={{ fontSize: 24 }} text="🎤" />)

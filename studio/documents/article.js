@@ -1,5 +1,5 @@
 export default {
-  title: 'Page',
+  title: 'Article',
   name: 'article',
   type: 'document',
   fields: [
