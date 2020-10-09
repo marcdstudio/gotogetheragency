@@ -6,8 +6,6 @@ import Scrollbar from 'smooth-scrollbar'
 
 export default component((node) => {
   if ($('.about')[0]) {
-    console.log('lol')
-
     //===== YOU ANIMATION =====//
 
     var tlYou = new TimelineLite(),

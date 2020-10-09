@@ -9,8 +9,8 @@ title: About
       <div class="recki c-tan x l:w50 mega df aie l:aic l:jce h50 l:y youTitle">
         You
       </div>
-      <div class="x l:w50 df l:aic l:jcc h50 l:y">
-        <div class="l:max-w350 s:max-w300 max-w250 blockText youContent f16 l:f18">
+      <div class="x l:w50 df l:aic l:jcc h50 l:y youBody">
+        <div class="l:max-w350 s:max-w300 max-w250 blockText youContent f14 s:f16 l:f18">
           {% for text in aboutContent.youText.blockText %}
             {{ text | blocksToHtml | safe }}
           {% endfor %}
@@ -19,8 +19,8 @@ title: About
     </div>
 
     <div class="vh100 x pr40 s:pr150 l:pr0 l:pl0 l:ph80 df fcr l:fr aic jcc fw l:fnw usBlock abs top left o0">
-      <div class="x l:w50 df l:aic jce l:jce h50 l:y">
-        <div class="l:max-w350 s:max-w300 max-w250 blockText tr usContent f16 l:f18">
+      <div class="x l:w50 df l:aic jce l:jce h50 l:y usBody">
+        <div class="l:max-w350 s:max-w300 max-w250 blockText tr usContent f14 s:f16 l:f18">
           {% for text in aboutContent.usText.blockText %}
             {{ text | blocksToHtml | safe }}
           {% endfor %}

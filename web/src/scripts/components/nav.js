@@ -4,7 +4,7 @@ export default component((node) => {
   $(document).ready(function() {
     if ($(window).width() > 1025) {
       setTimeout(function() {
-        $('nav').addClass('max-w100')
+        $('.dsknav').addClass('max-w100')
         $('header').toggleClass('nav-open')
         $('.menuIcon img').toggleClass('r-90')
         $('.navItem:eq(0)').toggleClass('l:o0 t-x')
@@ -40,11 +40,11 @@ export default component((node) => {
     if ($('header').hasClass('nav-open')) {
       setTimeout(function() {
         $('.navItem, .navItemBG').addClass('vsn')
-        $('nav').addClass('max-w100')
+        $('.dsknav').addClass('max-w100')
       }, 300)
     } else {
       $('.navItem, .navItemBG').removeClass('vsn')
-      $('nav').removeClass('max-w100')
+      $('.dsknav').removeClass('max-w100')
     }
     $('header').toggleClass('nav-open')
     $('.menuIcon img').toggleClass('r-90')
@@ -77,7 +77,7 @@ export default component((node) => {
 
   $('header').on('mouseleave', function() {
     if ($('header').hasClass('nav-open')) {
-      $('nav').addClass('max-w100')
+      $('.dsknav').addClass('max-w100')
       $('header').toggleClass('nav-open')
       $('.menuIcon img').toggleClass('r-90')
       $('.navItem:eq(0)').toggleClass('l:o0 t-x')
@@ -187,7 +187,20 @@ export default component((node) => {
   }
 
   $('.mblIcon, .mblNavItem').on('click', function() {
+    if ($('header').hasClass('mblnav-open')) {
+      $('header').removeClass('mblnav-open')
+    } else {
+      $('header').addClass('mblnav-open')
+    }
     $('.mblIcon').toggleClass('r180')
     $('.mblNav').toggleClass('t-y')
   })
+})
+
+$('.wordmark').on('click', function() {
+  if ($('header').hasClass('mblnav-open')) {
+    $('.mblIcon').toggleClass('r180')
+    $('.mblNav').toggleClass('t-y')
+    $('header').removeClass('mblnav-open')
+  }
 })

@@ -737,7 +737,7 @@ nav {
     }
   }
   .toBlock {
-    margin-top: -5.5rem;
+    margin-top: calc(-5.5rem - 10vh);
   }
   .full.pl20 {
     padding-left: 2rem;
@@ -757,6 +757,20 @@ nav {
   }
   .marquee {
     height: 20rem;
+  }
+  .youContent,
+  .usContent {
+    h3 {
+      font-size: 2rem;
+    }
+  }
+  .usTitle,
+  .youTitle {
+    height: 40%;
+  }
+  .usBody,
+  .youBody {
+    height: 60%;
   }
   .articleContent {
     h3 {
@@ -785,6 +799,12 @@ nav {
   }
   .articlePoster {
     height: 22rem;
+  }
+  // footer.full {
+  //   padding-left: 4rem;
+  // }
+  .countContainer {
+    display: none !important;
   }
 }
 @media screen and (max-width: 415px) {

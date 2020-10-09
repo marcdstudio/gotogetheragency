@@ -165,7 +165,6 @@ export default component((node) => {
 
   $('.contactForm').submit(function(e) {
     e.preventDefault()
-    console.log('submitted')
 
     var $form = $(this)
     $.post($form.attr('action'), $form.serialize()).then(function() {
