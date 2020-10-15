@@ -5,6 +5,7 @@ class SwipeBeige extends Highway.Transition {
   in({ from, to, done }) {
     window.scrollTo(0, 0)
     from.remove()
+    $('html, body').css('background-color', '#e2dddc')
     $('html, body').addClass('bg-cream')
     $('body').addClass('c-oblack')
     $('.wordmark').removeClass('wordmarkBlack')
