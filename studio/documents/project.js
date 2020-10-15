@@ -34,44 +34,59 @@ export default {
       type: 'a11yImage',
     },
     {
-      title: 'Is thumb vertical',
-      name: 'thumbOr',
+      title: 'Poster Image',
+      description: 'Appears when hovering a project title on the homepage.',
+      name: 'poster',
+      type: 'a11yImage',
+    },
+    {
+      title: 'Is project live?',
+      description: 'Turn this on if the project can be viewed',
+      name: 'isLive',
       type: 'boolean',
     },
+    // {
+    //   title: 'Is thumb vertical',
+    //   name: 'thumbOr',
+    //   type: 'boolean',
+    // },
     {
       title: 'Intro Text',
       name: 'introText',
       type: 'shortText',
     },
     {
-      title: 'Roles',
-      name: 'roles',
+      title: 'Project Sections',
+      name: 'projectSection',
       type: 'array',
-      of: [{ type: 'string' }],
-      description: 'Press enter after each role to create a tag',
-      options: {
-        layout: 'tags',
-      },
+      of: [{ type: 'projectSection' }, { type: 'fullBleedImage' }],
     },
     {
-      title: 'Year',
-      name: 'year',
-      type: 'string',
+      title: 'Related Project Left',
+      name: 'relatedProjectLeft',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'project' }],
+        },
+      ],
     },
     {
-      title: 'Management',
-      name: 'management',
-      type: 'shortText',
+      title: 'Related Project Right',
+      name: 'relatedProjectRight',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'project' }],
+        },
+      ],
     },
     {
-      title: 'Team',
-      name: 'team',
-      type: 'shortText',
-    },
-    {
-      title: 'Content Modules',
-      name: 'contentModules',
-      type: 'contentModules',
+      title: 'Contact Block',
+      name: 'contactText',
+      type: 'largeTextBlock',
     },
   ],
   preview: {

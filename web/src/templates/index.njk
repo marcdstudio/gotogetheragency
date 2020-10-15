@@ -3,7 +3,7 @@ layout: base.njk
 title: Home
 ---
 <div class="modules home full" data-router-view="default">
-  <div class="scrollContainer x vh100 oy fix z3" data-component="smoothScroll">
+  <div class="scrollContainer x vh100 oy fix z3" data-component="home">
     <div class="df aic jcc x max-w300 s:max-w550 l:max-w880 ma pt150 pb60 s:pt200 s:pb100 l:pb160 l:pt160">
       <div class="{% if homeContent.heroText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
         {% for text in homeContent.heroText.content %}
@@ -14,16 +14,19 @@ title: Home
 
     {% for project in homeContent.featuredProject %}
       <div class="pl20 s:pl30 l:pl0">
-        <div class="x fade fadeUp" data-component="featureFade">
+        <div class="dib s:dn tag mr20 l:mr100 f10 s:f12 l:f14 mb15">
+          Feature
+        </div>
+        <div class="x featureImg" data-component="featureFade">
           <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
         </div>
         <div class="df ais jcs rel mt15 l:mt30 x">
-          <div class="tag mr20 l:mr100 f10 s:f12 l:f14">
+          <div class="dn s:dib tag mr20 l:mr100 f10 s:f12 l:f14">
             Feature
           </div>
-          <div class="db">
-            <h3>{{ project.title }}</h3>
-            <div class="h3 c-grey mt0 l:mt10">
+          <div class="db featureDetails">
+            <h3 class="lh10" style="line-height:1;">{{ project.title }}</h3>
+            <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0">
               {% for text in project.introText.content %}
                 {{ text | blocksToHtml | safe }}
               {% endfor %}
@@ -33,7 +36,7 @@ title: Home
       </div>
     {% endfor %}
 
-    <div class="df fw aic x max-w300 s:max-w550 l:max-w880 ma pt60 pb80 s:pt120 s:pb160 l:pb160 l:pt160">
+    <div class="fLine df fw aic x max-w300 s:max-w550 l:max-w880 ma pt60 pb80 s:pt120 s:pb160 l:pb160 l:pt160">
       <div class="{% if homeContent.aboutText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %}  c-tan" data-component="splitText">
         {% for text in homeContent.aboutText.content %}
           {{ text | blocksToHtml | safe }}
@@ -43,8 +46,8 @@ title: Home
         <div class="mt20 l:mt45 dib">
           <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/about/">About Us
             <span class="circle ml10 s:ml25">
-              <svg class="arrow" width="11" height="10" fill="none">
-                <path d="M0 5h10M6 1l4 4-4 4" stroke="#D5B49E"/>
+              <svg class="arrow" width="17" height="14" fill="none">
+                <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
               </svg>
             </span>
           </a>
@@ -52,15 +55,22 @@ title: Home
       {% endif %}
     </div>
 
+    {# {% debug homeContent.homeProjectsLeft %} #}
     <div class="df fw pr15 pl15 l:pr0 l:pl0 l:mr40">
-      <div class="x s:w50 ph20 s:p20">
+      <div class="x s:w50 ph5 s:p20">
         <div class="tag mb25 s:mb60 dib f10 s:f12 l:f14">
           Selected Works
         </div>
         {% for project in homeContent.homeProjectsLeft %}
           <div class="mb20 s:mb80">
             <div class="x homeThumb oh">
-              <img class="x o-cover" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              {% if project.isLive %}
+                <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
+                  <img class="x o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                </a>
+              {% else %}
+                <img class="x o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              {% endif %}
             </div>
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
@@ -75,11 +85,17 @@ title: Home
           </div>
         {% endfor %}
       </div>
-      <div class="x s:w50 ph20 pb20 s:p20">
+      <div class="x s:w50 ph5 pb20 s:p20">
         {% for project in homeContent.homeProjectsRight %}
           <div class="mb20 s:mb80">
             <div class="x homeThumb oh">
-              <img class="x o-cover" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              {% if project.isLive %}
+                <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
+                  <img class="x o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                </a>
+              {% else %}
+                <img class="x o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              {% endif %}
             </div>
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
@@ -104,7 +120,7 @@ title: Home
       </div>
     </div>
 
-    <div class="x ma pt100 pb80 s:pb160 s:pt160 pr0 pl20 s:pr30 s:pl30  l:pl0 l:pr40">
+    <div class="x ma pt100 pb80 s:pb0 s:pt160 pr0 pl20 s:pr30 s:pl30  l:pl0 l:pr40">
 
       <div class="rel x bbhalf pb35">
         <span class="tag dib f10 s:f12 l:f14">
@@ -114,15 +130,15 @@ title: Home
 
       {% for article in articles %}
         <div class="df aic rel x bbhalf pb35 pt35">
-          <span class="graphm ttu l:f14 c-tan mr25 s:mr35 l:mr60 s:f12 f10">
-            MAR 17
+          <span class="featureDate graphm ttu l:f14 c-tan s:f12 f10" data-component="date">
+            {{ article.date }}
           </span>
           <a class="fg1 arrowSpan">
             <span class="fg1 df jcb aic">
               <h3 class="max-w180 s:max-w10000">{{ article.title }}</h3>
               <span class="circle ml0 mr20 s:mr60">
-                <svg class="arrow" width="11" height="10" fill="none">
-                  <path d="M0 5h10M6 1l4 4-4 4" stroke="#D5B49E"/>
+                <svg class="arrow" width="17" height="14" fill="none">
+                  <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
                 </svg>
               </span>
             </span>
@@ -141,8 +157,8 @@ title: Home
         <div class="mt20 s:mt45 dib">
           <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/contact/">{{ homeContent.contactText.linkText }}
             <span class="circle ml10 s:ml25">
-              <svg class="arrow" width="11" height="10" fill="none">
-                <path d="M0 5h10M6 1l4 4-4 4" stroke="#D5B49E"/>
+              <svg class="arrow" width="17" height="14" fill="none">
+                <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
               </svg>
             </span>
           </a>
@@ -151,5 +167,6 @@ title: Home
     </div>
     {% include 'footer.njk' %}
   </div>
-  {# {% debug homeContent %} #}
+  <div class="eyeBtn usn dn l:db"></div>
+  <div class="cBtn usn dn l:db" data-component="magneticButton"></div>
 </div>

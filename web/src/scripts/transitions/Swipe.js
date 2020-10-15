@@ -5,28 +5,60 @@ class Swipe extends Highway.Transition {
   in({ from, to, done }) {
     window.scrollTo(0, 0)
     from.remove()
-    $('html').removeClass('bg-cream')
-    $('body').removeClass('c-oblack')
+    $('.wordmark').removeClass('wordmarkBlack')
+    $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
     gsap.to(to, {
-      duration: 0.5,
+      duration: 1.2,
       autoAlpha: 1,
       onComplete: done,
     })
   }
 
   out({ from, done }) {
-    var pane = $('.apane')
-    pane.addClass('paneTrans')
-    pane.addClass('paneRight')
-    // $('html').removeClass('bg-cream')
-    // setTimeout(function() {
-    //   pane.addClass('paneLeft')
-    // }, 500)
-    setTimeout(function() {
-      pane.removeClass('paneRight paneTrans')
-    }, 500)
+    $('html, body').removeClass('bg-cream')
+    $('body').removeClass('c-oblack')
+    if (window.location.href.indexOf('blog') > -1) {
+      $('.navItem').removeClass('active')
+      $('.navItem')
+        .eq(0)
+        .addClass('active')
+    } else if (window.location.href.indexOf('contact') > -1) {
+      $('.navItem').removeClass('active')
+      $('.navItem')
+        .eq(1)
+        .addClass('active')
+    } else if (window.location.href.indexOf('about') > -1) {
+      $('.navItem').removeClass('active')
+      $('.navItem')
+        .eq(2)
+        .addClass('active')
+    } else if (window.location.href.indexOf('work') > -1) {
+      $('.navItem').removeClass('active')
+      $('.navItem')
+        .eq(3)
+        .addClass('active')
+    } else {
+      $('.navItem').removeClass('active')
+    }
+
+    var tl = gsap.timeline()
+    tl.to('.apane', {
+      duration: 1.2,
+      width: '100%',
+      left: '0%',
+      ease: 'Expo.easeInOut',
+    })
+    // tl.to('.apane', {
+    //   duration: 1.2,
+    //   width: '100%',
+    //   left: '100%',
+    //   ease: 'Expo.easeInOut',
+    //   // delay: 0.3,
+    // })
+    tl.set('.apane', { left: '-100%' })
+
     gsap.to(from, {
-      duration: 0.5,
+      duration: 1.2,
       autoAlpha: 1,
       onComplete: done,
     })

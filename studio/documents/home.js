@@ -19,7 +19,7 @@ export default {
       validation: (Rule) => Rule.required(),
     },
     {
-      title: 'Hero Text Bock',
+      title: 'Hero Text Block',
       name: 'heroText',
       type: 'largeTextBlock',
     },

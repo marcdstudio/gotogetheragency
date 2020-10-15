@@ -31,15 +31,15 @@ title: About
       </div>
     </div>
 
-    <div class="vh100 x l:pl0 l:ph80 df aic jcc fnw mega c-tan recki toBlock abs top left o0">
+    <div class="vh100 x l:pl0 l:ph80 df aic jcc fnw mega c-tan recki toBlock abs top left o0 toScale">
       Together
     </div>
   </div>
   <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll" style="overflow-x:visible">
 
-    <div class="" style="height:350vh;min-height:2000px"></div>
+    <div class="aboutSpacer" style=""></div>
 
-    <div class="x df aic jcc fw s:fnw txt3Up">
+    <div class="x df aic jcc fw s:fnw txt3Up mb30 s:mb160">
       {% for icon in aboutContent.text3Up %}
         <div class="w100 x s:w30 df aic jcc y fc mb70 s:mb0">
           <div class="mb0">
@@ -59,7 +59,7 @@ title: About
       {% endfor %}
     </div>
     <div class="full">
-      <div class="df aic jcc x max-w250 s:max-w550 l:max-w880 ma l:pv160 s:pt160 pt30">
+      <div class="df aic jcc x max-w250 s:max-w550 l:max-w880 ma l:pb160">
         <div class="h1 fadeltr c-tan" data-component="splitText">
           {% for text in aboutContent.largeTextBlock.content %}
             {{ text | blocksToHtml | safe }}
@@ -73,12 +73,12 @@ title: About
         {% for service in aboutContent.servicesLeft %}
           <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
             <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
-              <img class="dn s:db" style="width: 1.5rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
-              <img class="db s:dn" style="width: 1rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="dn s:db" style="width: 1.5rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="db s:dn" style="width: 1rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
             </div>
             <div>
               <div class="serviceTitle">
-                <h3 class="c-tan">{{service.blockTitle}}</h3>
+                <h3 class="c-tan" style="line-height:1">{{service.blockTitle}}</h3>
               </div>
               <div class="serviceBlockText oh l:f18 s:f16 f14 s:pr0 pr40">
                 {% for text in service.blockText %}
@@ -93,12 +93,12 @@ title: About
         {% for service in aboutContent.servicesRight %}
           <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
             <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
-              <img class="dn s:db" style="width: 1.5rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
-              <img class="db s:dn" style="width: 1rem;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="dn s:db" style="width: 1.5rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
+              <img class="db s:dn" style="width: 1rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
             </div>
             <div>
               <div class="serviceTitle">
-                <h3 class="c-tan">{{service.blockTitle}}</h3>
+                <h3 class="c-tan" style="line-height:1">{{service.blockTitle}}</h3>
               </div>
               <div class="serviceBlockText oh l:f18 f16">
                 {% for text in service.blockText %}
@@ -111,7 +111,7 @@ title: About
       </div>
     </div>
     {% set form = 'about'%}
-    <div class="rel x">
+    <div class="aboutForm" data-component="splitHeader">
       {% include 'contactForm.njk' %}
     </div>
     <div class="full mt250">

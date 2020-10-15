@@ -1,24 +1,37 @@
-<header class="rel nav-open">
+<header class="rel nav-open" style="transition: opacity .3s">
   <a href="/">
     <div class="fix left top df ml20 s:ml40 l:ml50 mt20 s:mt40 wordmark" style="width: 14rem;z-index:99999" data-component="wordmark"></div>
   </a>
   <div class="vsn dn l:db navItemBG o0 fix"></div>
-  <nav class="dn s:df fix z9 c-grey ttu df r-90 f12 l:f14 dsknav" style="transform-origin:left" data-component="nav">
-    <div class="dn l:db w2r menuIcon mr30 pv25 rel z9 point">
-      <img class="r90 r-90" src="/assets/icons/menu_icon.svg" style="width:2rem;" alt="together menu icon"/>
+  <nav class="dn aic fix z9 c-grey ttu s:df r-90 f12 l:f14 dsknav" style="transform-origin:left" data-component="nav">
+    <div class="dn l:db menuIcon mr30 rel z9 point" style="width:2.7rem;height:2.7rem;">
+      {# <img class="r225" src="/assets/icons/plus.svg" style="width:2rem;" alt="together menu icon"/> #}
+      <svg class="r225" width="27" height="27" fill="none">
+        <path stroke="#D5B49E" stroke-width="2" d="M14 4e-8V27M27 13H-9e-8"/>
+      </svg>
     </div>
-    <a class="navItem graphm dib ph25 l:pv25 wco" href="/blog/" data-transition="blog">News</a>
-    <a class="navItem graphm dib ph25 l:pv25 wco" href="/contact/">Contact</a>
-    <a class="navItem graphm dib ph25 l:pv25 wco" href="/about">About</a>
-    <a class="navItem graphm dib ph25 l:pv25 wco" href="/work/">Work</a>
+    <a class="navItem graphm dib ph25 l:pv25 wco ls1em" href="/blog/" data-transition="blog">News</a>
+    <a class="navItem graphm dib ph25 l:pv25 wco ls1em" href="/contact/">Contact</a>
+    <a class="navItem graphm dib ph25 l:pv25 wco ls1em" href="/about">About</a>
+    <a class="navItem graphm dib ph25 l:pv25 wco ls1em" href="/work/">Work</a>
   </nav>
-  <nav class="df fc aic jcc s:dn fix left top x fill-y c-tan ttu f12 l:f14 graphm bg-oblack t-y mblNav" style="z-index: 9999;">
-    <a class="mblNavItem" style="font-size:5rem" href="/blog/" data-transition="blog">News</a>
-    <a class="mblNavItem mt15" style="font-size:5rem" href="/contact/">Contact</a>
-    <a class="mblNavItem mt15" style="font-size:5rem" href="/about">About</a>
-    <a class="mblNavItem mt15" style="font-size:5rem" href="/work/">Work</a>
+  <nav class=" df fc aic jcc s:dn fix left top x fill-y c-tan ttu f12 l:f14 graphm bg-oblack t-y mblNav" style="z-index: 9999;">
+    <a class="mblNavItem mnic ls5em" style="font-size:5rem" href="/work/">Work</a>
+    <a class="mblNavItem mnic mt15 ls5em" style="font-size:5rem" href="/about/">About</a>
+    <a class="mblNavItem mnic mt15 ls5em" style="font-size:5rem" href="/contact">Contact</a>
+    <a class="mblNavItem mnic mt15 ls5em" style="font-size:5rem" href="/blog/" data-transition="blog">News</a>
+    <div class="abs bottom x df aic jcc mb60 mnic">
+      <a class="mr25 mblSo" href="{{ footer.instagram }}" target="_blank">
+        <img style="width:2rem" src="/assets/icons/in_icon.svg" alt="instagram icon"/>
+      </a>
+      <a class="mblSo" href="{{ footer.linkedin }}" target="_blank">
+        <img style="width:2rem" src="/assets/icons/li_icon.svg" alt="linkedin icon"/>
+      </a>
+    </div>
   </nav>
-  <div class="db s:dn fix w2r mblIcon point right top mr40 mt40" style="z-index: 9999">
-    <img class="" src="/assets/icons/menu_icon.svg" style="width:2rem;" alt="together menu icon"/>
+  <div class="db s:dn fix mblIcon point right top mr40 mt40" style="z-index: 9999;transition: transform .2s ease; width:2.7rem;height:2.7rem;">
+    <svg class="" width="27" height="27" fill="none">
+      <path stroke="#D5B49E" stroke-width="2" d="M14 4e-8V27M27 13H-9e-8"/>
+    </svg>
   </div>
 </header>

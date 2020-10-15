@@ -1,5 +1,5 @@
 export default {
-  title: 'Image',
+  title: 'Text with Title',
   name: 'blockText',
   type: 'object',
   options: {

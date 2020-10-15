@@ -4,7 +4,7 @@ title: Blog
 ---
 {% set marquee = blogContent.marqueeText %}
 <div class="modules blog mt300" data-router-view="default">
-    <div class="scrollContainer x vh100 oy fix z3" data-component="smoothScroll">
+    <div class="scrollContainer x vh100 oy fix z3" data-component="smoothScroll article">
         <div class="c-tan h1 mega marquee oh x" style="white-space:nowrap;">
             <div>
                 <span>
@@ -30,11 +30,11 @@ title: Blog
                                 <img class="x" src="{{ article.poster }}" at="{{ article.posterAlt }}"/>
                                 <div class="db s:df">
                                     <div class="x s:max-w450 l:max-w550 mt15 s:mt20 s:w50">
-                                        <h3 class="mt2">{{ article.title }}</h3>
+                                        <h3 class="mt2" style="line-height:1.2">{{ article.title }}</h3>
                                         <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
                                     </div>
                                     <div class="fg1 df s:jce">
-                                        <p class="mt10 s:mt40 c-tan mt10 f10 s:f12 l:f14 graphm journalDate">{{ article.date }}</p>
+                                        <p class="mt10 s:mt20 c-tan mt10 f10 s:f12 l:f14 graphm journalDate ls1em">{{ article.date }}</p>
                                     </div>
                                 </div>
                             </a>
@@ -44,9 +44,9 @@ title: Blog
                             <a href="/blog/{{ article.slug }}" data-transition="blog">
                                 <img class="x" src="{{ article.poster }}" at="{{ article.posterAlt }}"/>
                                 <div class="x mt15 s:mt20">
-                                    <h3 class="">{{ article.title }}</h3>
+                                    <h3 class="" style="line-height:1.2">{{ article.title }}</h3>
                                     <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
-                                    <p class="c-tan mt10 f10 s:f12 graphm journalDate">{{ article.date }}</p>
+                                    <p class="c-tan mt10 f10 s:f12 graphm journalDate ls1em">{{ article.date }}</p>
                                 </div>
                             </a>
                         </div>

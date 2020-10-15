@@ -16,12 +16,30 @@ export default {
       type: 'boolean',
     },
     {
-      title: 'Link Url',
+      title: 'Project Link',
       description: 'Add a link if this block includes one',
       name: 'linkUrl',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'project' } }],
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'project' },
+            { type: 'contact' },
+            { type: 'about' },
+            { type: 'home' },
+            { type: 'blog' },
+          ],
+        },
+      ],
     },
+    // {
+    //   title: 'Link Url',
+    //   description: 'Add a link if this block includes one',
+    //   name: 'pageLink',
+    //   type: 'array',
+    //   of: [{ type: 'reference', to: { type: 'project' } }],
+    // },
     {
       title: 'Link Text',
       description: 'Add the link text',

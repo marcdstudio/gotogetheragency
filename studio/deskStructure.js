@@ -23,6 +23,15 @@ export default () =>
                     .documentId('home'),
                 ),
               S.listItem()
+                .title('Work')
+                .icon(() => <Emoji style={{ fontSize: 24 }} text="💼" />)
+                .child(
+                  S.editor()
+                    .title('Featured Projects')
+                    .schemaType('work')
+                    .documentId('work'),
+                ),
+              S.listItem()
                 .title('About')
                 .icon(() => <Emoji style={{ fontSize: 24 }} text="👋" />)
                 .child(

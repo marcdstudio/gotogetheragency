@@ -1,5 +1,5 @@
 export default {
-  title: 'Page',
+  title: 'Contact',
   name: 'contact',
   type: 'document',
   fields: [

@@ -16,23 +16,46 @@ export default component((node) => {
   }
 
   var flag = false
-  $($wrapper).mouseover(function() {
+
+  $('.workThumb, .homeThumb, .relThumb').mouseover(function() {
     flag = true
     TweenLite.to($circle, 0.4, { scale: 1, autoAlpha: 1 })
-    $($wrapper).on('mousemove', moveCircle)
+    $('.workThumb, .homeThumb, .relThumb').on('mousemove', moveCircle)
   })
-  $($wrapper).mouseout(function() {
+
+  $('.workThumb, .homeThumb, .relThumb').mouseout(function() {
     flag = false
     TweenLite.to($circle, 0.4, { scale: 0.1, autoAlpha: 0 })
   })
 
-  $('.scrollContainer').on('mouseenter', function() {
+  $('.workThumb, .homeThumb, .relThumb').on('mouseover', function() {
     $('.eyeBtn').css('opacity', '1')
+    if (
+      $(this)
+        .find('.pMouse')
+        .hasClass('pHidden')
+    ) {
+      $('.eyeBtn img').attr('src', '/assets/icons/red_mouse_css.svg')
+      $('.eyeBtn').addClass('mHidden')
+    } else {
+      $('.eyeBtn img').attr('src', '/assets/icons/plus_mouse.svg')
+      $('.eyeBtn').removeClass('mHidden')
+    }
   })
 
-  $('.scrollContainer').on('mouseleave', function() {
+  $('.workThumb, .homeThumb, .relThumb').on('mouseout', function() {
     $('.eyeBtn').css('opacity', '0')
   })
+
+  // $('.workThumb .pLive').on('mouseover', function() {
+  //   $('.eyeBtn').removeClass('.mHidden')
+  //   $('.eyeBtn img').attr('src', '/assets/icons/red_mouse_css.svg')
+  // })
+
+  // $('.workThumb .pHidden').on('mouseover', function() {
+  //   $('.eyeBtn').addClass('.mHidden')
+  //   $('.eyeBtn img').attr('src', '/assets/icons/plus_mouse.svg')
+  // })
 
   $(document).on('mousemove', function(e) {
     $('.eyeBtn, .cBtn').css({
@@ -43,10 +66,18 @@ export default component((node) => {
 
   //===== PROJECT TILE HOVER =====//
 
-  $('.workThumb').hover(function() {
+  $('.workThumb').mouseover(function() {
     var wt = $(this).attr('data-id')
-    $('.pTitle').addClass('o0')
-    console.log($('.pTitle[data-id=' + wt + ']'))
-    $('.pTitle[data-id=' + wt + ']').removeClass('o0')
+    $('.pTitle').addClass('o0 title-x')
+    setTimeout(function() {
+      $('.pTitle h3').html(wt)
+    }, 300)
+    setTimeout(function() {
+      $('.pTitle').removeClass('o0 title-x')
+    }, 500)
+    // console.log($('.pTitle[data-id=' + wt + ']'))
+    // setTimeout(function() {
+    //   $('.pTitle[data-id=' + wt + ']').removeClass('o0 title-x')
+    // }, 300)
   })
 })

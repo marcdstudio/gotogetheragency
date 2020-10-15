@@ -11,17 +11,11 @@ renderData:
 
 <div class="article rel full" data-router-view="default" data-component="article">
   <div class="dn l:df socialWrap l:fix left aic jcc fc" style="width: 24rem;" data-component="socials">
-    <a class="facebook mb30" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+    <a class="facebook mb30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
       <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
     </a>
-    {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
-      <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
-    </a> #}
-    <a class="twitter mb30" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+    <a class="twitter mb30" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
       <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-    {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
-      <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
-    </a> #}
     <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
       <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
     </a>
@@ -52,17 +46,11 @@ renderData:
     </div>
 
     <div class="dn s:df l:dn abs l:fix left aic jcc fc mt230" style="width: 18rem;">
-      <a class="facebook" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+      <a class="facebook" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
         <img class="articleIcon mb30 l:mb0" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
       </a>
-      {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
-        <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
-      </a> #}
-      <a class="twitter" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+      <a class="twitter" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
         <img class="articleIcon mb30" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-      {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
-        <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
-      </a> #}
       <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
         <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
       </a>
@@ -74,24 +62,18 @@ renderData:
       </h2>
       <div class="mt10 x mla articleMeta ph20 s:ph0 s:max-w450 l:max-w600 c-grey">
         <div class="artDateAuth df aic mt15 s:mt35">
-          <div class="journalDate graphm f10 s:f14" data-component="xdates">{{ article.date }}</div>
-          <div class="ml20 s:ml30 ttu graphm f10 s:f14">
+          <div class="journalDate graphm f10 s:f14 ls1em" data-component="xdates">{{ article.date }}</div>
+          <div class="ml20 s:ml30 ttu graphm f10 s:f14 ls1em">
             {{ article.author }}</div>
         </div>
       </div>
 
       <div class="db s:dn df mt40 ph20">
-        <a class="facebook mr30" href="#0" data-social="facebook" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+        <a class="facebook mr30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
           <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
         </a>
-        {# <a href="https://www.facebook.com/sharer/sharer.php?u=/journal/{{ article.slug }}" rel="noopener noreferrer" target="_blank">
-        <img class="articleIcon" src="/assets/icons/fb_lightgreen.svg" alt="Twitter Icon"/>
-      </a> #}
-        <a class="twitter mr30" href="#0" data-social="twitter" data-description="Description for the twitter post." data-url="https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation">
+        <a class="twitter mr30" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
           <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-        {# <a href="https://twitter.com/home?status=https://dno.la/blogs/journal/support-your-local-made-in-new-orleans-foundation" rel="noopener noreferrer" target="_blank">
-        <img class="articleIcon" src="/assets/icons/tw_lightgreen.svg" alt="Twitter Icon"/>
-      </a> #}
         <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
           <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
         </a>
@@ -104,7 +86,6 @@ renderData:
           {% else %}
             {% if block.wideImg %}
               <div class="articleImgWide" data-component="reveal">
-                {# <img class="w100" src="{{ block.image }}" alt="{{ block.altText }}"/> #}
                 <img alt="{{ block.altText }}" class="lazy x" src="{{ block.image }}"/>
               </div>
             {% elseif block.carouselImg %}

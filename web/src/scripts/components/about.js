@@ -9,4 +9,8 @@ export default component((node) => {
       .find('.serviceBtn img')
       .toggleClass('r180')
   })
+  // $('.youTitle')
+  //   .children("div:contains('Y')")
+  //   .addClass('youTrans')
+  $('.youTitle>div>div>div:first-child').addClass('youTrans')
 })

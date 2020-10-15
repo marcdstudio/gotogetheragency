@@ -7,5 +7,13 @@ module.exports = async function() {
       title,
       slug,
       'image': thumbnail.image.asset->url,
+      // relatedProjectLeft[]->{
+      //     ...,
+      //     'poster': poster.image.asset->url,
+      //     'altText': poster.altText,
+      //   },
+      //   relatedProjectRight[]->{
+      //     ...,
+      //   },
   }`)
 }

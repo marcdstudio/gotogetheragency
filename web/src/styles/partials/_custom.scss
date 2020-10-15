@@ -24,6 +24,10 @@ img {
   transform: rotate(180deg);
 }
 
+.r225 {
+  transform: rotate(225deg);
+}
+
 .point {
   cursor: pointer;
 }
@@ -57,6 +61,57 @@ img {
 
 //========== ELEMENTS ==========//
 
+.projectFull {
+  padding-left: 0;
+  height: 100vh;
+}
+
+.wordmark {
+  & path {
+    transition-property: fill, stroke;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+  }
+}
+
+.wordmarkBlack {
+  path {
+    fill: $oblack !important;
+  }
+}
+
+.menuIconBlack {
+  path {
+    stroke: $oblack;
+  }
+}
+
+.clrovr {
+  path {
+    stroke: $tan !important;
+    fill: $tan !important;
+  }
+}
+
+.project .stickyWrap {
+  width: 24rem;
+}
+
+.featureDate {
+  width: 12rem;
+}
+
+.footIcon {
+  &:hover {
+    path {
+      fill: #d5b49e;
+    }
+  }
+  path {
+    transition: fill 0.2s ease;
+  }
+}
+
 .scrollbar-track {
   background: transparent !important;
 }
@@ -68,17 +123,18 @@ img {
 .apane,
 .apanetan {
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  left: -100%;
   z-index: 9;
   position: fixed;
-  left: 0;
+  // left: 0;
   top: 0;
   bottom: 0;
   right: 0;
   background: $oblack;
 
   transform-origin: left;
-  transform: scaleX(0);
+  // transform: scaleX(0);
 }
 
 .apanetan {
@@ -86,7 +142,7 @@ img {
 }
 
 .paneTrans {
-  transition: transform 0.35s $ease-in-cubic;
+  // transition: transform 0.75s $ease-in-out-quart;
 }
 
 .paneRight {
@@ -104,6 +160,16 @@ img {
 
 .about .scrollContainer {
   overflow-x: visible !important;
+}
+
+.aboutSpacer {
+  height: 350vh;
+  min-height: 2000px;
+  transition: height 0.5s ease;
+  &.spacerShrink {
+    height: 275vh;
+    min-height: initial;
+  }
 }
 
 /* CONTACT */
@@ -145,6 +211,10 @@ img {
   left: 0;
   transform: translateY(-50%);
   z-index: 99;
+}
+
+.aboutForm {
+  position: relative;
 }
 
 .countContainer.yvh {
@@ -218,8 +288,20 @@ img {
   }
 }
 
+.youTrans {
+  width: 15rem;
+}
+
+.youTitle {
+  font-kerning: none;
+}
+
 .toBlock {
   transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.toScale {
+  transform: scale(0.9);
 }
 
 .fBtn {
@@ -234,33 +316,88 @@ img {
 
 /* WORK */
 
-.thumbWrap:hover {
+.workThumb:hover,
+.homeThumb:hover,
+.relThumb {
   cursor: none;
 }
 
 .cBtn,
 .eyeBtn {
   position: absolute;
-  width: 7.5rem;
-  height: 7.5rem;
+  width: 5.5rem;
+  height: 5.5rem;
   top: 50%;
   left: 50%;
-  margin: -50px 0 0 -50px;
+  margin: -5rem 0 0 -5rem;
   border-radius: 80%;
   z-index: 9;
   pointer-events: none;
   user-select: none;
+  opacity: 0;
+}
+
+.eyeBtn {
+  background: $red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:after {
+    content: url('/assets/icons/white_plus.svg');
+    width: 2.7rem;
+    height: 2.7rem;
+    position: absolute;
+    display: inline-block;
+  }
+}
+.eyeBtn.mHidden {
+  &:after {
+    content: url('/assets/icons/cs_text.svg');
+    width: 4rem;
+    height: 4rem;
+  }
 }
 
 .cBtn {
   background: transparent;
   border: 1px solid $white;
+  width: 8.5rem;
+  height: 8.5rem;
+  margin: -6.5rem 0 0 -6.5rem;
 }
 
-.eyeBtn {
+.eyeBtn.mHidden {
   transition: opacity 0.2s ease;
   opacity: 0;
+  -webkit-animation: spin 6s linear infinite;
+  -moz-animation: spin 6s linear infinite;
+  animation: spin 6s linear infinite;
 }
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/* PROJECT */
+
+.posterSlot {
+  height: 100vh;
+}
+
+/* MISC */
 
 .fade {
   transition: opacity 0.4s ease, transform 0.4s ease;
@@ -281,16 +418,16 @@ nav {
   bottom: 3rem;
 }
 
-.navItemBG {
-  position: fixed;
-  left: 10.15rem;
-  bottom: 12.75rem;
-  width: 3.5rem;
-  height: 7rem;
-  border-radius: 2rem;
-  background: $red;
-  transition: transform 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-}
+// .navItemBG {
+//   position: fixed;
+//   left: 10.15rem;
+//   bottom: 12.75rem;
+//   width: 3.5rem;
+//   height: 7rem;
+//   border-radius: 2rem;
+//   background: $red;
+//   transition: transform 0.3s ease, height 0.3s ease, opacity 0.3s ease;
+// }
 
 .t-x {
   transform: translateX(-100%);
@@ -298,12 +435,25 @@ nav {
 
 .navItem {
   transition: opacity 0.35s ease, transform 0.3s ease, color 0.3s ease;
+  padding: 0.8rem 2.2rem;
+  align-self: center;
+  &.active {
+    color: $oblack;
+    background-color: $red;
+    border-radius: 3rem;
+  }
 }
 
 .menuIcon,
 .mblIcon {
-  & img {
+  transform-origin: center;
+  & svg {
     transition: transform 0.3s ease;
+  }
+  & path {
+    transition-property: fill, stroke;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
   }
 }
 
@@ -311,9 +461,26 @@ nav {
   border: 1px solid $tan;
   text-transform: uppercase;
   color: $tan;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.6rem;
   position: relative;
   font-family: graphik-medium, sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+.tagWhite {
+  border: 1px solid $cream;
+  text-transform: uppercase;
+  color: $cream;
+  padding: 0.2rem 0.6rem;
+  position: relative;
+  font-family: graphik-medium, sans-serif;
+  letter-spacing: 0.1rem;
+}
+
+.arrow {
+  path {
+    transition: fill 0.3s ease;
+  }
 }
 
 .arrowBtn {
@@ -503,6 +670,12 @@ nav {
   top: 50%;
   transform: translateY(-50%);
   z-index: 999;
+  a {
+    transition: transform 0.2s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
 }
 
 //========== HALF PIXEL BORDER ==========//
@@ -570,15 +743,35 @@ nav {
 
 //========== WORK ==========//
 
+.pRole {
+  width: auto;
+}
+
+.project[data-router-view] {
+  opacity: 1 !important;
+}
+
+.pTitle {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.title-x {
+  transform: translateX(-2rem);
+}
+
 .workThumb {
-  background-image: url('/assets/icons/coming_soon.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  &:hover {
-    img {
-      opacity: 0;
-    }
-  }
+  // background-image: url('/assets/icons/coming_soon.svg');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // &:hover {
+  //   img {
+  //     opacity: 0;
+  //   }
+  // }
+  transition-property: transform, height, margin, padding, opacity;
+  transition-duration: 1s;
+  transition-timing-function: $ease-in-out-cubic;
+  height: calc((100vw - 24rem) / 1.5);
   img {
     transition: transform 0.4s ease, opacity 0.3s ease;
     &:hover {
@@ -586,13 +779,29 @@ nav {
     }
   }
 }
-.homeThumb {
+.wtFull {
+  height: 100vh;
+  margin: 0;
+  img {
+    transition: none;
+    &:hover {
+      transform: scale(1);
+    }
+  }
+}
+
+.homeThumb,
+.relThumb {
   img {
     transition: transform 0.4s ease;
     &:hover {
       transform: scale(1.07);
     }
   }
+}
+
+.stickyTitle {
+  transition: opacity 0.2s ease;
 }
 
 .bg-cream {
@@ -603,19 +812,91 @@ nav {
 @media screen and (max-width: 1440px) {
 }
 
+@media screen and (max-width: 1250px) {
+  .youTitle,
+  .usTitle,
+  .toBlock {
+    font-size: 26rem;
+    white-space: nowrap;
+  }
+  .youTrans {
+    width: 13rem;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .youTitle,
+  .usTitle,
+  .toBlock {
+    font-size: 24rem;
+  }
+  .youTrans {
+    width: 12rem;
+  }
+}
+
 @media screen and (max-width: 1025px) {
+  .stickyWrap {
+    margin-left: 4rem;
+  }
+
+  .stickyWrap.abs {
+    left: 0rem;
+  }
+
+  .pRole {
+    width: 50%;
+  }
+
+  .project .stickyWrap {
+    align-self: flex-start;
+    margin-top: 12rem;
+    width: 2.5rem;
+    & .stickyTitle {
+      transform: rotate(-90deg);
+      transform-origin: right;
+    }
+  }
+
+  .workThumb {
+    height: calc(100vw / 1.75);
+  }
+
+  .wtFull {
+    height: 75vh;
+    margin: 0;
+    padding: 0;
+    img {
+      transition: none;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .posterSlot {
+    height: 75vh;
+  }
+
+  .featureDate {
+    width: 7rem;
+  }
+
   h1,
   .h1 {
     font-size: 5.4rem;
   }
+
   h2,
   .h2 {
     font-size: 3.6rem;
   }
+
   h3,
   .h3 {
     font-size: 2rem;
   }
+
   nav {
     transform: rotate(0) !important;
     top: 7rem;
@@ -629,15 +910,28 @@ nav {
       transform: none;
     }
   }
+
   .navItem.c-oblack {
     color: $tan !important;
   }
+
+  .dsknav {
+    max-width: initial !important;
+  }
+
   .wordmark {
     width: 12rem !important;
   }
+
+  .eyeBtn,
+  .cBtn {
+    display: none !important;
+  }
+
   .full {
     padding-left: 0rem;
   }
+
   .circle {
     width: 4rem;
     height: 4rem;
@@ -698,6 +992,12 @@ nav {
       max-width: 65rem;
     }
   }
+  .youTrans {
+    width: 8rem;
+  }
+  .pTitleWrap {
+    display: none !important;
+  }
 }
 
 @media screen and (max-width: 850px) {
@@ -720,13 +1020,16 @@ nav {
     font-size: 7.2rem;
   }
   .wordmark {
-    width: 8rem !important;
+    width: 10rem !important;
   }
   nav {
-    transition: transform 0.3s ease;
+    transition: transform 1.2s $ease-in-out-expo;
   }
   .circle {
     margin-left: 1rem;
+  }
+  .pRole {
+    width: 100%;
   }
   .workThumb {
     background-size: 50%;
@@ -735,6 +1038,9 @@ nav {
     .mega {
       font-size: 7.2rem;
     }
+  }
+  .youTrans {
+    width: 4rem;
   }
   .toBlock {
     margin-top: calc(-5.5rem - 10vh);
@@ -755,6 +1061,9 @@ nav {
       border-color: $red;
     }
   }
+  .formTitle {
+    width: auto !important;
+  }
   .marquee {
     height: 20rem;
   }
@@ -771,6 +1080,14 @@ nav {
   .usBody,
   .youBody {
     height: 60%;
+  }
+  .aboutSpacer {
+    height: 200vh;
+    min-height: 200vh;
+    &.spacerShrink {
+      height: 175vh;
+      min-height: 175vh;
+    }
   }
   .articleContent {
     h3 {
@@ -800,6 +1117,44 @@ nav {
   .articlePoster {
     height: 22rem;
   }
+
+  .project .articlePoster {
+    height: 32rem;
+  }
+
+  .posterSlot {
+    height: 50vh;
+  }
+
+  .wtFull {
+    height: 50vh;
+    margin: 0;
+    padding: 0;
+    img {
+      transition: none;
+      &:hover {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .project h3,
+  .project .h3 {
+    font-size: 2rem;
+  }
+
+  .stickyTitle {
+    transform: none !important;
+    margin-left: 2rem;
+    margin-top: 4rem;
+  }
+
+  .project .stickyWrap {
+    align-self: flex-start;
+    margin-top: 0rem;
+    width: auto;
+    margin-left: 0;
+  }
   // footer.full {
   //   padding-left: 4rem;
   // }
@@ -824,6 +1179,62 @@ textarea:focus {
 
 .scrollbar-track-y {
   width: 6px !important;
+}
+
+/*! locomotive-scroll v3.6.1 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+// html.has-scroll-smooth {
+//   overflow: hidden;
+// }
+
+// html.has-scroll-dragging {
+//   -webkit-user-select: none;
+//   -moz-user-select: none;
+//   -ms-user-select: none;
+//   user-select: none;
+// }
+
+// .has-scroll-smooth body {
+//   overflow: hidden;
+// }
+
+// .has-scroll-smooth [data-scroll-container] {
+//   min-height: 100vh;
+// }
+
+.c-scrollbar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 11px;
+  height: 100%;
+  transform-origin: center right;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+}
+.c-scrollbar:hover {
+  transform: scaleX(1.45);
+}
+.c-scrollbar:hover,
+.has-scroll-scrolling .c-scrollbar,
+.has-scroll-dragging .c-scrollbar {
+  opacity: 1;
+}
+
+.c-scrollbar_thumb {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.5;
+  width: 7px;
+  border-radius: 10px;
+  margin: 2px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+.has-scroll-dragging .c-scrollbar_thumb {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 
 /*! purgecss end ignore */

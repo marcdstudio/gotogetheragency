@@ -1,0 +1,118 @@
+---
+layout: base.njk
+permalink: /work/{{ project.slug }}/
+pagination:
+  alias: project
+  data: project
+  size: 1
+renderData:
+  title: "{{ project.title }}"
+---
+
+<div class="modules project" data-router-view="default">
+
+    {# {% debug project %} #}
+    <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll">
+        <div class="posterSlot x bgSolid oh rel">
+            <img class="dib x y o-cover " src="{{ project.poster }}" alt="{{ project.poster.altText }}"/>
+        </div>
+        {# {% debug project.projectSection %} #}
+        {% for section in project.projectSection %}
+            {% if section._type == 'projectSection' %}
+                {% include 'projectSection.njk' %}
+            {% else %}
+                {% include 'fullBleedImage.njk' %}
+            {% endif %}
+        {% endfor %}
+
+        <div class="ph15 s:ph15 l:pr0 l:pl240">
+            <div class="s:ml15 l:ml0 tag dib f10 s:f12 l:f14 mb25 l:mb35 l:mb40 lh100">
+                Related
+            </div>
+            <div class="df fw x mb120 s:mb160 l:mb200">
+                {% for project in project.relatedProjectLeft %}
+                    <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
+                        {% if project.isLive %}
+                            <a href="/work/{{ project.slug.current }}" data-transition="project">
+                                <div class="l:oh">
+                                    <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                                </div>
+                                <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                                <div class="c-grey f14 s:f18">
+                                    {% for text in project.introText.content %}
+                                        {{ text | blocksToHtml | safe }}
+                                    {% endfor %}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="l:oh">
+                                <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                            </div>
+                            <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                            <div class="c-grey f14 s:f18">
+                                {% for text in project.introText.content %}
+                                    {{ text | blocksToHtml | safe }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+                {% for project in project.relatedProjectRight %}
+                    <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh">
+                        {% if project.isLive %}
+                            <a href="/work/{{ project.slug.current }}" data-transition="project">
+                                <div class="l:oh">
+                                    <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                                </div>
+
+                                <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                                <div class="c-grey f14 s:f18">
+                                    {% for text in project.introText.content %}
+                                        {{ text | blocksToHtml | safe }}
+                                    {% endfor %}
+                                </div>
+                            </a>
+                        {% else %}
+                            <div class="l:oh">
+                                <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                            </div>
+                            <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                            <div class="c-grey f14 s:f18">
+                                {% for text in project.introText.content %}
+                                    {{ text | blocksToHtml | safe }}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+        {# {% debug project.projectSection %} #}
+        <div class="l:pl240">
+            <div class="x max-w300 s:max-w550 l:max-w880 ma pb100 pt0 s:pb160 l:pb250">
+                <div class="{% if project.contactText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
+                    {% for text in project.contactText.content %}
+                        {{ text | blocksToHtml | safe }}
+                    {% endfor %}
+                </div>
+                {% if homeContent.contactText.linkText %}
+                    <div class="mt20 s:mt45 dib">
+                        <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/contact/">{{ homeContent.contactText.linkText }}
+                            <span class="circle ml10 s:ml25">
+                                <svg class="arrow" width="17" height="14" fill="none">
+                                    <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="l:pl240">
+            {% include 'footer.njk' %}
+        </div>
+    </div>
+    <div class="eyeBtn usn dn l:db"></div>
+    <div class="cBtn usn dn l:db" data-component="magneticButton"></div>
+</div>

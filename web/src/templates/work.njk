@@ -3,34 +3,30 @@ layout: base.njk
 title: Work
 ---
 
-<div class="modules work full" data-router-view="default">
-    <div class="eyeBtn usn dn l:db">
-        <img class="x" src="/assets/icons/eye_mouse_cs.svg" alt="eye mouse icon"/>
-    </div>
+<div class="modules work" data-router-view="default" data-component="project">
+    <div class="eyeBtn usn dn l:db"></div>
     <div class="cBtn usn dn l:db" data-component="magneticButton"></div>
     <div class="dn l:db pTitleWrap vh100 fix left top" style="width: 24rem;">
-        {% for project in projects %}
-            {% if loop.first %}
-                <div class="pTitle top left abs x y df aic jcc" data-id="{{ project.slug.current }}" style="white-space:nowrap;">
-                    <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
-                </div>
-            {% else %}
-                <div class="pTitle o0 top left abs x y df aic jcc" data-id="{{ project.slug.current }}" style="white-space:nowrap;">
-                    <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
-                </div>
-            {% endif %}
-        {% endfor %}
+        <div class="pTitle top left abs x y df aic jcc" data-id="{{ project.title }}" style="white-space:nowrap;">
+            <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
+        </div>
     </div>
     <div class="scrollContainer x vh100 oy fix z3" data-component="smoothScroll">
-        <div class="x ph20 s:ph30 l:ph0 thumbWrap rel pt100 s:pt180 l:pt0 pb60 s:pb70">
-            {% for project in projects %}
-                <div class="x mt20 s:mt30 l:mt40 workThumb oh fade rel bg-tan" data-id="{{ project.slug.current }}" data-component="reveal">
-                    <img class="x o-cover" src="{{ project.image }}" alt="{{ project.altText }}"/>
+        <div class="x thumbWrap rel pt100 s:pt180 l:pt0 pb60 s:pb70">
+            {% for project in work.allProjects %}
+                <div class="x ph20 s:ph30 l:ph0 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
+                    {% if project.isLive %}
+                        <a href="/work/{{ project.slug }}" style="cursor:none!important" data-transition="project">
+                            <img class="dib x y o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                        </a>
+                    {% else %}
+                        <img class="db x y o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                    {% endif %}
                 </div>
             {% endfor %}
         </div>
-        {% include 'footer.njk' %}
+        <div class="full">
+            {% include 'footer.njk' %}
+        </div>
     </div>
-
-</div>
 </div>

@@ -1,0 +1,24 @@
+<div class="ph40 s:pr0 bodyText fg1 s:pl100 l:pl0 {% if section.isSticky %}s:pl160 l:pl240 l:pl0{% endif %}">
+    <div class="x ma df jce pb100 s:pb160 pt40 s:pt120 l:pv160">
+        <div class="x s:max-w400 l:max-w550 ma fadeltr {% if module.isQuote %} s:df h3 pt100 {% else %} pt40 {% endif %}" {% if module.isQuote %} style="font-family:reckless-italic, serif" {% endif %} data-component="splitText">
+            {% if module.isQuote %}
+                <div class="mr40 pb20" style="width: 3rem">
+                    <img class="x" src="/assets/icons/quotemark.svg" alt="quote icon"/>
+                </div>
+            {% endif %}
+            <div>
+                {% if module.text.blockTitle %}
+                    <h3 class="pb20 s:pb35">{{ module.text.blockTitle }}</h3>
+                {% endif %}
+                {% for text in module.text.blockText %}
+                    {{ text | blocksToHtml | safe }}
+                {% endfor %}
+                {% if module.isQuote %}
+                    <p class="c-tan graphm ttu f10 s:f14 ls1em pt25 s:pt35">
+                        {{ module.byline }}
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>

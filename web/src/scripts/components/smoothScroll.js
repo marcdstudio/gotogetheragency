@@ -1,13 +1,13 @@
 import { component } from 'picoapp'
-import { gsap, TimelineLite } from 'gsap'
-// import { SplitText } from 'gsap/all'
+import { TimelineLite } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 import Scrollbar from 'smooth-scrollbar'
+// import inview from '@/util/inview'
+// import { add, remove } from '@selfaware/martha'
 
 export default component((node) => {
   if ($('.about')[0]) {
     //===== YOU ANIMATION =====//
-
     var tlYou = new TimelineLite(),
       ybSplitText = new SplitText('.youContent>p', { type: 'lines' })
 
@@ -19,11 +19,10 @@ export default component((node) => {
     var yLines = ybSplitText.lines
     var yChars = ytSplitText.chars
 
-    tlYou.staggerFrom(yLines, 0.15, { opacity: 0, y: 10 }, 0.05)
-    tlYouTitle.staggerFrom(yChars, 0.25, { opacity: 0, y: 20 }, 0.1)
+    tlYou.staggerFrom(yLines, 0.35, { opacity: 0, y: 10 }, 0.1)
+    tlYouTitle.staggerFrom(yChars, 0.35, { opacity: 0, y: 20 }, 0.1)
 
     //===== US ANIMATION =====//
-
     var tlUs = new TimelineLite(),
       ubSplitText = new SplitText('.usContent>p', { type: 'lines' })
 
@@ -35,8 +34,8 @@ export default component((node) => {
     var uLines = ubSplitText.lines
     var uChars = utSplitText.chars
 
-    tlUs.staggerFrom(uLines, 0.15, { opacity: 0, y: 10 }, 0.05)
-    tlUsTitle.staggerFrom(uChars, 0.25, { opacity: 0, y: 20 }, 0.1)
+    tlUs.staggerFrom(uLines, 0.35, { opacity: 0, y: 10 }, 0.1)
+    tlUsTitle.staggerFrom(uChars, 0.35, { opacity: 0, y: 20 }, 0.1)
 
     $('.youContent').addClass('show')
 
@@ -45,10 +44,17 @@ export default component((node) => {
     const Scroll = Scrollbar.init(node)
 
     Scroll.addListener((s) => {
-      const wh50 = $(window).height() * 0.5
-      const wh100 = $(window).height() * 1.25
-      const wh150 = $(window).height() * 1.75
-      const wh200 = $(window).height() * 2.5
+      if (document.documentElement.clientWidth > 650) {
+        var wh50 = $(window).height() * 0.5
+        var wh100 = $(window).height() * 1.25
+        var wh150 = $(window).height() * 1.75
+        var wh200 = $(window).height() * 2
+      } else {
+        var wh50 = $(window).height() * 0.35
+        var wh100 = $(window).height() * 0.75
+        var wh150 = $(window).height() * 1
+        var wh200 = $(window).height() * 1.25
+      }
 
       var showYou = $('.youContent.show')[0]
       var showUs = $('.usContent.show')[0]
@@ -66,15 +72,17 @@ export default component((node) => {
         $('.youBlock').removeClass('o0')
         if ($('.usBlock.slideOut')[0]) {
           $('.usBlock, .youBlock').removeClass('slideOut')
-          $('.toBlock').addClass('o0')
+          $('.toBlock').addClass('o0 toScale')
+          $('.aboutSpacer').removeClass('spacerShrink')
         }
       } else if (s.offset.y > wh150 && s.offset.y < wh200) {
         $('.usBlock, .youBlock').addClass('slideOut')
         setTimeout(function() {
-          $('.toBlock').removeClass('o0')
+          $('.toBlock').removeClass('o0 toScale')
         })
       } else if (s.offset.y > wh200) {
-        $('.toBlock').addClass('o0')
+        $('.toBlock').addClass('o0 toScale')
+        $('.aboutSpacer').addClass('spacerShrink')
       } else if (s.offset.y < wh50 && !showYou) {
         $('.usBlock').addClass('o0')
         $('.youBlock').removeClass('o0')
@@ -86,7 +94,6 @@ export default component((node) => {
     })
   } else if ($('.article')[0]) {
     //===== SCROLL BAR =====//
-
     const Scroll = Scrollbar.init(node)
 
     Scroll.addListener((s) => {
@@ -96,12 +103,16 @@ export default component((node) => {
     })
   } else if ($('.blog')[0]) {
     const Scroll = Scrollbar.init(node)
+
     Scroll.addListener((s) => {
       var st = s.offset.y
       var stp = st / 2
       $('.marquee div').css('transform', 'translateX(-' + stp + 'px)')
     })
+  } else if ($('.stickyTitle')[0]) {
   } else {
-    Scrollbar.init(node)
+    setTimeout(function() {
+      Scrollbar.init(node)
+    }, 500)
   }
 })

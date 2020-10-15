@@ -1,3 +1,13 @@
+{# {% for module in modules %}
+  {% set type = module._type %}
+  {% set moduleTemplate %}
+  {% include type + '.njk' ignore missing %}
+  {% endset %}
+  {% if moduleTemplate | trim | length %}
+    {{ moduleTemplate | safe }}
+  {% endif %}
+{% endfor %} #}
+
 {% for module in modules %}
   {% set type = module._type %}
   {% set moduleTemplate %}

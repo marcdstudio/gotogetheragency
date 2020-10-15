@@ -22,6 +22,7 @@ body {
 body {
   font-family: graphik-regular, sans-serif;
   line-height: 1.5;
+  transition: background-color 0.4s ease;
 }
 
 ::selection {

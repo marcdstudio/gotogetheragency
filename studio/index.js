@@ -3,6 +3,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 import config from './documents/config'
 import home from './documents/home'
+import work from './documents/work'
 import blog from './documents/blog'
 import article from './documents/article'
 import tag from './documents/tag'
@@ -15,6 +16,7 @@ import seo from './objects/seo'
 import asset from './objects/asset'
 import a11yImage from './objects/a11yImage'
 import imageAndCaption from './objects/imageAndCaption'
+import projectSection from './objects/projectSection'
 import contentModules from './objects/contentModules'
 import largeTextBlock from './objects/largeTextBlock'
 import shortText from './objects/shortText'
@@ -24,6 +26,11 @@ import blockText from './objects/blockText'
 import spacer from './objects/spacer'
 import articleImage from './objects/articleImage'
 import articleCarousel from './objects/articleCarousel'
+
+import colophon from './objects/colophon'
+import imageBleed from './objects/imageBleed'
+import bodyText from './objects/bodyText'
+import image2Up from './objects/image2Up'
 
 const documents = [
   config,
@@ -35,6 +42,7 @@ const documents = [
   contact,
   project,
   footer,
+  work,
 ]
 const objects = [
   seo,
@@ -50,6 +58,12 @@ const objects = [
   spacer,
   articleImage,
   articleCarousel,
+
+  colophon,
+  projectSection,
+  imageBleed,
+  bodyText,
+  image2Up,
 ]
 
 export default createSchema({

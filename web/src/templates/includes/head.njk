@@ -21,11 +21,11 @@
 {# Preload scripts #}
 <link rel="preload" href="{% webpackAsset 'main.js' %}" as="script">
 
-{# <meta name="description" content="{{ config.seo.description }}">
-<meta name="keywords" content="{{ config.seo.keywords | join(', ') }}" /> #}
+<meta name="description" content="{{ config.seo.description }}">
+<meta name="keywords" content="{{ config.seo.keywords | join(', ') }}"/>
 
 {# Facebook Open Graph #}
-{# <meta property="og:url" content="{{ config.seo.url }}">
+<meta property="og:url" content="{{ config.seo.url }}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ config.seo.title }}">
 <meta property="og:description" content="{{ config.seo.description }}">
@@ -35,27 +35,24 @@
 <meta property="og:image:secure_url" content="{{ config.seo.image.url }}">
 <meta property="og:image:alt" content="{{ config.seo.image.alt }}">
 <meta property="og:image:width" content="{{ config.seo.image.metadata.dimensions.width }}">
-<meta property="og:image:height" content="{{ config.seo.image.metadata.dimensions.height }}"> #}
+<meta property="og:image:height" content="{{ config.seo.image.metadata.dimensions.height }}">
 
 {# Twitter Card #}
-{# <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:url" content="{{ config.seo.url }}">
 <meta name="twitter:title" content="{{ config.seo.title }}">
 <meta name="twitter:description" content="{{ config.seo.description }}">
 <meta name="twitter:image" content="{{ config.seo.image.url }}">
-<meta name="twitter:image:alt" content="{{ config.seo.image.alt }}"> #}
+<meta name="twitter:image:alt" content="{{ config.seo.image.alt }}">
 
 {# Favicons #}
-{# <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤠</text></svg>"> #}
+<link rel="icon" href="/assets/icons/logo_fav.svg">
 
 {# Link stylesheet #}
 <link rel="stylesheet" href="{% webpackAsset 'style.css' %}">
 
 {# Link jquery #}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-{# Link gsap #}
-{# <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script> #}
 
 {# If browser-sync stops reloading, try uncommenting the below
 {% if env !== 'production' %}

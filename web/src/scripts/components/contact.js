@@ -1,21 +1,47 @@
 import { component } from 'picoapp'
+import { TimelineLite } from 'gsap'
+import { SplitText } from '@/util/SplitText'
 
 export default component((node) => {
+  var tlTitle = new TimelineLite(),
+    splitTitle = new SplitText('.formLabel', { type: 'words' })
+
+  var words = splitTitle.words
+
+  tlTitle.staggerFrom(words, 0.5, { opacity: 0, y: 15 }, 0.05)
+
+  tlTitle.restart()
+
+  var tlHeader = new TimelineLite(),
+    splitHeader = new SplitText('.formTitle', { type: 'words' })
+
+  var words = splitHeader.words
+
+  tlHeader.staggerFrom(words, 1, { opacity: 0, y: 30 }, 0.1)
+
+  tlHeader.restart()
+  setTimeout(function() {
+    $('.fic1').removeClass('o0')
+    tlTitle.restart()
+  }, 300)
+
   $('.formInput').on('input', function() {
     if ($(this).val().length > 0) {
       $(this)
         .parents('.inputWrap')
         .find('.nextBtn')
-        .removeClass('dn')
+        .css('display', 'flex')
+        .hide()
+        .fadeIn(300)
     } else {
       $(this)
         .parents('.inputWrap')
         .find('.nextBtn')
-        .addClass('dn')
+        .hide()
     }
   })
   $('.formInputText').on('input', function() {
-    $('.contactSubmit button').show()
+    $('.contactSubmit button').fadeIn(300)
   })
   $('.formInputName').on('input', function() {
     var rn = $('.formInputName').val()
@@ -26,6 +52,7 @@ export default component((node) => {
       .parents('.formInputContainer')
       .hide()
     $('.fic2').show()
+    tlTitle.restart()
     $('.backBtn').removeClass('dn')
     $('.fmcnt1').removeClass('acnt pen')
     $('.fmcnt2').addClass('acnt')
@@ -41,6 +68,7 @@ export default component((node) => {
       .parents('.formInputContainer')
       .hide()
     $('.fic3').show()
+    tlTitle.restart()
     $('.fmcnt2').removeClass('acnt pen')
     $('.fmcnt3').addClass('acnt')
     $('.fcnt3').removeClass('cntDown')
@@ -56,6 +84,7 @@ export default component((node) => {
       .parents('.formInputContainer')
       .hide()
     $('.fic4').show()
+    tlTitle.restart()
     $('.fmcnt3').removeClass('acnt pen')
     $('.fmcnt4').addClass('acnt')
     $('.fcnt4').removeClass('cntDown')
@@ -69,9 +98,9 @@ export default component((node) => {
   })
   $('.backBtn').on('click', function() {
     if (!$('.fcnt2.cntDown')[0]) {
-      console.log('2')
       $('.fic2').hide()
       $('.fic1').show()
+      tlTitle.restart()
       $('.fcnt2').addClass('cntUp')
       $('.fcnt1').removeClass('cntDown')
       $('.backBtn').addClass('dn')
@@ -80,9 +109,9 @@ export default component((node) => {
         $('.fcnt2').removeClass('cntUp')
       }, 500)
     } else if (!$('.fcnt3.cntDown')[0]) {
-      console.log('3')
       $('.fic3').hide()
       $('.fic2').show()
+      tlTitle.restart()
       $('.fcnt3').addClass('cntUp')
       $('.fcnt2').removeClass('cntDown')
       setTimeout(function() {
@@ -90,9 +119,9 @@ export default component((node) => {
         $('.fcnt3').removeClass('cntUp')
       }, 500)
     } else if (!$('.fcnt4.cntDown')[0]) {
-      console.log('4')
       $('.fic4').hide()
       $('.fic3').show()
+      tlTitle.restart()
       $('.fcnt4').addClass('cntUp')
       $('.fcnt3').removeClass('cntDown')
       setTimeout(function() {
@@ -100,13 +129,13 @@ export default component((node) => {
         $('.fcnt4').removeClass('cntUp')
       }, 500)
     } else {
-      console.log('1')
     }
   })
 
   $('.fmcnt1').on('click', function() {
     $('.formInputContainer').hide()
     $('.fic1').show()
+    tlTitle.restart()
     $('.fmcnt').removeClass('acnt')
     $('.fmcnt').addClass('pen')
     $('.fmcnt1').addClass('acnt')
@@ -116,6 +145,7 @@ export default component((node) => {
   $('.fmcnt2').on('click', function() {
     $('.formInputContainer').hide()
     $('.fic2').show()
+    tlTitle.restart()
     $('.fmcnt').removeClass('acnt')
     $('.fmcnt').addClass('pen')
     $('.fmcnt2').addClass('acnt')
@@ -125,6 +155,7 @@ export default component((node) => {
   $('.fmcnt3').on('click', function() {
     $('.formInputContainer').hide()
     $('.fic3').show()
+    tlTitle.restart()
     $('.fmcnt').removeClass('acnt')
     $('.fmcnt').addClass('pen')
     $('.fmcnt3').addClass('acnt')
@@ -134,6 +165,7 @@ export default component((node) => {
   $('.fmcnt4').on('click', function() {
     $('.formInputContainer').hide()
     $('.fic4').show()
+    tlTitle.restart()
     $('.fmcnt').removeClass('acnt')
     $('.fmcnt').addClass('pen')
     $('.fmcnt4').addClass('acnt')
