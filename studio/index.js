@@ -14,6 +14,7 @@ import footer from './documents/footer'
 
 import seo from './objects/seo'
 import asset from './objects/asset'
+import video from './objects/video'
 import a11yImage from './objects/a11yImage'
 import imageAndCaption from './objects/imageAndCaption'
 import projectSection from './objects/projectSection'
@@ -47,6 +48,7 @@ const documents = [
 const objects = [
   seo,
   asset,
+  video,
   a11yImage,
   imageAndCaption,
   contentModules,

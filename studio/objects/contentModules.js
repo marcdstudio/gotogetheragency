@@ -7,6 +7,7 @@ export default {
     { type: 'fullBleedImage' },
     { type: 'bodyText' },
     { type: 'asset' },
+    { type: 'video' },
     { type: 'image2Up' },
   ],
 }
