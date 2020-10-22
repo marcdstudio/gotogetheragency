@@ -11,12 +11,11 @@ renderData:
 
 <div class="modules project" data-router-view="default">
 
-    {# {% debug project %} #}
     <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll">
         <div class="posterSlot x bgSolid oh rel">
             <img class="dib x y o-cover " src="{{ project.poster }}" alt="{{ project.poster.altText }}"/>
         </div>
-        {# {% debug project.projectSection %} #}
+
         {% for section in project.projectSection %}
             {% if section._type == 'projectSection' %}
                 {% include 'projectSection.njk' %}
@@ -88,7 +87,6 @@ renderData:
 
             </div>
         </div>
-        {# {% debug project.projectSection %} #}
         <div class="l:pl240">
             <div class="x max-w300 s:max-w550 l:max-w880 ma pb100 pt0 s:pb160 l:pb250">
                 <div class="{% if project.contactText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
@@ -99,11 +97,13 @@ renderData:
                 {% if homeContent.contactText.linkText %}
                     <div class="mt20 s:mt45 dib">
                         <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/contact/">{{ homeContent.contactText.linkText }}
-                            <span class="circle ml10 s:ml25">
-                                <svg class="arrow" width="17" height="14" fill="none">
-                                    <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
-                                </svg>
-                            </span>
+                            <div id="magBtn" data-component="magneticButton">
+                                <span class="circle ml10 s:ml25">
+                                    <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                                        <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                                    </svg>
+                                </span>
+                            </div>
                         </a>
                     </div>
                 {% endif %}
@@ -114,5 +114,5 @@ renderData:
         </div>
     </div>
     <div class="eyeBtn usn dn l:db"></div>
-    <div class="cBtn usn dn l:db" data-component="magneticButton"></div>
+    <div class="cBtn usn dn l:db" data-component="mouseFollow"></div>
 </div>

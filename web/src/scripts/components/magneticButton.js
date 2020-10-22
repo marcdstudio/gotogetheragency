@@ -1,83 +1,40 @@
 import { component } from 'picoapp'
-// import { gsap } from 'gsap'
-import { TweenLite } from 'gsap'
+import { gsap, Power2 } from 'gsap'
 
 export default component((node) => {
-  var $circle = $('.cBtn'),
-    $wrapper = $('.scrollContainer')
+  var magBtn = $(node)
+  var circle = $(node).find('.circle')
+  var arrow = $(node).find('.arrow')
 
-  function moveCircle(e) {
-    TweenLite.to($circle, 0.3, {
-      css: {
-        left: e.pageX,
-        top: e.pageY,
-      },
-    })
+  magBtn.mouseleave(function(e) {
+    gsap.to(this, 0.3, { scale: 1 })
+    gsap.to('.circle, .arrow', 0.3, { scale: 1, x: 0, y: 0 })
+  })
+
+  magBtn.mouseenter(function(e) {
+    gsap.to(this, 0.3, { transformOrigin: '0 0', scale: 1 })
+    gsap.to(circle, 0.3, { scale: 1.35 })
+  })
+
+  magBtn.mousemove(function(e) {
+    callParallax(e)
+  })
+
+  function callParallax(e) {
+    parallaxIt(e, circle, 30)
+    parallaxIt(e, arrow, 5)
   }
 
-  var flag = false
+  function parallaxIt(e, target, movement) {
+    var $this = magBtn
+    var boundingRect = $this[0].getBoundingClientRect()
+    var relX = e.pageX - boundingRect.left
+    var relY = e.pageY - boundingRect.top
 
-  $('.workThumb, .homeThumb, .relThumb').mouseover(function() {
-    flag = true
-    TweenLite.to($circle, 0.4, { scale: 1, autoAlpha: 1 })
-    $('.workThumb, .homeThumb, .relThumb').on('mousemove', moveCircle)
-  })
-
-  $('.workThumb, .homeThumb, .relThumb').mouseout(function() {
-    flag = false
-    TweenLite.to($circle, 0.4, { scale: 0.1, autoAlpha: 0 })
-  })
-
-  $('.workThumb, .homeThumb, .relThumb').on('mouseover', function() {
-    $('.eyeBtn').css('opacity', '1')
-    if (
-      $(this)
-        .find('.pMouse')
-        .hasClass('pHidden')
-    ) {
-      $('.eyeBtn img').attr('src', '/assets/icons/red_mouse_css.svg')
-      $('.eyeBtn').addClass('mHidden')
-    } else {
-      $('.eyeBtn img').attr('src', '/assets/icons/plus_mouse.svg')
-      $('.eyeBtn').removeClass('mHidden')
-    }
-  })
-
-  $('.workThumb, .homeThumb, .relThumb').on('mouseout', function() {
-    $('.eyeBtn').css('opacity', '0')
-  })
-
-  // $('.workThumb .pLive').on('mouseover', function() {
-  //   $('.eyeBtn').removeClass('.mHidden')
-  //   $('.eyeBtn img').attr('src', '/assets/icons/red_mouse_css.svg')
-  // })
-
-  // $('.workThumb .pHidden').on('mouseover', function() {
-  //   $('.eyeBtn').addClass('.mHidden')
-  //   $('.eyeBtn img').attr('src', '/assets/icons/plus_mouse.svg')
-  // })
-
-  $(document).on('mousemove', function(e) {
-    $('.eyeBtn, .cBtn').css({
-      left: e.pageX,
-      top: e.pageY,
+    gsap.to(target, 0.3, {
+      x: ((relX - boundingRect.width / 2) / boundingRect.width) * movement,
+      y: ((relY - boundingRect.height / 2) / boundingRect.width) * movement,
+      ease: Power2.easeOut,
     })
-  })
-
-  //===== PROJECT TILE HOVER =====//
-
-  $('.workThumb').mouseover(function() {
-    var wt = $(this).attr('data-id')
-    $('.pTitle').addClass('o0 title-x')
-    setTimeout(function() {
-      $('.pTitle h3').html(wt)
-    }, 300)
-    setTimeout(function() {
-      $('.pTitle').removeClass('o0 title-x')
-    }, 500)
-    // console.log($('.pTitle[data-id=' + wt + ']'))
-    // setTimeout(function() {
-    //   $('.pTitle[data-id=' + wt + ']').removeClass('o0 title-x')
-    // }, 300)
-  })
+  }
 })

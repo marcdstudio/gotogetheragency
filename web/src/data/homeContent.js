@@ -8,7 +8,7 @@ module.exports = async function() {
       slug,
       featuredProject[]->{
         ...,
-        'image': thumbnail.image.asset->url
+        'image': poster.image.asset->url
       },
       homeProjectsLeft[]->{
         ...,

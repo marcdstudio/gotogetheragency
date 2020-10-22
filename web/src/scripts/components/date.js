@@ -2,8 +2,6 @@ import { component } from 'picoapp'
 
 export default component((node) => {
   var dateString = node.innerHTML
-  console.log(dateString)
-  var year = $.trim(dateString).substring(0, 4)
   var month = $.trim(dateString).substring(5, 7)
   var day = $.trim(dateString).substring(8, 10)
 
@@ -47,8 +45,6 @@ export default component((node) => {
   if (day.indexOf('0') >= 0) {
     day = day.substring(1)
   }
-
-  console.log(month)
 
   node.innerHTML = month + ' ' + day
 })

@@ -1,7 +1,42 @@
 import { component } from 'picoapp'
 import Scrollbar from 'smooth-scrollbar'
+import { gsap, ScrollTrigger } from 'gsap/all'
 
 export default component((node, ctx) => {
+  gsap.registerPlugin(ScrollTrigger)
+
+  ScrollTrigger.create({
+    trigger: '.colorStick',
+    start: '-=500',
+    end: 'bottom 50%+=100px',
+    onToggle: (self) => {
+      if (self.isActive) {
+        $('body').css('background-color', '#d5b49e')
+        $('.wordmark').addClass('wordmarkBlack')
+        $('.menuIcon, .mblIcon').addClass('menuIconBlack')
+      } else {
+        $('body').css('background-color', '#0f0e0e')
+        $('.wordmark').removeClass('wordmarkBlack')
+        $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
+      }
+    },
+  })
+
+  ScrollTrigger.create({
+    trigger: '.c-oblack',
+    start: '-=300',
+    end: '=+100%',
+    onToggle: (self) => {
+      if (self.isActive) {
+        $('.wordmark').addClass('wordmarkBlack')
+        $('.menuIcon, .mblIcon').addClass('menuIconBlack')
+      } else {
+        $('.wordmark').removeClass('wordmarkBlack')
+        $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
+      }
+    },
+  })
+
   $(document).ready(function() {
     setTimeout(function() {
       var scroll = $('.scrollContainer')[0]
@@ -40,6 +75,11 @@ export default component((node, ctx) => {
               left: '0',
             })
           }
+          ScrollTrigger.refresh()
+        })
+      } else {
+        scrollbar.addListener(({ offset }) => {
+          ScrollTrigger.refresh()
         })
       }
       scrollbar.addListener((s) => {

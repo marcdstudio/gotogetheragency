@@ -1,7 +1,7 @@
 import Highway from '@dogstudio/highway'
 import { listen } from 'quicklink'
 import { on, size, remove } from '@selfaware/martha'
-// import loadFonts from '@/util/loadFonts'
+import loadFonts from '@/util/loadFonts'
 import gsap from 'gsap'
 import app from '@/app'
 
@@ -18,20 +18,38 @@ class Base extends Highway.Renderer {
 
     gsap.set('[data-router-view]', { autoAlpha: 1 })
 
-    // loadFonts([
-    //   {
-    //     family: 'Lorem Ipsum',
-    //     options: {
-    //       weight: 700,
-    //     },
-    //   },
-    // ]).then(() => {
-    //   this.mount()
-    //   remove(document.body, 'o0')
-    // })
+    loadFonts([
+      {
+        family: 'reckless-regular',
+        options: {
+          weight: 400,
+        },
+      },
+      {
+        family: 'reckless-italic',
+        options: {
+          weight: 400,
+        },
+      },
+      {
+        family: 'graphik-medium',
+        options: {
+          weight: 400,
+        },
+      },
+      {
+        family: 'graphik-regular',
+        options: {
+          weight: 400,
+        },
+      },
+    ]).then(() => {
+      this.mount()
+      remove(document.body, 'o0')
+    })
 
     // mount picoapp
-    this.mount()
+    // this.mount()
   }
 
   onEnter() {
@@ -51,7 +69,30 @@ class Base extends Highway.Renderer {
     this.unmount()
   }
 
-  onLeaveCompleted() {}
+  onLeaveCompleted() {
+    if ($('header').hasClass('nav-open')) {
+      setTimeout(function() {
+        $('.navItem, .navItemBG').addClass('vsn')
+        $('.dsknav').addClass('max-w100')
+      }, 300)
+
+      $('header').toggleClass('nav-open')
+      $('.menuIcon svg').toggleClass('r225')
+      $('.navItem:eq(0)').toggleClass('l:o0 t-x')
+      setTimeout(function() {
+        $('.navItem:eq(1)').toggleClass('l:o0 t-x')
+      }, 50)
+      setTimeout(function() {
+        $('.navItem:eq(2)').toggleClass('l:o0 t-x')
+      }, 100)
+      setTimeout(function() {
+        $('.navItem:eq(3)').toggleClass('l:o0 t-x')
+        if (!$('.home')[0]) {
+          $('.navItemBG').toggleClass('o0')
+        }
+      }, 200)
+    }
+  }
 
   resize = () => {
     app.emit('resize', size())

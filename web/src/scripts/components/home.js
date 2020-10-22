@@ -10,6 +10,6 @@ export default component((node) => {
 
   var words = htSplit.words
 
-  homeTitle.staggerFrom(words, 0.75, { opacity: 0, y: 20 }, 0.1)
+  homeTitle.staggerFrom(words, { duration: 0.75, opacity: 0, y: 20 }, 0.1)
   homeTitle.restart()
 })

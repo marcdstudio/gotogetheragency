@@ -2,7 +2,7 @@
     <div class="x ph40 s:ph0 s:max-w450 l:max-w1000 ma s:df jcc pt60 s:pt100 l:pt160 pb60 s:pb160 l:pb200 fw">
         <div class="w100 l:w50">
             <h3 class="c-tan pb15 s:pb20 l:pb30">{{ module.projectName }}</h3>
-            <div class="h1 l:h2 h2ttb" data-component="splitText" style="font-family: reckless-regular, serif;">
+            <div class="f32 s:f54 h2ttb" data-component="splitText" style="font-family: reckless-regular, serif;">
                 {{ module.bodyText.blockTitle }}
             </div>
             <div class="fadeltr mt30 s:mt60 l:mt50" data-component="splitText">
@@ -21,13 +21,15 @@
                     {% endfor %}
                 </div>
                 <div class="mt40 s:mt60 l:mt80">
-                    <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="{{ module.link }}" target="_blank">Visit Site
-                        <span class="circle ml10 s:ml25 bc-grey" style="border-color:#625D60;">
-                            <svg class="arrow r-45" width="17" height="14" fill="none">
-                                <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#E2DDDC"/>
-                            </svg>
-                        </span>
-                    </a>
+                    <div id="magBtn" data-component="magneticButton">
+                        <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="{{ module.link }}" target="_blank">Visit Site
+                            <span class="circle ml10 s:ml25 bc-grey" style="border-color:#d5b49e;">
+                                <svg class="arrow r-45" fill="none" viewbox="0 0 15 12">
+                                    <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#d5b49e"/>
+                                </svg>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             </div>
 

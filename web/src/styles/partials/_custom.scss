@@ -436,6 +436,7 @@ nav {
 .navItem {
   transition: opacity 0.35s ease, transform 0.3s ease, color 0.3s ease;
   padding: 0.8rem 2.2rem;
+  margin-right: 3rem;
   align-self: center;
   &.active {
     color: $oblack;
@@ -478,6 +479,7 @@ nav {
 }
 
 .arrow {
+  width: 1.4rem;
   path {
     transition: fill 0.3s ease;
   }
@@ -560,7 +562,7 @@ nav {
   transition: background-color 0.3s ease, border-color 0.3s ease;
   &:hover {
     background: $red;
-    border-color: $red;
+    border-color: $red !important;
     border-radius: 50%;
     path {
       stroke: $oblack;
@@ -794,7 +796,7 @@ nav {
   position: relative;
   overflow: hidden;
   width: calc(100vw - 28rem);
-  height: 50vw;
+  height: calc((100vw - 28rem) * 0.5625);
   transform: translateX(-2rem);
   iframe {
     display: block;
@@ -819,6 +821,27 @@ nav {
   }
 }
 
+.quote {
+  div {
+    line-height: 1.3;
+  }
+}
+
+.quotemark {
+  transform: translateY(1rem);
+  img {
+    width: 6rem;
+  }
+}
+
+.quoteWrap {
+  transform: translateX(2rem);
+}
+
+.quoteBy {
+  transform: translateY(4rem) translateX(2rem);
+}
+
 .stickyTitle {
   transition: opacity 0.2s ease;
 }
@@ -826,6 +849,23 @@ nav {
 .bg-cream {
   background-color: $cream;
   color: $oblack;
+}
+
+/* magnetic button */
+.magBtn {
+  display: flex;
+  position: relative;
+  height: 150px;
+  width: 150px;
+  justify-content: center;
+  align-items: center;
+  .circle {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border: solid 2px gray;
+    border-radius: 100%;
+  }
 }
 
 @media screen and (max-width: 1440px) {
@@ -855,6 +895,25 @@ nav {
 }
 
 @media screen and (max-width: 1025px) {
+  .arrow {
+    width: 1rem;
+  }
+
+  .quotemark {
+    transform: translateY(1rem);
+    img {
+      width: 4rem;
+    }
+  }
+
+  .quoteWrap {
+    transform: translateX(2rem);
+  }
+
+  .quoteBy {
+    transform: translateY(4rem) translateX(2rem);
+  }
+
   .stickyWrap {
     margin-left: 4rem;
   }
@@ -885,7 +944,7 @@ nav {
     position: relative;
     overflow: hidden;
     width: calc(100vw - 6rem);
-    height: 60vw;
+    height: calc((100vw - 6rem) * 0.5625);
     transform: none;
     iframe {
       display: block;
@@ -1048,7 +1107,7 @@ nav {
   }
   h2,
   .h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
   h3,
   .h3 {
@@ -1065,6 +1124,8 @@ nav {
   }
   .circle {
     margin-left: 1rem;
+    width: 3.5rem;
+    height: 3.5rem;
   }
   .pRole {
     width: 100%;
@@ -1073,11 +1134,15 @@ nav {
     background-size: 50%;
   }
 
+  .home .h2 {
+    font-size: 2.2rem;
+  }
+
   .videoBg {
     position: relative;
     overflow: hidden;
     width: calc(100vw - 6rem);
-    height: 54vw;
+    height: calc((100vw - 6rem) * 0.5625);
     transform: none;
   }
 
@@ -1117,7 +1182,7 @@ nav {
   .youContent,
   .usContent {
     h3 {
-      font-size: 2rem;
+      font-size: 2.2rem;
     }
   }
   .usTitle,
@@ -1135,6 +1200,9 @@ nav {
       height: 175vh;
       min-height: 175vh;
     }
+  }
+  .blog h3 {
+    font-size: 2.2rem;
   }
   .articleContent {
     h3 {
@@ -1185,9 +1253,22 @@ nav {
     }
   }
 
+  .quotemark {
+    width: 3rem;
+    transform: translateY(1rem);
+  }
+
+  .quoteWrap {
+    transform: translateX(0rem);
+  }
+
+  .quoteBy {
+    transform: translateY(3rem) translateX(0rem);
+  }
+
   .project h3,
   .project .h3 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .stickyTitle {

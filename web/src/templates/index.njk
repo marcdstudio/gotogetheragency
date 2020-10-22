@@ -12,6 +12,8 @@ title: Home
       </div>
     </div>
 
+    {# {% debug homeContent.featuredProject %} #}
+
     {% for project in homeContent.featuredProject %}
       <div class="pl20 s:pl30 l:pl0">
         <div class="dib s:dn tag mr20 l:mr100 f10 s:f12 l:f14 mb15">
@@ -26,7 +28,7 @@ title: Home
           </div>
           <div class="db featureDetails">
             <h3 class="lh10" style="line-height:1;">{{ project.title }}</h3>
-            <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0">
+            <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
               {% for text in project.introText.content %}
                 {{ text | blocksToHtml | safe }}
               {% endfor %}
@@ -45,19 +47,20 @@ title: Home
       {% if homeContent.aboutText.linkText %}
         <div class="mt20 l:mt45 dib">
           <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/about/">About Us
-            <span class="circle ml10 s:ml25">
-              <svg class="arrow" width="17" height="14" fill="none">
-                <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
-              </svg>
-            </span>
+            <div id="magBtn" data-component="magneticButton">
+              <span class="circle ml10 s:ml25">
+                <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                  <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                </svg>
+              </span>
+            </div>
           </a>
         </div>
       {% endif %}
     </div>
 
-    {# {% debug homeContent.homeProjectsLeft %} #}
     <div class="df fw pr15 pl15 l:pr0 l:pl0 l:mr40">
-      <div class="x s:w50 ph5 s:p20">
+      <div class="x s:w50 ph5 s:pr20 s:pl0 s:pv20">
         <div class="tag mb25 s:mb60 dib f10 s:f12 l:f14">
           Selected Works
         </div>
@@ -74,8 +77,8 @@ title: Home
             </div>
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
-                <h3>{{ project.title }}</h3>
-                <div class="c-grey s:mt10 f14 s:f18">
+                <h3 style="line-height:1;">{{ project.title }}</h3>
+                <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
                   {% for text in project.introText.content %}
                     {{ text | blocksToHtml | safe }}
                   {% endfor %}
@@ -85,7 +88,7 @@ title: Home
           </div>
         {% endfor %}
       </div>
-      <div class="x s:w50 ph5 pb20 s:p20">
+      <div class="x s:w50 ph5 pb20 s:pl20 s:pr0 s:pv20">
         {% for project in homeContent.homeProjectsRight %}
           <div class="mb20 s:mb80">
             <div class="x homeThumb oh">
@@ -99,8 +102,8 @@ title: Home
             </div>
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
-                <h3>{{ project.title }}</h3>
-                <div class="c-grey s:mt10 f14 s:f18">
+                <h3 style="line-height:1;">{{ project.title }}</h3>
+                <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
                   {% for text in project.introText.content %}
                     {{ text | blocksToHtml | safe }}
                   {% endfor %}
@@ -130,17 +133,20 @@ title: Home
 
       {% for article in articles %}
         <div class="df aic rel x bbhalf pb35 pt35">
-          <span class="featureDate graphm ttu l:f14 c-tan s:f12 f10" data-component="date">
+          <span class="ls1em featureDate graphm ttu l:f14 c-tan s:f12 f10" data-component="date">
             {{ article.date }}
           </span>
           <a class="fg1 arrowSpan">
             <span class="fg1 df jcb aic">
               <h3 class="max-w180 s:max-w10000">{{ article.title }}</h3>
-              <span class="circle ml0 mr20 s:mr60">
-                <svg class="arrow" width="17" height="14" fill="none">
-                  <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
-                </svg>
-              </span>
+              <div id="magBtn" data-component="magneticButton">
+                <span class="circle ml0 mr20 s:mr60">
+                  <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                    <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                  </svg>
+                </span>
+              </div>
+
             </span>
           </a>
         </div>
@@ -156,11 +162,13 @@ title: Home
       {% if homeContent.contactText.linkText %}
         <div class="mt20 s:mt45 dib">
           <a class="df aic point ttu ls1em graphm f10 s:f14 arrowSpan" href="/contact/">{{ homeContent.contactText.linkText }}
-            <span class="circle ml10 s:ml25">
-              <svg class="arrow" width="17" height="14" fill="none">
-                <path d="M0 7.20007h15.5M9.29993 1l6.19997 6.19999L9.29993 13.4" stroke="#D5B49E"/>
-              </svg>
-            </span>
+            <div id="magBtn" data-component="magneticButton">
+              <span class="circle ml10 s:ml25">
+                <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                  <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                </svg>
+              </span>
+            </div>
           </a>
         </div>
       {% endif %}
@@ -168,5 +176,5 @@ title: Home
     {% include 'footer.njk' %}
   </div>
   <div class="eyeBtn usn dn l:db"></div>
-  <div class="cBtn usn dn l:db" data-component="magneticButton"></div>
+  <div class="cBtn usn dn l:db" data-component="mouseFollow"></div>
 </div>
