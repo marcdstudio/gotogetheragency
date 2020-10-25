@@ -4,7 +4,7 @@
         <h3 class="pv30 c-grey">We write about branding, design, strategy and business.
         </h3>
         <h3 class="dn signupSuccess mt8 mb3">Thanks for signing up!</h3>
-        <form class="signupForm flbet pt7" data-component="subscribe" autocomplete="off">
+        {# <form class="signupForm flbet pt7" data-component="subscribe" autocomplete="off">
             <div class="x inputWrap df aic jce bc-grey bb mt20 s:mt30">
                 <div class="formBtn fg1">
                     <input class="h3 pv15 x reck formInput companyInput" type="text" id="fcomp" placeholder="Your email"/>
@@ -17,7 +17,33 @@
                     </button>
                 </div>
             </div>
-        </form>
+        </form> #}
+        <div class="subForm" id="mc_embed_signup" data-component="subscribe">
+            <form action="https://agency.us2.list-manage.com/subscribe/post-json?u=6e0780c8dbd3b7da6734980fa&id=76051cfa1e&c=?" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate="novalidate" autocomplete="off">
+                <div id="mc_embed_signup_scroll" class="df aic bbhalf">
+
+                    <div class="mc-field-group fg1">
+                        <input type="email" value="" name="EMAIL" class="f14 pv15 x graph required email" id="mce-EMAIL" placeholder="email address">
+                    </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>
+
+                    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_6e0780c8dbd3b7da6734980fa_76051cfa1e" tabindex="-1" value=""></div>
+                    <div class="clear">
+                        <button class="nextBtnFoot df point mcBtn" name="subscribe" id="mc-embedded-subscribe" type="submit">
+                            <svg width="15" height="12" fill="none">
+                                <path d="M8.24195 0l-.58536.538537L12.761 5.47902H0v.74927h12.761L7.68 11.1454l.56195.5619 5.85365-5.85364L8.24195 0z" fill="#625D60"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="f14 mt30 subResult dn">
+            Thanks for signing up!
+        </div>
         <div class="dn subscribeError flcs mt-5 vsn">
             <span class="orange f12">Please add your email address.</span>
         </div>
