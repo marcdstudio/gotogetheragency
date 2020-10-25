@@ -30,10 +30,10 @@ renderData:
             </div>
             <div class="df fw x mb120 s:mb160 l:mb200">
                 {% for project in project.relatedProjectLeft %}
-                    <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                        {% if project.isLive %}
+                    {% if project.isLive %}
+                        <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
                             <a href="/work/{{ project.slug.current }}" data-transition="project">
-                                <div class="l:oh">
+                                <div class="l:oh csn">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>
                                 <h3 class="mt15 l:mt20">{{ project.title }}</h3>
@@ -43,7 +43,6 @@ renderData:
                                     {% endfor %}
                                 </div>
                             </a>
-                        {% else %}
                             <div class="l:oh">
                                 <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                             </div>
@@ -53,17 +52,28 @@ renderData:
                                     {{ text | blocksToHtml | safe }}
                                 {% endfor %}
                             </div>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% else %}
+                        <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
+                            <div class="l:oh csn">
+                                <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                            </div>
+                            <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                            <div class="c-grey f14 s:f18">
+                                {% for text in project.introText.content %}
+                                    {{ text | blocksToHtml | safe }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
                 {% for project in project.relatedProjectRight %}
-                    <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh">
-                        {% if project.isLive %}
+                    {% if project.isLive %}
+                        <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
                             <a href="/work/{{ project.slug.current }}" data-transition="project">
-                                <div class="l:oh">
+                                <div class="l:oh csn">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>
-
                                 <h3 class="mt15 l:mt20">{{ project.title }}</h3>
                                 <div class="c-grey f14 s:f18">
                                     {% for text in project.introText.content %}
@@ -71,7 +81,6 @@ renderData:
                                     {% endfor %}
                                 </div>
                             </a>
-                        {% else %}
                             <div class="l:oh">
                                 <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                             </div>
@@ -81,10 +90,21 @@ renderData:
                                     {{ text | blocksToHtml | safe }}
                                 {% endfor %}
                             </div>
-                        {% endif %}
-                    </div>
+                        </div>
+                    {% else %}
+                        <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
+                            <div class="l:oh csn">
+                                <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
+                            </div>
+                            <h3 class="mt15 l:mt20">{{ project.title }}</h3>
+                            <div class="c-grey f14 s:f18">
+                                {% for text in project.introText.content %}
+                                    {{ text | blocksToHtml | safe }}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endif %}
                 {% endfor %}
-
             </div>
         </div>
         <div class="l:pl240">

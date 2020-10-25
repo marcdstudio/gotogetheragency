@@ -72,7 +72,7 @@ title: About
       <div class="df fc l:mr40 bthalf fw serviceColumn">
         {% for service in aboutContent.servicesLeft %}
           <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
-            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
+            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt5 s:mt10 serviceBtn">
               <img class="dn s:db" style="width: 1.5rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
               <img class="db s:dn" style="width: 1rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
             </div>
@@ -92,7 +92,7 @@ title: About
       <div class="df fc l:mr40 bthalf fw serviceColumn sc2">
         {% for service in aboutContent.servicesRight %}
           <div class="pv20 l:pv30 serviceBlock r4 df jcc w100 bbhalf point">
-            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt10 serviceBtn">
+            <div class="ml15 s:ml0 mr15 s:mr25 l:mr40 mt5 s:mt10 serviceBtn">
               <img class="dn s:db" style="width: 1.5rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
               <img class="db s:dn" style="width: 1rem;transition:transform .2s ease;" src="/assets/icons/arrow_toggle.svg" alt="arrow icon"/>
             </div>
@@ -100,7 +100,7 @@ title: About
               <div class="serviceTitle">
                 <h3 class="c-tan" style="line-height:1">{{service.blockTitle}}</h3>
               </div>
-              <div class="serviceBlockText oh l:f18 f16">
+              <div class="serviceBlockText oh l:f18 s:f16 f14 s:pr0 pr40">
                 {% for text in service.blockText %}
                   {{ text | blocksToHtml | safe }}
                 {% endfor %}

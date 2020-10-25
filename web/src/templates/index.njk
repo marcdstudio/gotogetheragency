@@ -66,15 +66,17 @@ title: Home
         </div>
         {% for project in homeContent.homeProjectsLeft %}
           <div class="mb20 s:mb80">
-            <div class="x homeThumb oh">
-              {% if project.isLive %}
+            {% if project.isLive %}
+              <div class="x homeThumb oh">
                 <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
                   <img class="x o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
                 </a>
-              {% else %}
+              </div>
+            {% else %}
+              <div class="x homeThumb oh csn">
                 <img class="x o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
                 <h3 style="line-height:1;">{{ project.title }}</h3>
@@ -91,15 +93,17 @@ title: Home
       <div class="x s:w50 ph5 pb20 s:pl20 s:pr0 s:pv20">
         {% for project in homeContent.homeProjectsRight %}
           <div class="mb20 s:mb80">
-            <div class="x homeThumb oh">
-              {% if project.isLive %}
+            {% if project.isLive %}
+              <div class="x homeThumb oh">
                 <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
                   <img class="x o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
                 </a>
-              {% else %}
+              </div>
+            {% else %}
+              <div class="x homeThumb oh csn">
                 <img class="x o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
-              {% endif %}
-            </div>
+              </div>
+            {% endif %}
             <div class="df ais jcs rel mt10 s:mt20 x">
               <div class="db">
                 <h3 style="line-height:1;">{{ project.title }}</h3>
