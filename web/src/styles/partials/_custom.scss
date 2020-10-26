@@ -322,6 +322,14 @@ img {
   cursor: none;
 }
 
+.thumbWrap {
+  overflow: hidden;
+}
+
+.workThumb {
+  width: calc(100vw - 28rem);
+}
+
 .cBtn,
 .eyeBtn {
   position: absolute;
@@ -764,6 +772,11 @@ nav {
   transform: translateX(-2rem);
 }
 
+.thumbWrap {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
 .workThumb {
   // background-image: url('/assets/icons/coming_soon.svg');
   // background-position: center;
@@ -773,7 +786,7 @@ nav {
   //     opacity: 0;
   //   }
   // }
-  transition-property: transform, height, margin, padding, opacity;
+  transition-property: transform, height, margin, padding, opacity, width;
   transition-duration: 1s;
   transition-timing-function: $ease-in-out-cubic;
   height: calc((100vw - 24rem) / 1.5);
@@ -786,6 +799,7 @@ nav {
 }
 .wtFull {
   height: 100vh;
+  width: 100vw;
   margin: 0;
   img {
     transition: none;
