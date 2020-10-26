@@ -7,12 +7,15 @@ export default component((node, ctx) => {
   var titleltr = new TimelineLite(),
     titleSplitText = new SplitText('.fadeltr>h3', {
       type: 'lines, words',
-      // position: 'absolute',
     })
 
   var lines = titleSplitText.lines
 
-  titleltr.staggerFrom(lines, 0.75, { opacity: 0, x: -20 }, 0.1)
+  titleltr.from(lines, { duration: 0.75, opacity: 0, x: -20, stagger: 0.1 })
+
+  setTimeout(function() {
+    titleSplitText.revert()
+  }, 1500)
 
   function ttbCur() {
     var ttbCur = $(node).find('p, h3')
@@ -21,8 +24,12 @@ export default component((node, ctx) => {
 
     var words = mySplitText.words
 
-    tlttb.staggerFrom(words, 0.5, { opacity: 0, y: 15 }, 0.05)
+    tlttb.from(words, { duration: 0.5, opacity: 0, y: 15, stagger: 0.05 })
     tlttb.restart()
+    // setTimeout(function() {
+    //   mySplitText.revert()
+    // }, 1500)
+    console.log('split title')
   }
 
   function h2ttb() {
@@ -31,22 +38,40 @@ export default component((node, ctx) => {
 
     var words = h2SplitText.words
 
-    h2ttb.staggerFrom(words, 0.5, { opacity: 0, y: 15 }, 0.05)
+    h2ttb.from(words, { duration: 0.5, opacity: 0, y: 15, stagger: 0.05 })
     h2ttb.restart()
+    setTimeout(function() {
+      h2SplitText.revert()
+    }, 1500)
+  }
+
+  function h1ttb() {
+    var h1ttb = new TimelineLite(),
+      h1SplitText = new SplitText(node, { type: 'words' })
+
+    var words = h1SplitText.words
+
+    h1ttb.from(words, { duration: 0.5, opacity: 0, y: 15, stagger: 0.15 })
+    h2ttb.restart()
+    setTimeout(function() {
+      h1SplitText.revert()
+    }, 1500)
   }
 
   function ltrCur() {
     var ltrCur = $(node).find('p, h3')
     var tlltr = new TimelineLite(),
       mySplitText = new SplitText(ltrCur, {
-        type: 'lines, words',
-        // position: 'absolute',
+        type: 'lines',
       })
 
     var lines = mySplitText.lines
 
-    tlltr.staggerFrom(lines, 0.75, { opacity: 0, x: -20 }, 0.1)
+    tlltr.from(lines, { duration: 0.75, opacity: 0, x: -20, stagger: 0.1 })
     tlltr.restart()
+    setTimeout(function() {
+      mySplitText.revert()
+    }, 2000)
   }
 
   function tlHeader() {
@@ -55,8 +80,11 @@ export default component((node, ctx) => {
 
     var words = splitHeader.words
 
-    tlHeader.staggerFrom(words, 1, { opacity: 0, y: 30 }, 0.1)
+    tlHeader.from(words, { duration: 0.1, opacity: 0, y: 30, stagger: 0.1 })
     tlHeader.restart()
+    setTimeout(function() {
+      splitHeader.revert()
+    }, 1500)
   }
 
   if (inview(node, ctx.getState().wh)) return
@@ -66,6 +94,9 @@ export default component((node, ctx) => {
       off()
       if ($(node).hasClass('fadettb')) {
         ttbCur()
+      }
+      if ($(node).hasClass('h1ttb')) {
+        h1ttb()
       }
       if ($(node).hasClass('h2ttb')) {
         h2ttb()

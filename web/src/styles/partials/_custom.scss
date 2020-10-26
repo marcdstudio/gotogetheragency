@@ -424,6 +424,10 @@ img {
 nav {
   left: 12rem;
   bottom: 3rem;
+  width: auto;
+}
+.navFlex {
+  width: calc(100vh - 25rem);
 }
 
 // .navItemBG {
@@ -444,12 +448,10 @@ nav {
 .navItem {
   transition: opacity 0.35s ease, transform 0.3s ease, color 0.3s ease;
   padding: 0.8rem 2.2rem;
-  margin-right: 3rem;
+  // margin-right: 3rem;
   align-self: center;
   &.active {
-    color: $oblack;
-    background-color: $red;
-    border-radius: 3rem;
+    color: $tan;
   }
   &:hover {
     color: $tan;
@@ -561,7 +563,8 @@ nav {
   border-color: $oblack;
 }
 
-.circle {
+.circle,
+.circleGray {
   width: 5.5rem;
   height: 5.5rem;
   margin-left: 2.5rem;
@@ -579,6 +582,10 @@ nav {
       stroke: $oblack;
     }
   }
+}
+
+.circleGray {
+  border-color: $grey;
 }
 
 .arrowSpan:hover {
@@ -1036,6 +1043,10 @@ nav {
     .t-x {
       transform: none;
     }
+  }
+
+  .navFlex {
+    width: auto;
   }
 
   .navItem.c-oblack {

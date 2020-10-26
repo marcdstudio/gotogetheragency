@@ -23,4 +23,8 @@ export default component((node, ctx) => {
       tlHeader.restart()
     }
   })
+
+  setTimeout(function() {
+    splitHeader.revert()
+  }, 1500)
 })

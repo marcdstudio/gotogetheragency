@@ -1,10 +1,14 @@
 <div class="full x {% if form != 'about'%} pv180 s:pv0 s:min-vh100{% endif %} df aic jcc rel" data-component="contact">
     <div class="ph40 l:ph0 x l:max-w750 s:max-w500" id="contact">
-        <h1 class="l:max-w750 s:max-w500 recki c-tan mb35 s:mb80 formTitle" {% if form == 'about'%} style="width: 75rem;" {% endif %}>
-            {% if form == 'about'%}
+        {% if form == 'about'%}
+            <h1 class="l:max-w750 s:max-w500 recki c-tan mb35 s:mb80 h1ttb" style="width: 75rem;" data-component="splitText">
                 Your turn.
-            {% else %}The mic is yours.{% endif %}
-        </h1>
+            </h1>
+        {% else %}
+            <h1 class="l:max-w750 s:max-w500 recki c-tan mb35 s:mb80 formTitle">
+                The mic is yours.
+            </h1>
+        {% endif %}
         <form class="l:max-w750 s:max-w500 rel contactForm" action="post" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" autocomplete="off">
             <div class="df aic jcc rel fw formContentWrap">
                 <div class="formInputContainer fic1 x pa top left o0">

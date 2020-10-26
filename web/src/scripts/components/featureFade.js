@@ -1,6 +1,5 @@
 import { component } from 'picoapp'
 import gsap from 'gsap'
-import { TimelineLite } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 
 export default component((node, ctx) => {
@@ -17,5 +16,9 @@ export default component((node, ctx) => {
 
     var fLines = lineSplitText.lines
     gsap.from(fLines, { duration: 0.5, opacity: 0, x: -20, stagger: 0.1 })
+
+    // setTimeout(function() {
+    //   lineSplitText.revert()
+    // }, 1500)
   }
 })

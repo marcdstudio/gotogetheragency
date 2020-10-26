@@ -2,40 +2,62 @@ import { component } from 'picoapp'
 import { TimelineLite } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 import Scrollbar from 'smooth-scrollbar'
+import gsap from 'gsap/gsap-core'
 // import inview from '@/util/inview'
 // import { add, remove } from '@selfaware/martha'
 
 export default component((node) => {
   if ($('.about')[0]) {
     //===== YOU ANIMATION =====//
-    var tlYou = new TimelineLite(),
-      ybSplitText = new SplitText('.youContent>p', { type: 'lines' })
+    // var tlYou = new TimelineLite(),
+    //   ybSplitText = new SplitText('.youContent>p', { type: 'lines' })
 
     var tlYouTitle = new TimelineLite(),
       ytSplitText = new SplitText('.youTitle', {
         type: 'words, lines, chars',
       })
 
-    var yLines = ybSplitText.lines
+    // var yLines = ybSplitText.lines
     var yChars = ytSplitText.chars
 
-    tlYou.staggerFrom(yLines, 0.35, { opacity: 0, y: 10 }, 0.1)
-    tlYouTitle.staggerFrom(yChars, 0.35, { opacity: 0, y: 20 }, 0.1)
+    // tlYou.from(yLines, { opacity: 0, y: 10, stagger: 0.1, duration: 0.35 })
+    tlYouTitle.from(yChars, {
+      duration: 0.35,
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+    })
 
     //===== US ANIMATION =====//
-    var tlUs = new TimelineLite(),
-      ubSplitText = new SplitText('.usContent>p', { type: 'lines' })
+    // var tlUs = new TimelineLite(),
+    //   ubSplitText = new SplitText('.usContent>p', { type: 'lines' })
 
     var tlUsTitle = new TimelineLite(),
       utSplitText = new SplitText('.usTitle', {
         type: 'words, lines, chars',
       })
 
-    var uLines = ubSplitText.lines
+    // var uLines = ubSplitText.lines
     var uChars = utSplitText.chars
 
-    tlUs.staggerFrom(uLines, 0.35, { opacity: 0, y: 10 }, 0.1)
-    tlUsTitle.staggerFrom(uChars, 0.35, { opacity: 0, y: 20 }, 0.1)
+    // tlUs.staggerFrom(uLines, 0.35, { opacity: 0, y: 10 }, 0.1)
+    tlUsTitle.from(uChars, {
+      duration: 0.35,
+      opacity: 0,
+      y: 20,
+      stagger: 0.1,
+    })
+
+    function fadeYou() {
+      gsap.from('.youContent', { y: 30, opacity: 0, duration: 0.5 })
+    }
+
+    fadeYou()
+
+    function fadeUs() {
+      console.log()
+      gsap.from('.usContent', { y: 30, opacity: 0, duration: 0.5 })
+    }
 
     $('.youContent').addClass('show')
 
@@ -61,14 +83,14 @@ export default component((node) => {
 
       if (s.offset.y > wh50 && s.offset.y < wh100 && !showUs) {
         $('.youBlock').addClass('o0')
-        $('.usBlock, .usContent, .youContent').removeClass('o0')
+        $('.usBlock, .usBody, .youBody').removeClass('o0')
+        fadeUs()
         tlUsTitle.restart()
-        tlUs.restart()
         $('.youContent').removeClass('show')
         $('.usContent').addClass('show')
       } else if (s.offset.y > wh100 && s.offset.y < wh150) {
         $('.usContent').removeClass('show')
-        $('.usContent, .youContent').addClass('o0')
+        $('.usBody, .youBody').addClass('o0')
         $('.youBlock').removeClass('o0')
         if ($('.usBlock.slideOut')[0]) {
           $('.usBlock, .youBlock').removeClass('slideOut')
@@ -86,8 +108,8 @@ export default component((node) => {
       } else if (s.offset.y < wh50 && !showYou) {
         $('.usBlock').addClass('o0')
         $('.youBlock').removeClass('o0')
+        fadeYou()
         tlYouTitle.restart()
-        tlYou.restart()
         $('.youContent').addClass('show')
         $('.usContent').removeClass('show')
       }

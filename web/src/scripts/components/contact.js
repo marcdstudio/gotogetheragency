@@ -2,13 +2,13 @@ import { component } from 'picoapp'
 import { TimelineLite } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 
-export default component((node) => {
+export default component(() => {
   var tlTitle = new TimelineLite(),
     splitTitle = new SplitText('.formLabel', { type: 'words' })
 
   var words = splitTitle.words
 
-  tlTitle.staggerFrom(words, 0.5, { opacity: 0, y: 15 }, 0.05)
+  tlTitle.from(words, { duration: 0.5, opacity: 0, y: 15, stagger: 0.05 })
 
   tlTitle.restart()
 
@@ -17,7 +17,7 @@ export default component((node) => {
 
   var words = splitHeader.words
 
-  tlHeader.staggerFrom(words, 1, { opacity: 0, y: 30 }, 0.1)
+  tlHeader.from(words, { duration: 1, opacity: 0, y: 30, stagger: 0.1 })
 
   tlHeader.restart()
   setTimeout(function() {

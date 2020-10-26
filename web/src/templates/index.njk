@@ -5,14 +5,12 @@ title: Home
 <div class="modules home full" data-router-view="default">
   <div class="scrollContainer x vh100 oy fix z3" data-component="home">
     <div class="df aic jcc x max-w300 s:max-w550 l:max-w880 ma pt150 pb60 s:pt200 s:pb100 l:pb160 l:pt160">
-      <div class="{% if homeContent.heroText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
+      <div class="{% if homeContent.heroText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan introTitle">
         {% for text in homeContent.heroText.content %}
           {{ text | blocksToHtml | safe }}
         {% endfor %}
       </div>
     </div>
-
-    {# {% debug homeContent.featuredProject %} #}
 
     {% for project in homeContent.featuredProject %}
       <div class="pl20 s:pl30 l:pl0">

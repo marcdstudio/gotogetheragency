@@ -5,7 +5,6 @@ export default component(() => {
   $(document).ready(function() {
     if (document.documentElement.clientWidth > 1025) {
       setTimeout(function() {
-        $('.dsknav').addClass('max-w100')
         $('header').toggleClass('nav-open')
         $('.menuIcon svg').toggleClass('r225')
         $('.navItem:eq(0)').toggleClass('l:o0 t-x')
@@ -21,6 +20,10 @@ export default component(() => {
         setTimeout(function() {
           $('.navItem').toggleClass('vsn')
         }, 200)
+        setTimeout(function() {
+          $('nav').removeClass('navFlex')
+          $('.dsknav').addClass('max-w100')
+        }, 1000)
       }, 1000)
     }
   })
@@ -30,10 +33,12 @@ export default component(() => {
       setTimeout(function() {
         $('.navItem, .navItemBG').addClass('vsn')
         $('.dsknav').addClass('max-w100')
+        $('nav').removeClass('navFlex')
       }, 300)
     } else {
       $('.navItem, .navItemBG').removeClass('vsn')
       $('.dsknav').removeClass('max-w100')
+      $('nav').addClass('navFlex')
     }
     $('header').toggleClass('nav-open')
     $('.menuIcon svg').toggleClass('r225')
