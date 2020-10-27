@@ -316,10 +316,13 @@ img {
 
 /* WORK */
 
-.workThumb:hover,
-.homeThumb:hover,
+.workThumb,
+.homeThumb,
 .relThumb {
-  cursor: none;
+  cursor: none !important;
+  a:hover {
+    cursor: none !important;
+  }
 }
 
 .thumbWrap {
