@@ -563,8 +563,7 @@ nav {
   border-color: $oblack;
 }
 
-.circle,
-.circleGray {
+.circle {
   width: 5.5rem;
   height: 5.5rem;
   margin-left: 2.5rem;
@@ -962,6 +961,7 @@ nav {
 
   .workThumb {
     height: calc(100vw / 1.75);
+    width: 100%;
   }
 
   .csn {

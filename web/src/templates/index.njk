@@ -18,19 +18,38 @@ title: Home
           Feature
         </div>
         <div class="x featureImg" data-component="featureFade">
-          <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+          {% if project.isLive %}
+            <a class="" href="/work/{{ project.slug.current }} ">
+              <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+            </a>
+          {% else %}
+            <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+          {% endif %}
         </div>
         <div class="df ais jcs rel mt15 l:mt30 x">
-          <div class="dn s:dib tag mr20 l:mr100 f10 s:f12 l:f14">
+          <div class="dn s:dib tag f10 s:f12 l:f14">
             Feature
           </div>
-          <div class="db featureDetails">
-            <h3 class="lh10" style="line-height:1;">{{ project.title }}</h3>
-            <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
-              {% for text in project.introText.content %}
-                {{ text | blocksToHtml | safe }}
-              {% endfor %}
+          <div class="df jcb aic x s:pl60 l:pl110">
+            <div class="db featureDetails">
+              <h3 class="lh10" style="line-height:1;">{{ project.title }}</h3>
+              <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
+                {% for text in project.introText.content %}
+                  {{ text | blocksToHtml | safe }}
+                {% endfor %}
+              </div>
             </div>
+            {% if project.isLive %}
+              <a class="dn s:df aic point ttu ls1em graphm f10 s:f14 arrowSpan s:mr90 l:mr140 ml40" href="/work/{{ project.slug.current }} ">
+                <div id="magBtn" data-component="magneticButton">
+                  <span class="circle">
+                    <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                      <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                    </svg>
+                  </span>
+                </div>
+              </a>
+            {% endif %}
           </div>
         </div>
       </div>
