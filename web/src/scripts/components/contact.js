@@ -90,6 +90,7 @@ export default component(() => {
     $('.fcnt4').removeClass('cntDown')
     $('.fcnt3').addClass('cntUp')
     $('.contactSubmit').show()
+    $('.contactSubmit button').removeAttr('disabled')
     $('.nextBtn').hide()
     setTimeout(function() {
       $('.fcnt3').addClass('cntDown')
