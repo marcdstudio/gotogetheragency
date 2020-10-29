@@ -26,10 +26,6 @@ export default component((node, ctx) => {
 
     tlttb.from(words, { duration: 0.5, opacity: 0, y: 15, stagger: 0.05 })
     tlttb.restart()
-    // setTimeout(function() {
-    //   mySplitText.revert()
-    // }, 1500)
-    console.log('split title')
   }
 
   function h2ttb() {

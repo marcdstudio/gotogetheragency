@@ -44,7 +44,6 @@ export default component((node) => {
     fadeYou()
 
     function fadeUs() {
-      console.log()
       gsap.from('.usContent', { y: 30, opacity: 0, duration: 0.5 })
     }
 

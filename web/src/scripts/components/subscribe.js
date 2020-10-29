@@ -1,7 +1,6 @@
 import { component } from 'picoapp'
-import { subscribe } from 'klaviyo-subscribe'
 
-export default component((node) => {
+export default component(() => {
   $(document).ready(function() {
     var $form = $('#mc-embedded-subscribe-form')
     if ($form.length > 0) {
@@ -44,19 +43,4 @@ export default component((node) => {
       },
     })
   }
-  // $('.signupForm').on('submit', function(e) {
-  //   e.preventDefault()
-  //   const listId = 'QNQQbp'
-  //   const email = $('.signupInput').val()
-  //   if (email.length) {
-  //     subscribe(listId, email, {}).then((response) => {
-  //       $('.signupForm').hide()
-  //       $('.signupSuccess').removeClass('hidden')
-  //       $('.subscribeError').addClass('vsn')
-  //     })
-  //   } else {
-  //     $('.subscribeError').removeClass('vsn')
-  //   }
-  //   return false
-  // })
 })

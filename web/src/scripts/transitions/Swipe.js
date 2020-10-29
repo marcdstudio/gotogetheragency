@@ -5,6 +5,7 @@ class Swipe extends Highway.Transition {
   in({ from, to, done }) {
     window.scrollTo(0, 0)
     from.remove()
+    $('.navItem, .wordHome').removeAttr('data-transition')
     $('html, body').css('background-color', '')
     $('.wordmark').removeClass('wordmarkBlack')
     $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
@@ -49,13 +50,6 @@ class Swipe extends Highway.Transition {
       left: '0%',
       ease: 'Expo.easeInOut',
     })
-    // tl.to('.apane', {
-    //   duration: 1.2,
-    //   width: '100%',
-    //   left: '100%',
-    //   ease: 'Expo.easeInOut',
-    //   // delay: 0.3,
-    // })
     tl.set('.apane', { left: '-100%' })
 
     gsap.to(from, {

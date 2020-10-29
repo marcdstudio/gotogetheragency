@@ -4,6 +4,7 @@ import Highway from '@dogstudio/highway'
 import Base from '@/renderers/Base'
 
 // transitions
+import Fade from '@/transitions/Fade'
 import Swipe from '@/transitions/Swipe'
 import SwipeBeige from '@/transitions/SwipeBeige'
 import toProject from '@/transitions/toProject'
@@ -19,9 +20,10 @@ class Core extends Highway.Core {
         default: Base,
       },
       transitions: {
-        default: Swipe,
+        default: Fade,
         contextual: {
           blog: SwipeBeige,
+          black: Swipe,
           project: toProject,
         },
       },

@@ -1,20 +1,9 @@
 import { component } from 'picoapp'
 import Scrollbar from 'smooth-scrollbar'
 
-export default component((node) => {
+export default component(() => {
   setTimeout(function() {
     const Scroll = Scrollbar.init($('.scrollContainer')[0])
-    // Scroll.addListener((s) => {
-    //   if ($(window).width() < 1025) {
-    //     var currentScrollPos = s.offset.y
-    //     if (prevScrollpos < currentScrollPos) {
-    //       $('header').addClass('o0')
-    //     } else {
-    //       $('header').removeClass('o0')
-    //     }
-    //     prevScrollpos = currentScrollPos
-    //   }
-    // })
   })
 
   $('.workThumb').on('click', function() {

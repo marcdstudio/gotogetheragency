@@ -173,29 +173,6 @@ export default component(() => {
     $('.fmcnt1, .fmcnt2, .fmcnt3, .fmcnt').removeClass('pen')
   })
 
-  // $('.contactSubmit').on('click', function() {
-  //   // var url = 'path/to/your/script.php' // the script where you handle the form input.
-
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: 'https://api.staticforms.xyz/submit',
-  //     data: $('.contactForm').serialize(), // serializes the form's elements.
-  //     success: function(data) {
-  //       console.log(data) // show response from the php script.
-  //     },
-  //   })
-
-  // $('.contactForm, .countContainer, .countContainerMobile').hide()
-  // $('.formTitle').html('Stay tuned.')
-  // $('.successWrap').removeClass('dn')
-  // if ($('.contact')[0]) {
-  //   setTimeout(function() {
-  //     location.href = '/'
-  //   }, 3000)
-  // }
-  //   return false // avoid to execute the actual submit of the form.
-  // })
-
   $('.contactForm').submit(function(e) {
     e.preventDefault()
 

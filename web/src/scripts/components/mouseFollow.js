@@ -3,9 +3,7 @@ import { component } from 'picoapp'
 import { TweenLite } from 'gsap'
 
 export default component(() => {
-  //   console.log('follow')
   var $circle = $('.cBtn')
-  // $wrapper = $('.scrollContainer')
 
   function moveCircle(e) {
     TweenLite.to($circle, 0.3, {
@@ -48,16 +46,6 @@ export default component(() => {
     $('.eyeBtn').css('opacity', '0')
   })
 
-  // $('.workThumb, .homeThumb, .relThumb .pLive').on('mouseover', function() {
-  //   $('.eyeBtn').removeClass('.mHidden')
-  //   $('.eyeBtn img').attr('src', '/assets/icons/red_mouse_css.svg')
-  // })
-
-  // $('.workThumb, .homeThumb, .relThumb .pHidden').on('mouseover', function() {
-  //   $('.eyeBtn').addClass('.mHidden')
-  //   $('.eyeBtn img').attr('src', '/assets/icons/plus_mouse.svg')
-  // })
-
   $(document).on('mousemove', function(e) {
     $('.eyeBtn, .cBtn').css({
       left: e.pageX,
@@ -76,9 +64,5 @@ export default component(() => {
     setTimeout(function() {
       $('.pTitle').removeClass('o0 title-x')
     }, 500)
-    // console.log($('.pTitle[data-id=' + wt + ']'))
-    // setTimeout(function() {
-    //   $('.pTitle[data-id=' + wt + ']').removeClass('o0 title-x')
-    // }, 300)
   })
 })

@@ -13,8 +13,4 @@ export default component((node, ctx) => {
       remove(node, 'fadeUp')
     }
   })
-
-  // if ($('.home')[0]) {
-  //   $('.fade').removeClass('fadeUp')
-  // }
 })
