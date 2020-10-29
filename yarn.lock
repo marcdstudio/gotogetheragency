@@ -3243,10 +3243,10 @@
   resolved "https://registry.yarnpkg.com/@selfaware/martha/-/martha-0.0.11.tgz#3b9ee92dd22001172b96162f9ca415a589d38c78"
   integrity sha512-8qpcabQgalGI/4foX9FpS2btcQYUKw9QxXh8lnlqFz/O6pRLkyXJOJnZBYsW53amR5i7bum0TXeSKSMVFsRQkg==
 
-"@selfaware/wool@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@selfaware/wool/-/wool-1.0.3.tgz#77b7633fd7106dfce3a1e02782df08670a82d649"
-  integrity sha512-bq93IufRCwAl3aWGLYcF+L1IfpCjsctrzKHfNWC4SqJIjacZrQd5hzYnP5IiWKgYgH+FRZu3XaNw+tCNyiKTiw==
+"@selfaware/wool@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@selfaware/wool/-/wool-1.0.4.tgz#3ba2f494643962b5a358bfa057e6e488fcdd582e"
+  integrity sha512-4RcslNQcma76njpy4BzDyD5hAbeanY7EbJuIudoRO0Nm7ZijqR6txWaAi4DAb1I/tBAeznbWuBpK/upE+Cco/w==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"

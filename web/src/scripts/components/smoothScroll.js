@@ -3,24 +3,17 @@ import { TimelineLite } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 import Scrollbar from 'smooth-scrollbar'
 import gsap from 'gsap/gsap-core'
-// import inview from '@/util/inview'
-// import { add, remove } from '@selfaware/martha'
 
 export default component((node) => {
   if ($('.about')[0]) {
     //===== YOU ANIMATION =====//
-    // var tlYou = new TimelineLite(),
-    //   ybSplitText = new SplitText('.youContent>p', { type: 'lines' })
-
     var tlYouTitle = new TimelineLite(),
       ytSplitText = new SplitText('.youTitle', {
         type: 'words, lines, chars',
       })
 
-    // var yLines = ybSplitText.lines
     var yChars = ytSplitText.chars
 
-    // tlYou.from(yLines, { opacity: 0, y: 10, stagger: 0.1, duration: 0.35 })
     tlYouTitle.from(yChars, {
       duration: 0.35,
       opacity: 0,
@@ -29,18 +22,14 @@ export default component((node) => {
     })
 
     //===== US ANIMATION =====//
-    // var tlUs = new TimelineLite(),
-    //   ubSplitText = new SplitText('.usContent>p', { type: 'lines' })
 
     var tlUsTitle = new TimelineLite(),
       utSplitText = new SplitText('.usTitle', {
         type: 'words, lines, chars',
       })
 
-    // var uLines = ubSplitText.lines
     var uChars = utSplitText.chars
 
-    // tlUs.staggerFrom(uLines, 0.35, { opacity: 0, y: 10 }, 0.1)
     tlUsTitle.from(uChars, {
       duration: 0.35,
       opacity: 0,

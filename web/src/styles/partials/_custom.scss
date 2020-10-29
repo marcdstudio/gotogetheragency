@@ -158,8 +158,10 @@ img {
   min-height: 20rem;
 }
 
-.about .scrollContainer {
-  overflow-x: visible !important;
+@media screen and (min-width: 650px) {
+  .about .scrollContainer {
+    overflow-x: visible !important;
+  }
 }
 
 .aboutSpacer {
@@ -410,6 +412,10 @@ img {
 
 /* MISC */
 
+.footerNewsWrap {
+  margin-left: calc(((100vw - 24rem) / 2) - 6rem);
+}
+
 .fade {
   transition: opacity 0.4s ease, transform 0.4s ease;
 }
@@ -432,17 +438,6 @@ nav {
 .navFlex {
   width: calc(100vh - 25rem);
 }
-
-// .navItemBG {
-//   position: fixed;
-//   left: 10.15rem;
-//   bottom: 12.75rem;
-//   width: 3.5rem;
-//   height: 7rem;
-//   border-radius: 2rem;
-//   background: $red;
-//   transition: transform 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-// }
 
 .t-x {
   transform: translateX(-100%);
@@ -921,6 +916,10 @@ nav {
 }
 
 @media screen and (max-width: 1025px) {
+  .footerNewsWrap {
+    margin-left: calc(50vw - 25rem);
+  }
+
   .arrow {
     width: 1rem;
   }
@@ -1149,23 +1148,33 @@ nav {
   .h1 {
     font-size: 3.2rem;
   }
+
   h2,
   .h2 {
     font-size: 2.2rem;
   }
+
   h3,
   .h3 {
     font-size: 1.6rem;
   }
+
   .mega {
     font-size: 7.2rem;
   }
+
   .wordmark {
     width: 10rem !important;
   }
+
   nav {
     transition: transform 1.2s $ease-in-out-expo;
   }
+
+  .footerNewsWrap {
+    margin-left: auto;
+  }
+
   .circle {
     margin-left: 1rem;
     width: 3.5rem;
@@ -1217,7 +1226,8 @@ nav {
       border-color: $red;
     }
   }
-  .formTitle {
+  .formTitle,
+  .formTitle2 {
     width: auto !important;
   }
   .marquee {
