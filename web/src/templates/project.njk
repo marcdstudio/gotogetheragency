@@ -24,7 +24,7 @@ renderData:
             {% endif %}
         {% endfor %}
 
-        <div class="ph15 s:ph15 l:pr0 l:pl240">
+        <div class="ph15 s:ph15 l:pr0 l:pl240 mt120 l:mt200 s:mt150">
             <div class="s:ml15 l:ml0 tag dib f10 s:f12 l:f14 mb25 l:mb35 l:mb40 lh100">
                 Related
             </div>
@@ -32,7 +32,7 @@ renderData:
                 {% for project in project.relatedProjectLeft %}
                     {% if project.isLive %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <a href="/work/{{ project.slug.current }}" data-transition="project">
+                            <a href="/work/{{ project.slug.current }}">
                                 <div class="l:oh csn">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>
@@ -43,15 +43,6 @@ renderData:
                                     {% endfor %}
                                 </div>
                             </a>
-                            <div class="l:oh">
-                                <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
-                            </div>
-                            <h3 class="mt15 l:mt20">{{ project.title }}</h3>
-                            <div class="c-grey f14 s:f18">
-                                {% for text in project.introText.content %}
-                                    {{ text | blocksToHtml | safe }}
-                                {% endfor %}
-                            </div>
                         </div>
                     {% else %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
@@ -70,7 +61,7 @@ renderData:
                 {% for project in project.relatedProjectRight %}
                     {% if project.isLive %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <a href="/work/{{ project.slug.current }}" data-transition="project">
+                            <a href="/work/{{ project.slug.current }}">
                                 <div class="l:oh csn">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>

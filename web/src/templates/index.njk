@@ -19,11 +19,15 @@ title: Home
         </div>
         <div class="x featureImg" data-component="featureFade">
           {% if project.isLive %}
-            <a class="" href="/work/{{ project.slug.current }} ">
-              <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
-            </a>
+            <div class="x homeThumb oh">
+              <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
+                <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              </a>
+            </div>
           {% else %}
-            <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+            <div class="x homeThumb oh csn">
+              <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+            </div>
           {% endif %}
         </div>
         <div class="df ais jcs rel mt15 l:mt30 x">
