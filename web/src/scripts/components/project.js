@@ -1,11 +1,6 @@
 import { component } from 'picoapp'
-import Scrollbar from 'smooth-scrollbar'
 
 export default component(() => {
-  setTimeout(function() {
-    const Scroll = Scrollbar.init($('.scrollContainer')[0])
-  })
-
   $('.workThumb').on('click', function() {
     if (
       $(this)
@@ -16,7 +11,7 @@ export default component(() => {
       $('.workThumb')
         .not(this)
         .css('visibility', 'hidden')
-      var curScroll = $('.scrollContainer').scrollTop()
+      var curScroll = $(document).scrollTop()
       var curOffset = $(this).offset().top
       var imgOffset = curScroll - curOffset + 40
 
@@ -31,7 +26,7 @@ export default component(() => {
       $('.workThumb')
         .not(this)
         .css('visibility', 'hidden')
-      var curScroll = $('.scrollContainer').scrollTop()
+      var curScroll = $(document).scrollTop()
       var curOffset = $(this).offset().top
       var imgOffset = curScroll - curOffset + 30
 
@@ -46,7 +41,7 @@ export default component(() => {
       $('.workThumb')
         .not(this)
         .css('visibility', 'hidden')
-      var curScroll = $('.scrollContainer').scrollTop()
+      var curScroll = $(document).scrollTop()
       var curOffset = $(this).offset().top
       var imgOffset = curScroll - curOffset + 20
 

@@ -2,8 +2,9 @@ import Highway from '@dogstudio/highway'
 import { listen } from 'quicklink'
 import { on, size, remove } from '@selfaware/martha'
 import loadFonts from '@/util/loadFonts'
-import gsap from 'gsap'
+import { gsap, ScrollTrigger } from 'gsap/all'
 import app from '@/app'
+import navState from '@/util/navState'
 
 class Base extends Highway.Renderer {
   onFirstLoad() {
@@ -15,6 +16,8 @@ class Base extends Highway.Renderer {
 
     // setup render loop
     gsap.ticker.add(this.tick)
+
+    gsap.registerPlugin(ScrollTrigger)
 
     gsap.set('[data-router-view]', { autoAlpha: 1 })
 
@@ -48,6 +51,25 @@ class Base extends Highway.Renderer {
       remove(document.body, 'o0')
     })
 
+    navState()
+
+    if (window.location.href.indexOf('blog') > -1) {
+      gsap.set('html', { backgroundColor: '#e2dddc' })
+      $('body').addClass('c-oblack')
+      if (window.location.href != '/blog/') {
+        gsap.set('.socialWrap', { opacity: 0 })
+        gsap.to('.socialWrap', { opacity: 1, delay: 1.2 })
+      }
+    } else {
+      gsap.set('html', { backgroundColor: '#0f0e0e' })
+      $('body').removeClass('c-oblack')
+    }
+
+    if (window.location.href.indexOf('contact') > -1) {
+      gsap.set('.countContainer', { opacity: 0 })
+      gsap.to('.countContainer', { opacity: 1, delay: 1.2 })
+    }
+
     // mount picoapp
     // this.mount()
   }
@@ -55,12 +77,11 @@ class Base extends Highway.Renderer {
   onEnter() {
     this.mount()
     if (window.location.href.indexOf('blog') > -1) {
-      $('html').addClass('bg-cream')
       $('body').addClass('c-oblack')
     } else {
-      $('html').removeClass('bg-cream')
       $('body').removeClass('c-oblack')
     }
+    navState()
   }
 
   onEnterCompleted() {}
@@ -75,7 +96,6 @@ class Base extends Highway.Renderer {
         $('.navItem, .navItemBG').addClass('vsn')
         $('.dsknav').addClass('max-w100')
       }, 300)
-
       $('header').toggleClass('nav-open')
       $('.menuIcon svg').toggleClass('r225')
       $('.navItem:eq(0)').toggleClass('l:o0 t-x')
@@ -91,6 +111,11 @@ class Base extends Highway.Renderer {
           $('.navItemBG').toggleClass('o0')
         }
       }, 200)
+    }
+    if (window.location.href.indexOf('blog') > -1) {
+      gsap.to('html, body, main', { backgroundColor: '#e2dddc', duration: 0.3 })
+    } else {
+      gsap.to('html, body, main', { backgroundColor: '#0f0e0e', duration: 0.3 })
     }
   }
 

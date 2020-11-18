@@ -1,41 +1,13 @@
 {% set modules = section.content %}
-<div class="rel s:df jcc {% if section.isSticky %} isSticky ais {% else %} aic {% endif %} section {% if section.color %} bgSolid c-oblack {% endif %} {% if section.isSticky and section.color %} colorStick {% endif %}" {% if section.isSticky and section.color %} data-color="{{ section.color }}" {% elseif section.color %} style="background-color:{{ section.color }};" {% endif %} data-component="bgShift">
+<div class="rel s:df jcc {% if section.isSticky %} isSticky ais {% else %} aic {% endif %} section {% if section.color %} bgSolid c-oblack {% endif %} {% if section.isSticky and section.color %} colorStick {% endif %}" {% if section.isSticky and section.color %} data-color="{{ section.color }}" {% elseif section.color %} style="background-color:{{ section.color }};" {% endif %}>
     {% if section.isVisible %}
-        <div class="stickyWrap s:df s:aic s:jcc{% if section.isSticky %} abs left{% endif %}" {% if section.isSticky %} data-component="sticky" data-color="{{ section.color }}" {% endif %}>
-            <div class="stickyTitle {% if section.color == '#D5B49E' %} tagWhite {% else %} tag {% endif %} r-90 dib f10 s:f12 l:f14 z9">
-                {{ section.title }}
+        <div class="stickyWrap nowrap s:df s:aic s:jcc{% if section.isSticky %} s:abs l:sticky l:mb80 l:top s:left{% endif %}" {% if section.isSticky %} data-color="{{ section.color }}" {% endif %}>
+            <div class="stickyTitle r-90 dib f10 s:f12 l:f14 z9 l:df aic">
+                <div class="s:abs s:right l:static {% if section.color == '#D5B49E' %} tagWhite {% else %} tag {% endif %}">{{ section.title }}</div>
             </div>
         </div>
     {% endif %}
-    <div class="fg1{% if section.isSticky %} l:pl240 {% endif %}">
+    <div class="contentModules x l:wa">
         {% include 'contentModules.njk' %}
     </div>
 </div>
-
-{# {% set modules = section.content %}
-<div class="rel df jcc {% if section.isSticky %} ais {% else %} aic {% endif %} section {% if section.color %} bgSolid c-oblack {% endif %}" {% if section.isSticky and section.color %} data-color="{{ section.color }}" data-component="bgShift" {% elseif section.color %} style="background-color:{{ section.color }};" {% endif %}>
-    {% if section.isVisible %}
-        <div class="stickyWrap df aic jcc{% if section.isSticky %} abs {% endif %}" {% if section.isSticky %} data-component="sticky" {% endif %}>
-            <div class="stickyTitle {% if section.color == '#D5B49E' %} tagWhite {% else %} tag {% endif %} r-90 dib f14 z9">
-                {{ section.title }}
-            </div>
-        </div>
-    {% endif %}
-    <div class="fg1{% if section.isSticky %} pl240 {% endif %}">
-        {% include 'contentModules.njk' %}
-    </div>
-</div> #}
-
-{# {% set modules = section.content %}
-<div class="rel df jcc {% if section.isSticky %} ais {% else %} aic {% endif %} section {% if section.color %} bgSolid c-oblack {% endif %}" {% if  section.color %} data-color="{{ section.color }}" {% endif %}>
-    {% if section.isVisible %}
-        <div class="stickyWrap df aic jcc{% if section.isSticky %} abs {% endif %}" {% if section.isSticky %} data-component="sticky" {% endif %}>
-            <div class="stickyTitle {% if section.color == '#D5B49E' %} tagWhite {% else %} tag {% endif %} r-90 dib f14 z9">
-                {{ section.title }}
-            </div>
-        </div>
-    {% endif %}
-    <div class="fg1{% if section.isSticky %} pl240 {% endif %}">
-        {% include 'contentModules.njk' %}
-    </div>
-</div> #}

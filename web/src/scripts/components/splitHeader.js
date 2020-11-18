@@ -24,7 +24,7 @@ export default component((node, ctx) => {
     }
   })
 
-  setTimeout(function() {
+  setTimeout(() => {
     splitHeader.revert()
   }, 1500)
 })

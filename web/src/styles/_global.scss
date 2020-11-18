@@ -9,7 +9,6 @@
 html {
   font-size: 10px;
   background: $oblack;
-  // transition: background-color 0.3s ease;
 }
 
 html,
@@ -22,12 +21,16 @@ body {
 body {
   font-family: graphik-regular, sans-serif;
   line-height: 1.5;
-  transition: background-color 0.4s ease;
 }
 
 ::selection {
-  background-color: #625d60;
+  background-color: #e2dddc;
 }
+
+* {
+  font-kerning: none;
+}
+
 *:focus {
   outline: none;
 }

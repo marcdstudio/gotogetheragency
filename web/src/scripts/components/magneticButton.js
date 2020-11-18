@@ -28,8 +28,8 @@ export default component((node) => {
   function parallaxIt(e, target, movement) {
     var $this = magBtn
     var boundingRect = $this[0].getBoundingClientRect()
-    var relX = e.pageX - boundingRect.left
-    var relY = e.pageY - boundingRect.top
+    var relX = e.clientX - boundingRect.left
+    var relY = e.clientY - boundingRect.top
 
     gsap.to(target, 0.3, {
       x: ((relX - boundingRect.width / 2) / boundingRect.width) * movement,

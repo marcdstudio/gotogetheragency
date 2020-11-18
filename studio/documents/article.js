@@ -71,5 +71,27 @@ export default {
         { type: 'articleCarousel' },
       ],
     },
+    {
+      title: 'Related Article Left',
+      name: 'relatedArticleLeft',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'article' }],
+        },
+      ],
+    },
+    {
+      title: 'Related Article Right',
+      name: 'relatedArticleRight',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'article' }],
+        },
+      ],
+    },
   ],
 }

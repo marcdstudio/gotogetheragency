@@ -82,6 +82,7 @@ $max-widths: (
   '180': 18rem,
   '200': 20rem,
   '250': 25rem,
+  '270': 27rem,
   '280': 28rem,
   '300': 30rem,
   '350': 35rem,
@@ -120,6 +121,15 @@ $aspect-ratios: (
 $user-definitions: (
   'wa': (
     width: auto,
+  ),
+  'wsnw': (
+    white-space: nowrap,
+  ),
+  'vh75': (
+    height: 75vh,
+  ),
+  'now': (
+    white-space: nowrap,
   ),
 );
 

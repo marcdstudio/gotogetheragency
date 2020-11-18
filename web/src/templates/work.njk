@@ -15,12 +15,12 @@ title: Work
         <div class="x thumbWrap rel pt100 s:pt180 l:pt0 pb60 s:pb70">
             {% for project in work.allProjects %}
                 {% if project.isLive %}
-                    <div class="x ph20 s:ph30 l:ph0 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
+                    <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
                         <a href="/work/{{ project.slug }}" style="cursor:none!important" data-transition="project">
                             <img class="dib x y o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
                         </a>
                     {% else %}
-                        <div class="x ph20 s:ph30 l:ph0 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
+                        <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
                             <div class="csn x y">
                                 <img class="db x y o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
                             </div>

@@ -1,62 +1,37 @@
 import Highway from '@dogstudio/highway'
-import gsap from 'gsap'
+import { gsap, Expo } from 'gsap'
 
 class Swipe extends Highway.Transition {
   in({ from, to, done }) {
     window.scrollTo(0, 0)
+    // var tl = gsap.timeline()
+    // tl.to('.apane', {
+    //   duration: 1.2,
+    //   width: '100%',
+    //   left: '0%',
+    //   ease: Expo.easeInOut,
+    // })
+    // tl.set('.apane', { left: '-100%' })
+
     from.remove()
-    $('.navItem, .wordHome').removeAttr('data-transition')
-    $('html, body').css('background-color', '')
+    gsap.set('html', { backgroundColor: '#0f0e0e' })
+    gsap.to(to, { autoAlpha: 1, duration: 0.5, onComplete: done })
+
+    $('body').addClass('c-oblack')
     $('.wordmark').removeClass('wordmarkBlack')
-    $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
-    gsap.to(to, {
-      duration: 1.2,
-      autoAlpha: 1,
-      onComplete: done,
-    })
+    $('.menuIcon').removeClass('menuIconBlack')
   }
 
-  out({ from, done }) {
-    $('html, body').removeClass('bg-cream')
-    $('body').removeClass('c-oblack')
-    if (window.location.href.indexOf('blog') > -1) {
-      $('.navItem').removeClass('active')
-      $('.navItem')
-        .eq(0)
-        .addClass('active')
-    } else if (window.location.href.indexOf('contact') > -1) {
-      $('.navItem').removeClass('active')
-      $('.navItem')
-        .eq(1)
-        .addClass('active')
-    } else if (window.location.href.indexOf('about') > -1) {
-      $('.navItem').removeClass('active')
-      $('.navItem')
-        .eq(2)
-        .addClass('active')
-    } else if (window.location.href.indexOf('work') > -1) {
-      $('.navItem').removeClass('active')
-      $('.navItem')
-        .eq(3)
-        .addClass('active')
-    } else {
-      $('.navItem').removeClass('active')
-    }
-
+  out({ done }) {
     var tl = gsap.timeline()
     tl.to('.apane', {
       duration: 1.2,
       width: '100%',
       left: '0%',
-      ease: 'Expo.easeInOut',
-    })
-    tl.set('.apane', { left: '-100%' })
-
-    gsap.to(from, {
-      duration: 1.2,
-      autoAlpha: 1,
+      ease: Expo.easeInOut,
       onComplete: done,
     })
+    tl.set('.apane', { left: '-100%' })
   }
 }
 

@@ -9,7 +9,7 @@ renderData:
   title: "{{ article.title }}"
 ---
 
-<div class="article rel full" data-router-view="default" data-component="article">
+<div class="article rel" data-router-view="default" data-component="article">
   <div class="dn l:df socialWrap l:fix left aic jcc fc" style="width: 24rem;" data-component="socials">
     <a class="facebook mb30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
       <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
@@ -20,11 +20,10 @@ renderData:
       <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
     </a>
   </div>
-  <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll">
-
+  <div class="full rel">
     <div class="db s:dn left ml20 mt150 mb30">
       <div class="df aic">
-        <a class="df aic" href="/blog/" data-transition="blog">
+        <a class="df aic" href="/blog/">
           <img class="dn s:db r90" src="/assets/icons/arrow_toggle.svg"/>
           <img class="db s:dn r90" style="width:1rem" src="/assets/icons/arrow_toggle.svg"/>
           <span class="f10 s:f12 l:f14 graphm ttu ls1em ml10 s:ml20 c-grey">All Posts</span>
@@ -36,9 +35,9 @@ renderData:
       <img class="x y o-cover plx" src="{{ article.poster }}"/>
     </div>
 
-    <div class="dn s:db abs left mt35 ml30 l:ml0">
+    <div class="dn s:db abs mt35 ml30 l:ml0">
       <div class="df aic">
-        <a class="df aic" href="/blog/" data-transition="blog">
+        <a class="df aic" href="/blog/">
           <img class="r90" src="/assets/icons/arrow_toggle.svg"/>
           <span class="f12 l:f14 graphm ttu ls1em ml20 c-grey">All Posts</span>
         </a>
@@ -51,13 +50,13 @@ renderData:
       </a>
       <a class="twitter" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
         <img class="articleIcon mb30" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-      <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
+      <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://gotogether.agency/blog/{{article.slug}}">
         <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
       </a>
     </div>
 
     <div class="mla l:ma max-w650 l:max-w800 rel ph20 s:pr30 l:pr0 mb100 s:mb150 l:mb200">
-      <h2 class="x mla articleTitle max-w450 l:max-w600 mt20 s:mt25 ph20 s:pl0 s:pr60 l:pr0">
+      <h2 class="x ml0 s:mla articleTitle max-w450 l:max-w600 mt20 s:mt25 ph20 s:pl0 s:pr60 l:pr0">
         {{ article.title }}
       </h2>
       <div class="mt10 x mla articleMeta ph20 s:ph0 s:max-w450 l:max-w600 c-grey">
@@ -74,7 +73,7 @@ renderData:
         </a>
         <a class="twitter mr30" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
           <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-        <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://schulzcollection.com/journal/{{article.slug}}">
+        <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://gotogether.agency/blog/{{article.slug}}">
           <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
         </a>
       </div>
@@ -86,23 +85,17 @@ renderData:
           {% else %}
             {% if block.wideImg %}
               <div class="articleImgWide" data-component="reveal">
-                <img alt="{{ block.altText }}" class="lazy x" src="{{ block.image }}"/>
-              </div>
-            {% elseif block.carouselImg %}
-              <div class="articleCarousel" data-component="flickity">
-                {% for image in block.image %}
-                  <img src="{{ image.image }}"/>
-                {% endfor %}
+                <img alt="{{ block.altText }}" class="x" src="{{ block.image }}"/>
               </div>
             {% else %}
               <div class="articleImg" data-component="reveal">
-                <img alt="{{ block.altText }}" class="lazy x" data-src="{{ block.image }}" data-srcset="{{ block.image }} 400w,
-                  {{ block.image }} 800w" data-sizes="100w"/>
+                <img alt="{{ block.altText }}" class="x" src="{{ block.image }}"/>
               </div>
             {% endif %}
           {% endif %}
         {% endfor %}
       </div>
+
       <div class="maxfull mt20 mb5 light-green mainTag">
         {% for tag in article.allTags %}
           {% if loop.first %}
@@ -113,7 +106,8 @@ renderData:
           {% endif %}
         {% endfor %}
       </div>
-      <div class="maxfull x ma flcs mb25 sugArt" data-component="">
+
+      <div class="maxfull x ma flcs mb25 sugArt">
         {% for tag in article.allTags %}
           {% if loop.first %}
             {% set firstTag = tag.title %}
@@ -147,7 +141,44 @@ renderData:
         {% endfor %}
       </div>
     </div>
+    {% if article.relatedArticleLeft %}
+      <div class="ph15 s:ph15 l:pr0 mt120 l:mt200 s:mt150">
+        <div class="s:ml15 l:ml0 tag tagGrey dib f10 s:f12 l:f14 mb25 l:mb35 l:mb40 lh100">
+          Related
+        </div>
+        <div class="df fw x mb120 s:mb160 l:mb200">
+          {% for article in article.relatedArticleLeft %}
+            <div class="x s:w50 s:ph15 l:pl0 l:pr40 artThumb oh mb20 s:mb0">
+              <a href="/blog/{{ article.slug.current }}">
+                <div class="oh">
+                  <img class="x l:o-cover" src="{{ article.poster }}" alt="{{ article.altText}}"/>
+                </div>
+                <div class="x mt15 s:mt20">
+                  <h3 class="" style="line-height:1.2">{{ article.title }}</h3>
+                  <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
+                  <p class="c-tan mt10 f10 s:f12 graphm journalDate ls1em" data-component="xdates">{{ article.date }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+          {% for article in article.relatedArticleRight %}
+            <div class="x s:w50 s:ph15 l:pl0 l:pr40 artThumb oh mb20 s:mb0">
+              <a href="/blog/{{ article.slug.current }}">
+                <div class="oh">
+                  <img class="x l:o-cover" src="{{ article.poster }}" alt="{{ article.altText}}"/>
+                </div>
+                <div class="x mt15 s:mt20">
+                  <h3 class="" style="line-height:1.2">{{ article.title }}</h3>
+                  <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
+                  <p class="c-tan mt10 f10 s:f12 graphm journalDate ls1em" data-component="xdates">{{ article.date }}</p>
+                </div>
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
     {% include 'subscribe.njk' %}
-    {% include 'footerNews.njk' %}
   </div>
+  {% include 'footerNews.njk' %}
 </div>

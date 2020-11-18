@@ -2,25 +2,25 @@ import { component } from 'picoapp'
 import { gsap } from 'gsap'
 
 export default component(() => {
-  $(document).ready(function() {
+  $(document).ready(() => {
     if (document.documentElement.clientWidth > 1025) {
-      setTimeout(function() {
+      setTimeout(() => {
         $('header').toggleClass('nav-open')
         $('.menuIcon svg').toggleClass('r225')
         $('.navItem:eq(0)').toggleClass('l:o0 t-x')
-        setTimeout(function() {
+        setTimeout(() => {
           $('.navItem:eq(1)').toggleClass('l:o0 t-x')
         }, 50)
-        setTimeout(function() {
+        setTimeout(() => {
           $('.navItem:eq(2)').toggleClass('l:o0 t-x')
         }, 100)
-        setTimeout(function() {
+        setTimeout(() => {
           $('.navItem:eq(3)').toggleClass('l:o0 t-x')
         }, 200)
-        setTimeout(function() {
+        setTimeout(() => {
           $('.navItem').toggleClass('vsn')
         }, 200)
-        setTimeout(function() {
+        setTimeout(() => {
           $('nav').removeClass('navFlex')
           $('.dsknav').addClass('max-w100')
         }, 1000)
@@ -28,9 +28,9 @@ export default component(() => {
     }
   })
 
-  $('.menuIcon, .navItem').on('click', function() {
+  $('.menuIcon, .navItem').on('click', () => {
     if ($('header').hasClass('nav-open')) {
-      setTimeout(function() {
+      setTimeout(() => {
         $('.navItem, .navItemBG').addClass('vsn')
         $('.dsknav').addClass('max-w100')
         $('nav').removeClass('navFlex')
@@ -43,13 +43,13 @@ export default component(() => {
     $('header').toggleClass('nav-open')
     $('.menuIcon svg').toggleClass('r225')
     $('.navItem:eq(0)').toggleClass('l:o0 t-x')
-    setTimeout(function() {
+    setTimeout(() => {
       $('.navItem:eq(1)').toggleClass('l:o0 t-x')
     }, 50)
-    setTimeout(function() {
+    setTimeout(() => {
       $('.navItem:eq(2)').toggleClass('l:o0 t-x')
     }, 100)
-    setTimeout(function() {
+    setTimeout(() => {
       $('.navItem:eq(3)').toggleClass('l:o0 t-x')
       if (!$('.home')[0]) {
         $('.navItemBG').toggleClass('o0')
@@ -71,36 +71,6 @@ export default component(() => {
       $('.stickyTitle').toggleClass('o0')
     }
   })
-
-  $('.navItem').on('click', function() {
-    $('.navItem').removeClass('active')
-    $(this).addClass('active')
-  })
-
-  if (window.location.href.indexOf('blog') > -1) {
-    $('.navItem').removeClass('active')
-    $('.navItem')
-      .eq(0)
-      .addClass('active')
-  } else if (window.location.href.indexOf('contact') > -1) {
-    $('.navItem').removeClass('active')
-    $('.navItem')
-      .eq(1)
-      .addClass('active')
-  } else if (window.location.href.indexOf('about') > -1) {
-    $('.navItem').removeClass('active')
-    $('.navItem')
-      .eq(2)
-      .addClass('active')
-  } else if (window.location.href.indexOf('work') > -1) {
-    $('.navItem').removeClass('active')
-    $('.navItem')
-      .eq(3)
-      .addClass('active')
-  } else {
-    $('.navItem').removeClass('active')
-    $('.navItemBG').attr('style', 'transform: translateY(0);height: 7rem;')
-  }
 
   function navUp() {
     gsap.fromTo(
@@ -138,13 +108,13 @@ export default component(() => {
     )
   }
 
-  $('.mblIcon, .mblNavItem').on('click', function() {
+  $('.mblIcon, .mblNavItem').on('click', () => {
     if ($('header').hasClass('mblnav-open')) {
       $('header').removeClass('mblnav-open')
       $('.mblIcon').removeClass('clrovr')
       $('.wordmark').removeClass('clrovr')
       navUp()
-      setTimeout(function() {
+      setTimeout(() => {
         $('.mblIcon').toggleClass('r225')
         $('.mblNav').toggleClass('t-y')
       }, 1000)
@@ -157,31 +127,31 @@ export default component(() => {
       $('.mblNav').toggleClass('t-y')
     }
   })
-})
 
-$('.wordmark').on('click', function() {
-  if ($('header').hasClass('mblnav-open')) {
-    $('.mblIcon').toggleClass('r225')
-    $('.mblNav').toggleClass('t-y')
-    $('header').removeClass('mblnav-open')
-  }
-  if ($('header').hasClass('nav-open')) {
-    $('header').toggleClass('nav-open')
-    $('.menuIcon svg').toggleClass('r225')
-    $('.navItem:eq(0)').toggleClass('l:o0 t-x')
-    setTimeout(function() {
-      $('.navItem:eq(1)').toggleClass('l:o0 t-x')
-    }, 50)
-    setTimeout(function() {
-      $('.navItem:eq(2)').toggleClass('l:o0 t-x')
-    }, 100)
-    setTimeout(function() {
-      $('.navItem:eq(3)').toggleClass('l:o0 t-x')
-      if (!$('.home')[0]) {
-        $('.navItemBG').toggleClass('o0')
-      }
-      $('.mblIcon').removeClass('clrovr menuIconBlack')
-      $('.wordmark').removeClass('clrovr wordmarkBlack')
-    }, 200)
-  }
+  $('.wordmark').on('click', () => {
+    if ($('header').hasClass('mblnav-open')) {
+      $('.mblIcon').toggleClass('r225')
+      $('.mblNav').toggleClass('t-y')
+      $('header').removeClass('mblnav-open')
+    }
+    if ($('header').hasClass('nav-open')) {
+      $('header').toggleClass('nav-open')
+      $('.menuIcon svg').toggleClass('r225')
+      $('.navItem:eq(0)').toggleClass('l:o0 t-x')
+      setTimeout(() => {
+        $('.navItem:eq(1)').toggleClass('l:o0 t-x')
+      }, 50)
+      setTimeout(() => {
+        $('.navItem:eq(2)').toggleClass('l:o0 t-x')
+      }, 100)
+      setTimeout(() => {
+        $('.navItem:eq(3)').toggleClass('l:o0 t-x')
+        if (!$('.home')[0]) {
+          $('.navItemBG').toggleClass('o0')
+        }
+        $('.mblIcon').removeClass('clrovr menuIconBlack')
+        $('.wordmark').removeClass('clrovr wordmarkBlack')
+      }, 200)
+    }
+  })
 })

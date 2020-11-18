@@ -10,6 +10,13 @@ class Fade extends Highway.Transition {
       autoAlpha: 1,
       onComplete: done,
     })
+    if (window.location.href.indexOf('blog') > -1) {
+      gsap.to('html', { backgroundColor: '#e2dddc', duration: 0.5 })
+      $('body').addClass('c-oblack')
+    } else {
+      gsap.to('html', { backgroundColor: '#0f0e0e', duration: 0.5 })
+      $('body').removeClass('c-oblack')
+    }
   }
 
   out({ from, done }) {

@@ -45,11 +45,3 @@ H.on('NAVIGATE_END', ({ to, location }) => {
     dl: location.href,
   })
 })
-
-if (window.location.href.indexOf('blog') > -1) {
-  $('html').addClass('bg-cream')
-  $('body').addClass('c-oblack')
-} else {
-  $('html').removeClass('bg-cream')
-  $('body').removeClass('c-oblack')
-}

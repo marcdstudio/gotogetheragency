@@ -4,42 +4,41 @@ title: About
 ---
 
 <div class="modules about" data-router-view="default" data-component="about">
-  <div class="fix x y vh100 left l:pl0">
-    <div class="vh100 x pl40 s:pl150 l:pl0 l:ph80 df aic jcc fw l:fnw youBlock abs top left">
-      <div class="recki c-tan x l:w50 mega df aie l:aic l:jce h50 l:y youTitle">
-        You
-      </div>
-      <div class="x l:w50 df l:aic l:jcc h50 l:y youBody">
-        <div class="l:max-w350 s:max-w300 max-w250 blockText youContent f14 s:f16 l:f18">
-          {% for text in aboutContent.youText.blockText %}
-            {{ text | blocksToHtml | safe }}
-          {% endfor %}
-        </div>
-      </div>
+  <div class="vh75 full x pl40 l:pl0 l:ph80 df aic jcc fw l:fnw youBlock o0">
+    <div class="recki c-tan x pl40 s:pl150 l:pl0 l:w50 mega df aie l:aic l:jce h50 l:y youTitle">
+      <div class="splity">Y</div>
+      <div class="splity">o</div>
+      <div class="splity">u</div>
     </div>
-
-    <div class="vh100 x pr40 s:pr150 l:pr0 l:pl0 l:ph80 df fcr l:fr aic jcc fw l:fnw usBlock abs top left o0">
-      <div class="x l:w50 df l:aic jce l:jce h50 l:y usBody">
-        <div class="l:max-w350 s:max-w300 max-w250 blockText tr usContent f14 s:f16 l:f18">
-          {% for text in aboutContent.usText.blockText %}
-            {{ text | blocksToHtml | safe }}
-          {% endfor %}
-        </div>
+    <div class="x l:w50 df l:aic pl40 s:pl150 l:pl0 l:jcc h50 l:y youBody">
+      <div class="l:max-w350 s:max-w300 max-w250 blockText youContent db f14 s:f16 l:f18">
+        {% for text in aboutContent.youText.blockText %}
+          {{ text | blocksToHtml | safe }}
+        {% endfor %}
       </div>
-      <div class="recki c-tan x l:w50 mega df aie jce l:aic l:jcc h50 l:y usTitle">
-        Us
-      </div>
-    </div>
-
-    <div class="vh100 x l:pl0 l:ph80 df aic jcc fnw mega c-tan recki toBlock abs top left o0 toScale">
-      Together
     </div>
   </div>
-  <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll" style="overflow-x:visible">
 
-    <div class="aboutSpacer" style=""></div>
+  <div class="pt150 full x pr40 l:pl0 l:ph80 df fcr l:fr aic jcc fw l:fnw usBlock">
+    <div class="x l:w50 df l:aic jce s:pr150 l:pr0 l:jce h50 l:y usBody">
+      <div class="l:max-w350 s:max-w300 max-w250 blockText tr usContent db f14 s:f16 l:f18">
+        {% for text in aboutContent.usText.blockText %}
+          {{ text | blocksToHtml | safe }}
+        {% endfor %}
+      </div>
+    </div>
+    <div class="recki c-tan x l:w50 s:pr150 l:pr0 mega df aie jce l:aic l:jcc h50 l:y usTitle">
+      <div class="splitu">U</div>
+      <div class="splitu">s</div>
+    </div>
+  </div>
 
-    <div class="x df aic jcc fw s:fnw txt3Up mb30 s:mb160">
+  <div class="full pb150 pt200 l:pt100 x l:pl0 l:ph80 df aic jcc fnw mega c-tan recki toBlock toScale">
+    <div class="toTitle">Together</div>
+  </div>
+
+  <div class="aboutBlock o0">
+    <div class="full x df aic jcc fw s:fnw txt3Up mb30 s:mb160">
       {% for icon in aboutContent.text3Up %}
         <div class="w100 x s:w30 df aic jcc y fc mb70 s:mb0">
           <div class="mb0">
@@ -59,7 +58,7 @@ title: About
       {% endfor %}
     </div>
     <div class="full">
-      <div class="df aic jcc x max-w250 s:max-w550 l:max-w880 ma l:pb160">
+      <div class="df aic jcc x max-w270 s:max-w550 l:max-w880 ma l:pb160">
         <div class="h1 fadeltr c-tan" data-component="splitText">
           {% for text in aboutContent.largeTextBlock.content %}
             {{ text | blocksToHtml | safe }}
@@ -109,13 +108,13 @@ title: About
           </div>
         {% endfor %}
       </div>
+      {% set form = 'about'%}
     </div>
-    {% set form = 'about'%}
     <div class="aboutForm" data-component="splitHeader">
       {% include 'contactForm.njk' %}
     </div>
     <div class="full mt250">
       {% include 'footer.njk' %}
     </div>
-    {# {% debug aboutContent %} #}
   </div>
+</div>

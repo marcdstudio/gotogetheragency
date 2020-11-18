@@ -9,9 +9,8 @@ renderData:
   title: "{{ project.title }}"
 ---
 
-<div class="modules project" data-router-view="default">
-
-    <div class="scrollContainer x vh100 oy z3" data-component="smoothScroll">
+<div class="modules project" data-router-view="default" data-component="projectSection">
+    <div class="x">
         <div class="posterSlot x bgSolid oh rel">
             <img class="dib x y o-cover " src="{{ project.poster }}" alt="{{ project.poster.altText }}"/>
         </div>
@@ -32,8 +31,8 @@ renderData:
                 {% for project in project.relatedProjectLeft %}
                     {% if project.isLive %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <a href="/work/{{ project.slug.current }}">
-                                <div class="l:oh csn">
+                            <a href="/work/{{ project.slug.current }}/">
+                                <div class="oh">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>
                                 <h3 class="mt15 l:mt20">{{ project.title }}</h3>
@@ -46,7 +45,7 @@ renderData:
                         </div>
                     {% else %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <div class="l:oh csn">
+                            <div class="oh csn">
                                 <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                             </div>
                             <h3 class="mt15 l:mt20">{{ project.title }}</h3>
@@ -61,8 +60,8 @@ renderData:
                 {% for project in project.relatedProjectRight %}
                     {% if project.isLive %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <a href="/work/{{ project.slug.current }}">
-                                <div class="l:oh csn">
+                            <a href="/work/{{ project.slug.current }}/">
+                                <div class="oh">
                                     <img class="x l:o-cover pMouse pLive" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                                 </div>
                                 <h3 class="mt15 l:mt20">{{ project.title }}</h3>
@@ -75,7 +74,7 @@ renderData:
                         </div>
                     {% else %}
                         <div class="x s:w50 s:ph15 l:pl0 l:pr40 relThumb oh mb20 s:mb0">
-                            <div class="l:oh csn">
+                            <div class="oh csn">
                                 <img class="x l:o-cover pMouse pHidden" src="{{ project.poster }}" alt="{{ project.altText}}"/>
                             </div>
                             <h3 class="mt15 l:mt20">{{ project.title }}</h3>

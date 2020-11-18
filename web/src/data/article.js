@@ -21,7 +21,16 @@ module.exports = async function() {
           'alt': image.altText,
           }
         },
-        
+        relatedArticleLeft[]->{
+          ...,
+          'poster': poster.image.asset->url,
+          'altText': poster.altText,
+        },
+        relatedArticleRight[]->{
+          ...,
+          'poster': poster.image.asset->url,
+          'altText': poster.altText,
+        },
     }`,
   )
 }

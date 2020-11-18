@@ -1,6 +1,6 @@
 <div class="ph40 s:pr0 bodyText fg1 s:pl100 l:pl0 {% if section.isSticky %}s:pl160 l:pl0{% else %} {% endif %}">
-    <div class="x ma df jce {% if module.isQuote %} l:pl240 pb160 {% else %} pb100 {% endif %}  s:pb160 pt40 s:pt120 l:pv160">
-        <div class="x ma fadeltr {% if module.isQuote %} s:max-w500 l:max-w650 s:df h3 {% elseif section.isSticky %} s:max-w400 l:max-w550 pt40 s:pt0 {% else %} l:max-w550 s:max-w400 {% endif %}" {% if module.isQuote %} style="font-family:reckless-italic, serif" {% endif %} data-component="splitText">
+    <div class="x ma df jce {% if module.isQuote %} l:pl240{% else %} pb100 s:pb160 l:pv160{% endif %}  pt40 s:pt120">
+        <div class="x ma fadeltr {% if module.isQuote %} s:max-w500 l:max-w650 s:df h3 {% elseif section.isSticky %} s:max-w400 l:max-w550 {% else %} l:max-w550 s:max-w400 {% endif %}" {% if module.isQuote %} style="font-family:reckless-italic, serif" {% endif %} data-component="splitText">
             {% if module.isQuote %}
                 <div class="pb30 quotemark">
                     <img class="x" src="/assets/icons/quotemark.svg" alt="quote icon"/>

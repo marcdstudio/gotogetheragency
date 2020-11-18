@@ -21,6 +21,7 @@ export default component(() => {
       dataType: 'json',
       contentType: 'application/json; charset=utf-8',
       error: function(err) {
+        console.log(err)
         $('.subResult').removeClass('dn mt30')
         $('.subResult').addClass('c-red mt10')
         $('.subResult').html('<p>Oops, something went wrong. </p>')
@@ -38,7 +39,7 @@ export default component(() => {
           console.log(data.msg)
           $('.subResult').removeClass('dn mt30')
           $('.subResult').addClass('c-red mt10')
-          $('.subResult').html('<p>Oops, something went wrong. </p>')
+          $('.subResult').html(data.msg)
         }
       },
     })

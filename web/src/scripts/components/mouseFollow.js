@@ -1,5 +1,4 @@
 import { component } from 'picoapp'
-// import { gsap } from 'gsap'
 import { TweenLite } from 'gsap'
 
 export default component(() => {

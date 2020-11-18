@@ -9,17 +9,16 @@ import splitText from '@/components/splitText'
 import splitHeader from '@/components/splitHeader'
 import wordmark from '@/components/wordmark'
 import reveal from '@/components/reveal'
-import featureFade from '@/components/featureFade'
-import smoothScroll from '@/components/smoothScroll'
 import magneticButton from '@/components/magneticButton'
 import mouseFollow from '@/components/mouseFollow'
 import home from '@/components/home'
 import about from '@/components/about'
 import project from '@/components/project'
 import contact from '@/components/contact'
-import contactScroll from '@/components/contactScroll'
 import article from '@/components/article'
-import sticky from '@/components/sticky'
+import blog from '@/components/blog'
+import projectSection from '@/components/projectSection'
+import parallax from '@/components/parallax'
 
 const components = {
   subscribe,
@@ -30,18 +29,17 @@ const components = {
   nav,
   splitText,
   wordmark,
-  featureFade,
-  smoothScroll,
   magneticButton,
   mouseFollow,
   about,
   contact,
-  contactScroll,
   article,
+  blog,
   splitHeader,
-  sticky,
+  projectSection,
   project,
   home,
+  parallax,
 }
 
 const state = {
