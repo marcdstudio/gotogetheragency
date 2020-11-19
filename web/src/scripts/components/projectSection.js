@@ -35,11 +35,11 @@ export default component((node, ctx) => {
       end: 'bottom 50%+=100px',
       onToggle: (self) => {
         if (self.isActive) {
-          $('main, body').css('background-color', bgColor)
+          $('main').css('background-color', bgColor)
           $('.wordmark').addClass('wordmarkBlack')
           $('.menuIcon, .mblIcon').addClass('menuIconBlack')
         } else {
-          $('main, body').css('background-color', '#0f0e0e')
+          $('main').css('background-color', '#0f0e0e')
           $('.wordmark').removeClass('wordmarkBlack')
           $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
         }

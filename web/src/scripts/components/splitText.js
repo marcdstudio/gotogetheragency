@@ -103,6 +103,21 @@ export default component((node, ctx) => {
     }
   }
 
+  const fadeUp = () => {
+    gsap.fromTo(
+      node,
+      {
+        y: 15,
+        opacity: 0,
+      },
+      {
+        y: 0,
+        opacity: 1,
+        ease: Power2.easeOut,
+      },
+    )
+  }
+
   if (inview(node, ctx.getState().wh)) return
 
   let off = ctx.on('tick', ({ wh }) => {
@@ -122,6 +137,9 @@ export default component((node, ctx) => {
       }
       if ($(node).hasClass('formTitle')) {
         tlHeader()
+      }
+      if ($(node).hasClass('fadeUp')) {
+        fadeUp()
       }
     }
   })

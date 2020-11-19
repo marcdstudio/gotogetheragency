@@ -5,7 +5,7 @@
             <div class="lh130 f32 s:f54 h2ttb" data-component="splitText" style="font-family: reckless-regular, serif;">
                 {{ module.bodyText.blockTitle }}
             </div>
-            <div class="fadeltr mt30 s:mt60 l:mt50" data-component="splitText">
+            <div class="fadeUp mt30 s:mt60 l:mt50" data-component="splitText">
                 {% for text in module.bodyText.blockText %}
                     {{ text | blocksToHtml | safe }}
                 {% endfor %}

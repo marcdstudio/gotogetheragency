@@ -88,6 +88,15 @@ export default component(() => {
           ease: Expo.easeInOut,
         },
         0,
+      ).fromTo(
+        '.aboutBlock',
+        { y: 50, opacity: 0 },
+        {
+          duration: 0.35,
+          y: 0,
+          opacity: 1,
+          ease: Expo.easeOut,
+        },
       )
     }
 
@@ -104,29 +113,7 @@ export default component(() => {
           ease: Expo.easeInOut,
         },
         0,
-      )
-    }
-
-    const tliIn = () => {
-      var tl = gsap.timeline()
-
-      tl.fromTo(
-        '.aboutBlock',
-        { y: 50, opacity: 0 },
-        {
-          duration: 0.35,
-          y: 0,
-          opacity: 1,
-          ease: Expo.easeOut,
-        },
-        0,
-      )
-    }
-
-    const tliOut = () => {
-      var tl = gsap.timeline()
-
-      tl.fromTo(
+      ).fromTo(
         '.aboutBlock',
         { y: 0, opacity: 1 },
         {
@@ -138,6 +125,38 @@ export default component(() => {
         0,
       )
     }
+
+    // const tliIn = () => {
+    //   var tl = gsap.timeline()
+
+    //   tl.fromTo(
+    //     '.aboutBlock',
+    //     { y: 50, opacity: 0 },
+    //     {
+    //       duration: 0.35,
+    //       y: 0,
+    //       opacity: 1,
+    //       ease: Expo.easeOut,
+    //     },
+    //     0,
+    //   )
+    // }
+
+    // const tliOut = () => {
+    //   var tl = gsap.timeline()
+
+    //   tl.fromTo(
+    //     '.aboutBlock',
+    //     { y: 0, opacity: 1 },
+    //     {
+    //       duration: 0.35,
+    //       y: 50,
+    //       opacity: 0,
+    //       ease: Expo.easeOut,
+    //     },
+    //     0,
+    //   )
+    // }
 
     ScrollTrigger.create({
       trigger: '.youBlock',
@@ -170,7 +189,7 @@ export default component(() => {
     })
 
     ScrollTrigger.create({
-      trigger: '.toBlock',
+      trigger: '.mainBlock',
       start: 'top center',
       end: 'bottom center',
       onToggle: (self) => {
@@ -180,21 +199,6 @@ export default component(() => {
         } else if (!self.isActive && $('.toBlock').hasClass('active')) {
           $('.toBlock').removeClass('active')
           tltOut()
-        }
-      },
-    })
-
-    ScrollTrigger.create({
-      trigger: '.aboutBlock',
-      start: 'top center',
-      end: 'bottom center',
-      onToggle: (self) => {
-        if (self.isActive && !$('.aboutBlock').hasClass('active')) {
-          $('.aboutBlock').addClass('active')
-          tliIn()
-        } else if (!self.isActive && $('.aboutBlock').hasClass('active')) {
-          $('.aboutBlock').removeClass('active')
-          tliOut()
         }
       },
     })

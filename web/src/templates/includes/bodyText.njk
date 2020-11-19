@@ -1,6 +1,6 @@
 <div class="ph40 s:pr0 bodyText fg1 s:pl100 l:pl0 {% if section.isSticky %}s:pl160 l:pl0{% else %} {% endif %}">
     <div class="x ma df jce {% if module.isQuote %} l:pl240{% else %} pb100 s:pb160 l:pv160{% endif %}  pt40 s:pt120">
-        <div class="x ma fadeltr {% if module.isQuote %} s:max-w500 l:max-w650 s:df h3 {% elseif section.isSticky %} s:max-w400 l:max-w550 {% else %} l:max-w550 s:max-w400 {% endif %}" {% if module.isQuote %} style="font-family:reckless-italic, serif" {% endif %} data-component="splitText">
+        <div class="x ma {% if module.isQuote %} s:max-w500 l:max-w650 s:df h3 {% elseif section.isSticky %} s:max-w400 l:max-w550 {% else %} l:max-w550 s:max-w400 {% endif %}" {% if module.isQuote %} style="font-family:reckless-italic, serif" {% endif %}>
             {% if module.isQuote %}
                 <div class="pb30 quotemark">
                     <img class="x" src="/assets/icons/quotemark.svg" alt="quote icon"/>
@@ -8,18 +8,20 @@
             {% endif %}
             <div>
                 {% if module.text.blockTitle %}
-                    <h3 class="pb20 s:pb35">{{ module.text.blockTitle }}</h3>
+                    <h3 class="pb20 s:pb35 h2ttb" data-component="splitText">{{ module.text.blockTitle }}</h3>
                 {% endif %}
                 {% if module.isQuote %}
-                    <div class="s:pl40 quoteWrap lh130">
+                    <div class="s:pl40 quoteWrap lh130 fadeltr" data-component="splitText">
                         {% for text in module.text.blockText %}
                             {{ text | blocksToHtml | safe }}
                         {% endfor %}
                     </div>
                 {% else %}
-                    {% for text in module.text.blockText %}
-                        {{ text | blocksToHtml | safe }}
-                    {% endfor %}
+                    <div class="fadeUp" data-component="splitText">
+                        {% for text in module.text.blockText %}
+                            {{ text | blocksToHtml | safe }}
+                        {% endfor %}
+                    </div>
                 {% endif %}
                 {% if module.isQuote %}
                     <p class="s:pl40 quote c-tan graphm ttu f10 s:f14 ls1em lh130 quoteBy" style="line-height:1;">
