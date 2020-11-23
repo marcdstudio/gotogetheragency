@@ -14,7 +14,6 @@ renderData:
         <div class="posterSlot x bgSolid oh rel">
             <img class="dib x y o-cover " src="{{ project.poster }}" alt="{{ project.poster.altText }}"/>
         </div>
-
         {% for section in project.projectSection %}
             {% if section._type == 'projectSection' %}
                 {% include 'projectSection.njk' %}

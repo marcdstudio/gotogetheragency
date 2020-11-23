@@ -24,6 +24,8 @@ export default component((node, ctx) => {
     })
   })
 
+  $('.colBlock').removeClass('fadeUp')
+
   document.querySelectorAll('img').forEach((img) => {
     img.onload = () => {
       ScrollTrigger.refresh()
