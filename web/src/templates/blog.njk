@@ -29,7 +29,7 @@ title: Blog
                             <img class="x" src="{{ article.poster }}" alt="{{ article.posterAlt }}"/>
                             <div class="db s:df">
                                 <div class="x s:max-w450 l:max-w550 mt15 s:mt20 s:w50">
-                                    <h3 class="mt2" style="line-height:1.2">{{ article.title }}</h3>
+                                    <h3 class="mt2 graphm" style="line-height:1.2">{{ article.title }}</h3>
                                     <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
                                 </div>
                                 <div class="fg1 df s:jce">
@@ -43,7 +43,7 @@ title: Blog
                         <a href="/blog/{{ article.slug }}">
                             <img class="x" src="{{ article.poster }}" alt="{{ article.posterAlt }}"/>
                             <div class="x mt15 s:mt20">
-                                <h3 class="" style="line-height:1.2">{{ article.title }}</h3>
+                                <h3 class="graphm" style="line-height:1.2">{{ article.title }}</h3>
                                 <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
                                 <p class="c-tan mt10 f10 s:f12 graphm journalDate ls1em" data-component="xdates">{{ article.date }}</p>
                             </div>
@@ -52,7 +52,6 @@ title: Blog
                 {% endif %}
             {% endfor %}
         </div>
-        {# {% debug article %} #}
         {% include 'subscribe.njk' %}
     </div>
     {% include 'footerNews.njk' %}

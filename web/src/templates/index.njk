@@ -35,8 +35,8 @@ title: Home
         </div>
         <div class="df jcb aic x s:pl60 l:pl110">
           <div class="db featureDetails">
-            <h3 class="lh10" style="line-height:1;">{{ project.title }}</h3>
-            <div class="h3 c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
+            <h3 class="lh10 graphm" style="line-height:1;">{{ project.title }}</h3>
+            <div class="h3g c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
               {% for text in project.introText.content %}
                 {{ text | blocksToHtml | safe }}
               {% endfor %}
@@ -99,7 +99,7 @@ title: Home
           {% endif %}
           <div class="df ais jcs rel mt10 s:mt20 x">
             <div class="db">
-              <h3 style="line-height:1;">{{ project.title }}</h3>
+              <h3 class="graphm" style="line-height:1;">{{ project.title }}</h3>
               <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
                 {% for text in project.introText.content %}
                   {{ text | blocksToHtml | safe }}
@@ -126,7 +126,7 @@ title: Home
           {% endif %}
           <div class="df ais jcs rel mt10 s:mt20 x">
             <div class="db">
-              <h3 style="line-height:1;">{{ project.title }}</h3>
+              <h3 class="graphm" style="line-height:1;">{{ project.title }}</h3>
               <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
                 {% for text in project.introText.content %}
                   {{ text | blocksToHtml | safe }}
@@ -162,7 +162,7 @@ title: Home
         </span>
         <a class="fg1 arrowSpan" href="/blog/{{ article.slug }}">
           <span class="fg1 df jcb aic">
-            <h3 class="">{{ article.title }}</h3>
+            <h3 class="graph">{{ article.title }}</h3>
             <div id="magBtn" data-component="magneticButton">
               <span class="circle ml0 mr20 s:mr60">
                 <svg class="arrow" fill="none" viewbox="0 0 15 12">

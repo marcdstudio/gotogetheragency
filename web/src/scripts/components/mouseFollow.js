@@ -1,5 +1,5 @@
 import { component } from 'picoapp'
-import { TweenLite } from 'gsap'
+import { TweenLite, gsap, Power4 } from 'gsap'
 
 export default component(() => {
   var $circle = $('.cBtn')
@@ -7,26 +7,26 @@ export default component(() => {
   function moveCircle(e) {
     TweenLite.to($circle, 0.3, {
       css: {
-        left: e.pageX,
-        top: e.pageY,
+        left: e.pageX + 25,
+        top: e.pageY + 25,
       },
     })
   }
 
   var flag = false
 
-  $('.workThumb, .homeThumb, .relThumb').mouseover(function() {
+  $('.workThumb-img, .homeThumb, .relThumb').mouseover(function() {
     flag = true
     TweenLite.to($circle, 0.4, { scale: 1, autoAlpha: 1 })
-    $('.workThumb, .homeThumb, .relThumb').on('mousemove', moveCircle)
+    $('.workThumb-img, .homeThumb, .relThumb').on('mousemove', moveCircle)
   })
 
-  $('.workThumb, .homeThumb, .relThumb').mouseout(function() {
+  $('.workThumb-img, .homeThumb, .relThumb').mouseout(function() {
     flag = false
     TweenLite.to($circle, 0.4, { scale: 0.1, autoAlpha: 0 })
   })
 
-  $('.workThumb, .homeThumb, .relThumb').on('mouseover', function() {
+  $('.workThumb-img, .homeThumb, .relThumb').on('mouseover', function() {
     $('.eyeBtn').css('opacity', '1')
     if (
       $(this)
@@ -41,27 +41,56 @@ export default component(() => {
     }
   })
 
-  $('.workThumb, .homeThumb, .relThumb').on('mouseout', function() {
+  $('.workThumb-img, .homeThumb, .relThumb').on('mouseout', function() {
     $('.eyeBtn').css('opacity', '0')
   })
 
   $(document).on('mousemove', function(e) {
     $('.eyeBtn, .cBtn').css({
-      left: e.pageX,
-      top: e.pageY,
+      left: e.pageX + 25,
+      top: e.pageY + 25,
     })
   })
 
   //===== PROJECT TILE HOVER =====//
 
-  $('.workThumb, .homeThumb, .relThumb').mouseover(function() {
-    var wt = $(this).attr('data-id')
-    $('.pTitle').addClass('o0 title-x')
-    setTimeout(function() {
-      $('.pTitle h3').html(wt)
-    }, 300)
-    setTimeout(function() {
-      $('.pTitle').removeClass('o0 title-x')
-    }, 500)
-  })
+  if ($('.modules').hasClass('work')) {
+    gsap.set('.pTitle', { x: -50, opacity: 0 })
+    if ($('header').hasClass('nav-open')) {
+      $('.pTitle').hide()
+      setTimeout(() => {
+        $('.pTitle')
+          .css('display', 'flex')
+          .hide()
+          .fadeIn()
+      }, 1500)
+    }
+    $('.workThumb-img').mouseover(function() {
+      let tl = gsap.timeline()
+      var prev = $('.title-active')
+      var active = $(this)
+        .parent()
+        .find('.pTitle')
+      if (prev.text() != active.text()) {
+        active.addClass('title-active')
+        prev.removeClass('title-active')
+
+        tl.to(active, {
+          x: 0,
+          opacity: 1,
+          duration: 0.25,
+        })
+          .to(
+            prev,
+            {
+              x: 50,
+              opacity: 0,
+              duration: 0.25,
+            },
+            0,
+          )
+          .set(prev, { x: -50 })
+      }
+    })
+  }
 })

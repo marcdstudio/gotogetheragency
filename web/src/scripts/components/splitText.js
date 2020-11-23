@@ -4,7 +4,7 @@ import inview from '@/util/inview'
 import { gsap, Power2 } from 'gsap'
 
 export default component((node, ctx) => {
-  var titleltr = gsap.timeline({ onComplete: tstr, ease: Power2.easeOut }),
+  var titleltr = gsap.timeline(),
     titleSplitText = new SplitText('.fadeltr>h3', {
       type: 'lines, words',
     })
@@ -16,11 +16,12 @@ export default component((node, ctx) => {
     opacity: 0,
     x: -20,
     stagger: 0.1,
+    ease: Power2.easeOut,
   })
 
-  function tstr() {
+  ctx.on('resize', () => {
     titleSplitText.revert()
-  }
+  })
 
   const ttbCur = () => {
     var ttbCur = $(node).find('p, h3')
@@ -33,7 +34,7 @@ export default component((node, ctx) => {
   }
 
   const h2ttb = () => {
-    var h2ttb = new gsap.timeline({ onComplete: hstr, ease: Power2.easeOut }),
+    var h2ttb = new gsap.timeline(),
       h2SplitText = new SplitText(node, { type: 'words' })
 
     var words = h2SplitText.words
@@ -43,14 +44,15 @@ export default component((node, ctx) => {
       opacity: 0,
       y: 15,
       stagger: 0.05,
+      ease: Power2.easeOut,
     })
-    function hstr() {
+    ctx.on('resize', () => {
       h2SplitText.revert()
-    }
+    })
   }
 
   const h1ttb = () => {
-    var h1ttb = new gsap.timeline({ onComplete: h1str }),
+    var h1ttb = new gsap.timeline(),
       h1SplitText = new SplitText(node, { type: 'words' })
 
     var words = h1SplitText.words
@@ -61,14 +63,14 @@ export default component((node, ctx) => {
       y: 15,
       stagger: 0.15,
     })
-    function h1str() {
+    ctx.on('resize', () => {
       h1SplitText.revert()
-    }
+    })
   }
 
   const ltrCur = () => {
     var ltrCur = $(node).find('p, h3')
-    var tlltr = gsap.timeline({ onComplete: stcr }),
+    var tlltr = gsap.timeline(),
       stCur = new SplitText(ltrCur, {
         type: 'lines',
       })
@@ -81,13 +83,13 @@ export default component((node, ctx) => {
       x: -20,
       stagger: 0.08,
     })
-    function stcr() {
+    ctx.on('resize', () => {
       stCur.revert()
-    }
+    })
   }
 
   const tlHeader = () => {
-    var tlHeader = gsap.timeline({ onComplete: sthr }),
+    var tlHeader = gsap.timeline(),
       splitHeader = new SplitText(node, { type: 'words' })
 
     var words = splitHeader.words
@@ -98,9 +100,9 @@ export default component((node, ctx) => {
       y: 30,
       stagger: 0.05,
     })
-    function sthr() {
+    ctx.on('resize', () => {
       splitHeader.revert()
-    }
+    })
   }
 
   const fadeUp = () => {

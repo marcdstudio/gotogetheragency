@@ -2,8 +2,8 @@ import { component } from 'picoapp'
 import { gsap, Power2 } from 'gsap'
 import { SplitText } from '@/util/SplitText'
 
-export default component(() => {
-  var homeTitle = gsap.timeline({ onComplete: htsr, ease: Power2.easeOut }),
+export default component((node, ctx) => {
+  var homeTitle = gsap.timeline(),
     htSplit = new SplitText('.introTitle>p', { type: 'words' })
 
   var words = htSplit.words
@@ -13,11 +13,8 @@ export default component(() => {
     opacity: 0,
     y: 20,
     stagger: 0.1,
+    ease: Power2.easeOut,
   })
-
-  const htsr = () => {
-    htSplit.revert()
-  }
 
   gsap.from('.featureImg', { duration: 0.5, opacity: 0, y: 30, delay: 0.2 })
   gsap.from('.featureDetails', {

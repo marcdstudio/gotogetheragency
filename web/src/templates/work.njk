@@ -3,33 +3,41 @@ layout: base.njk
 title: Work
 ---
 
-<div class="modules work" data-router-view="default" data-component="project">
+<div class="modules work nnav" data-router-view="default" data-component="project">
     <div class="eyeBtn usn dn l:db"></div>
     <div class="cBtn usn dn l:db" data-component="mouseFollow"></div>
-    <div class="dn l:db pTitleWrap vh100 fix left top" style="width: 24rem;">
-        <div class="pTitle top left abs x y df aic jcc" data-id="{{ project.title }}" style="white-space:nowrap;">
-            <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
-        </div>
-    </div>
-    <div class="scrollContainer x vh100 oy fix z3" data-component="smoothScroll">
+    <div class="x vh100 oy fix z3">
         <div class="x thumbWrap rel pt100 s:pt180 l:pt0 pb60 s:pb70">
             {% for project in work.allProjects %}
                 {% if project.isLive %}
-                    <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
-                        <a href="/work/{{ project.slug }}" style="cursor:none!important" data-transition="project">
-                            <img class="dib x y o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
-                        </a>
-                    {% else %}
-                        <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}" data-component="reveal">
-                            <div class="csn x y">
-                                <img class="db x y o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                    <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh rel l:ml240" data-id="{{ project.title }}">
+                        <div class="dn l:db pTitleWrap vh100 fix left top" style="width: 24rem;">
+                            <div class="pTitle top left abs x y df aic jcc" data-id="{{ project.title }}" style="white-space:nowrap;">
+                                <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
                             </div>
-                        {% endif %}
+                        </div>
+                        <div class="x y fade workThumb-img" data-component="reveal">
+                            <a href="/work/{{ project.slug }}" style="cursor:none!important" data-transition="project">
+                                <img class="dib x y o-cover pMouse pLive" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                            </a>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-            <div class="full">
-                {% include 'footer.njk' %}
-            </div>
+                {% else %}
+                    <div class="ml20 s:ml30 mt20 s:mt30 l:mt40 workThumb oh fade rel l:ml240" data-id="{{ project.title }}">
+                        <div class="dn l:db pTitleWrap vh100 fix left top" style="width: 24rem;">
+                            <div class="pTitle top left abs x y df aic jcc" data-id="{{ project.title }}" style="white-space:nowrap;">
+                                <h3 class="r-90 c-tan" style="white-space:nowrap;">{{ project.title }}</h3>
+                            </div>
+                        </div>
+                        <div class="csn x y fade workThumb-img" data-component="reveal">
+                            <img class="db x y o-cover pMouse pHidden" src="{{ project.image }}" alt="{{ project.altText }}"/>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="full">
+            {% include 'footer.njk' %}
         </div>
     </div>
+</div>

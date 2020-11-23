@@ -69,9 +69,6 @@ class Base extends Highway.Renderer {
       gsap.set('.countContainer', { opacity: 0 })
       gsap.to('.countContainer', { opacity: 1, delay: 1.2 })
     }
-
-    // mount picoapp
-    // this.mount()
   }
 
   onEnter() {

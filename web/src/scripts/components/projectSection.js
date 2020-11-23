@@ -2,6 +2,10 @@ import { component } from 'picoapp'
 import { gsap, ScrollTrigger } from 'gsap/all'
 
 export default component((node, ctx) => {
+  $('.stickyTitle').hide()
+  setTimeout(() => {
+    $('.stickyTitle').fadeIn(200)
+  }, 1500)
   ctx.on('resize', ({ ww }) => {
     gsap.utils.toArray('.colorStick').forEach((stick) => {
       if (ww > 1025) {

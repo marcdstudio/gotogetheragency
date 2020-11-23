@@ -5,29 +5,28 @@ export default component(() => {
   setTimeout(() => {
     gsap.registerPlugin(ScrollTrigger)
 
-    gsap.set('.usBlock, .toBlock', { opacity: 0 })
+    gsap.set('.usBody, .toBody, .splitu, .toBlock', { opacity: 0 })
 
     const tlyIn = () => {
       let tl = gsap.timeline()
 
-      tl.to('.youBlock', { opacity: 1 }).fromTo(
+      tl.fromTo(
         '.splity',
         { y: 30, opacity: 0 },
         {
           duration: 0.35,
           y: 0,
           opacity: 1,
-          stagger: 0.05,
+          stagger: 0.1,
           ease: Power2.easeOut,
         },
-        0,
-      )
+      ).to('.youBody', { opacity: 1, duration: 0.5 }, 0.2)
     }
 
     const tlyOut = () => {
       let tl = gsap.timeline()
 
-      tl.to('.youBlock', { opacity: 0 }).fromTo(
+      tl.to('.youBody', { opacity: 0, duration: 0.5 }).fromTo(
         '.splity',
         { y: 0, opacity: 1 },
         {
@@ -37,31 +36,28 @@ export default component(() => {
           stagger: 0.1,
           ease: Power2.easeOut,
         },
-        0,
+        0.2,
       )
     }
 
     const tluIn = () => {
-      let tl = gsap.timeline()
-
-      tl.to('.usBlock', { opacity: 1 }).fromTo(
+      gsap.fromTo(
         '.splitu',
         { y: 30, opacity: 0 },
         {
           duration: 0.35,
           y: 0,
           opacity: 1,
-          stagger: 0.05,
+          stagger: 0.1,
           ease: Power2.easeOut,
         },
-        0,
       )
+      gsap.to('.usBody', { opacity: 1, duration: 0.5 }, 0.2)
     }
 
     const tluOut = () => {
-      let tl = gsap.timeline()
-
-      tl.to('.usBlock', { opacity: 0 }).fromTo(
+      gsap.to('.usBody', { opacity: 0, duration: 0.5 })
+      gsap.fromTo(
         '.splitu',
         { y: 0, opacity: 1 },
         {
@@ -71,7 +67,7 @@ export default component(() => {
           stagger: 0.1,
           ease: Power2.easeOut,
         },
-        0,
+        0.2,
       )
     }
 
@@ -125,38 +121,6 @@ export default component(() => {
         0,
       )
     }
-
-    // const tliIn = () => {
-    //   var tl = gsap.timeline()
-
-    //   tl.fromTo(
-    //     '.aboutBlock',
-    //     { y: 50, opacity: 0 },
-    //     {
-    //       duration: 0.35,
-    //       y: 0,
-    //       opacity: 1,
-    //       ease: Expo.easeOut,
-    //     },
-    //     0,
-    //   )
-    // }
-
-    // const tliOut = () => {
-    //   var tl = gsap.timeline()
-
-    //   tl.fromTo(
-    //     '.aboutBlock',
-    //     { y: 0, opacity: 1 },
-    //     {
-    //       duration: 0.35,
-    //       y: 50,
-    //       opacity: 0,
-    //       ease: Expo.easeOut,
-    //     },
-    //     0,
-    //   )
-    // }
 
     ScrollTrigger.create({
       trigger: '.youBlock',

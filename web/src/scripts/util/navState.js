@@ -14,7 +14,7 @@ export default function navState() {
     $('.navItem')
       .eq(2)
       .addClass('active')
-  } else if (window.location.href.indexOf('work') > -1) {
+  } else if (location.pathname == '/work/') {
     $('.navItem').removeClass('active')
     $('.navItem')
       .eq(3)

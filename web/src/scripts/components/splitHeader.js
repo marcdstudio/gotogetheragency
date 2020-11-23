@@ -24,7 +24,7 @@ export default component((node, ctx) => {
     }
   })
 
-  setTimeout(() => {
+  ctx.on('resize', () => {
     splitHeader.revert()
-  }, 1500)
+  })
 })
