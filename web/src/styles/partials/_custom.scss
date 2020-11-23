@@ -1174,7 +1174,6 @@ nav {
   }
 
   h3,
-  ,
   .h3g {
     font-size: 1.6rem;
   }
@@ -1388,7 +1387,10 @@ nav {
     margin-right: -1rem;
   }
 }
-@media screen and (max-width: 415px) {
+@media screen and (min-width: 2000px) {
+  html {
+    font-size: 16px;
+  }
 }
 
 /*! purgecss start ignore */
@@ -1398,49 +1400,5 @@ input:focus,
 textarea:focus {
   outline: none;
 }
-
-// .scrollbar-track {
-//   background: transparent !important;
-// }
-
-// .scrollbar-track-y {
-//   width: 6px !important;
-// }
-
-// .c-scrollbar {
-//   position: absolute;
-//   right: 0;
-//   top: 0;
-//   width: 11px;
-//   height: 100%;
-//   transform-origin: center right;
-//   transition: transform 0.3s, opacity 0.3s;
-//   opacity: 0;
-// }
-// .c-scrollbar:hover {
-//   transform: scaleX(1.45);
-// }
-// .c-scrollbar:hover,
-// .has-scroll-scrolling .c-scrollbar,
-// .has-scroll-dragging .c-scrollbar {
-//   opacity: 1;
-// }
-
-// .c-scrollbar_thumb {
-//   position: absolute;
-//   top: 0;
-//   right: 0;
-//   background-color: black;
-//   opacity: 0.5;
-//   width: 7px;
-//   border-radius: 10px;
-//   margin: 2px;
-//   cursor: -webkit-grab;
-//   cursor: grab;
-// }
-// .has-scroll-dragging .c-scrollbar_thumb {
-//   cursor: -webkit-grabbing;
-//   cursor: grabbing;
-// }
 
 /*! purgecss end ignore */
