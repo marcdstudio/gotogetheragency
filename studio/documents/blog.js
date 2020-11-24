@@ -23,5 +23,11 @@ export default {
       name: 'marqueeText',
       type: 'string',
     },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'tag' } }],
+    },
   ],
 }

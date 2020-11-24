@@ -42,20 +42,28 @@ export default () =>
                 ),
               S.listItem()
                 .title('Blog')
-                .icon(() => <Emoji style={{ fontSize: 24 }} text="🗞" />)
+                .icon(() => <Emoji style={{ fontSize: 24 }} text="📓" />)
                 .child(
-                  S.editor()
-                    .title('Blog')
-                    .schemaType('blog')
-                    .documentId('blog'),
-                ),
-              S.listItem()
-                .title('Articles')
-                .icon(() => <Emoji style={{ fontSize: 24 }} text="🖋" />)
-                .child(
-                  S.documentList()
-                    .title('All Articles')
-                    .filter('_type == "article" '),
+                  S.list()
+                    .title('Blog Content')
+                    .items([
+                      S.listItem()
+                        .title('Blog Collection')
+                        .icon(() => <Emoji style={{ fontSize: 24 }} text="🗞" />)
+                        .child(
+                          S.documentTypeList('blog').title('Blog Collection'),
+                        ),
+                      S.listItem()
+                        .title('Articles')
+                        .icon(() => <Emoji style={{ fontSize: 24 }} text="🖋" />)
+                        .child(
+                          S.documentTypeList('article').title('All Articles'),
+                        ),
+                      S.listItem()
+                        .title('Tags')
+                        .icon(() => <Emoji style={{ fontSize: 24 }} text="🏷" />)
+                        .child(S.documentTypeList('tag').title('Tag List')),
+                    ]),
                 ),
               S.listItem()
                 .title('Projects')
@@ -65,10 +73,6 @@ export default () =>
                     .title('All Projects')
                     .filter('_type == "project" '),
                 ),
-              // S.listItem()
-              //   .title('Projects')
-              //   .icon(() => <Emoji style={{ fontSize: 24 }} text="🎨" />)
-              //   .child(S.documentTypeList('project').title('Projects')),
               S.listItem()
                 .title('Contact')
                 .icon(() => <Emoji style={{ fontSize: 24 }} text="🎤" />)

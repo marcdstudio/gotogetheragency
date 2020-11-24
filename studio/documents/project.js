@@ -19,14 +19,6 @@ export default {
       },
       validation: (Rule) => Rule.required(),
     },
-    // {
-    //   title: 'Theme Color',
-    //   name: 'themeColor',
-    //   type: 'color',
-    //   options: {
-    //     disableAlpha: true,
-    //   },
-    // },
     {
       title: 'Thumbnail Image',
       description: 'Appears when hovering a project title on the homepage.',
@@ -45,11 +37,6 @@ export default {
       name: 'isLive',
       type: 'boolean',
     },
-    // {
-    //   title: 'Is thumb vertical',
-    //   name: 'thumbOr',
-    //   type: 'boolean',
-    // },
     {
       title: 'Intro Text',
       name: 'introText',

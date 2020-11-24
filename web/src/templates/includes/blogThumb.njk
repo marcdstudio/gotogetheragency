@@ -1,0 +1,12 @@
+<div class="x ph20 s:ph0 s:w50 mb25 s:mb40 fade blogThumb" data-component="reveal">
+    <a href="/blog/{{ article.slug }}">
+        <img class="x" src="{{ article.poster }}" alt="{{ article.posterAlt }}"/>
+        <div class="blogThumb-info-wrap df fw jcb">
+            <div class="x mt15 s:mt20 blogThumb-info">
+                <h3 class="graphm" style="line-height:1.2">{{ article.title }}</h3>
+                <p class="c-grey mt10 f14 s:f16 l:f18">{{ article.subtitle }}</p>
+            </div>
+            <div class="c-tan mt10 f10 s:f12 l:f14 graphm journalDate ls1em" data-component="xdates">{{ article.date }}</div>
+        </div>
+    </a>
+</div>

@@ -1,9 +1,25 @@
 ---
 layout: base.njk
-title: Blog
+permalink: blog/tag/{{ tag.slug }}/
+pagination:
+  alias: tag
+  data: tag
+  size: 1
+renderData:
+  title: "{{ tag.title }}"
 ---
+
+{# {% for article in article %}
+    {% for tag in article.allTags %}
+        {% if tag.title == curTag %}
+            {% include 'articleThumb.njk' %}
+        {% endif %}
+    {% endfor %}
+{% endfor %} #}
+
 {% set marquee = blogContent.marqueeText %}
-<div class="modules blog mt300" data-router-view="default" data-component="blog">
+
+<div class="modules blog-tag mt300" data-router-view="default" data-component="blog">
     <div class="c-tan h1 mega marquee oh x" style="white-space:nowrap;">
         <div style="transition: transform .2s ease">
             <span>
@@ -21,19 +37,25 @@ title: Blog
         </div>
     </div>
     <div class="full">
+
         <div class="df fw aic mt60 s:mt100 mb35 ph20 s:ph30 l:ph0">
-            <div class="f10 s:f12 ttu ls1em ph15 pv10 s:ph25 s:pv20 graphm blog-tag active">
+            <div class="f10 s:f12 ttu ls1em pr15 pv10 s:pr25 s:pv20 graphm blog-tag">
                 <a href="/blog/">Everything</a>
             </div>
+            {% set curTag = tag.title %}
             {% for tag in blogContent.tags %}
-                <div class="f10 s:f12 ttu ls1em ph15 pv10 s:ph25 s:pv20 blog-tag graphm">
+                <div class="f10 s:f12 ttu ls1em ph15 pv10 s:ph25 s:pv20 blog-tag graphm{% if tag.title == curTag %} active {% endif %}">
                     <a href="/blog/tag/{{ tag.slug.current }}">{{ tag.title }}</a>
                 </div>
             {% endfor %}
         </div>
-        <div class="s:pl30 l:ph0 df fw pb80 s:pb100 l:pb130">
+        <div class="s:pl30 l:ph0 df fw pb80 s:pb100 l:pb130 blogThumb-wrap">
             {% for article in article %}
-                {% include 'blogThumb.njk' %}
+                {% for tag in article.allTags %}
+                    {% if tag.title == curTag %}
+                        {% include 'blogThumb.njk' %}
+                    {% endif %}
+                {% endfor %}
             {% endfor %}
         </div>
         {% include 'subscribe.njk' %}
