@@ -95,51 +95,6 @@ renderData:
           {% endif %}
         {% endfor %}
       </div>
-
-      <div class="maxfull mt20 mb5 light-green mainTag">
-        {% for tag in article.allTags %}
-          {% if loop.first %}
-            <span class="caps">View more from</span>
-            <span class="articleTag light-green">
-              <a href="/news/{{ tag.slug.current }}">{{  tag.title }}</a>
-            </span>
-          {% endif %}
-        {% endfor %}
-      </div>
-
-      <div class="maxfull x ma flcs mb25 sugArt">
-        {% for tag in article.allTags %}
-          {% if loop.first %}
-            {% set firstTag = tag.title %}
-            {% for soloArticle in journal %}
-              {% for tag in soloArticle.allTags %}
-                {% if firstTag == tag.title %}
-                  <div class="w33 m1">
-                    <div class="h48r">
-                      <a href="/journal/{{ soloArticle.slug }}">
-                        <img class="x ofit" src="{{ soloArticle.poster }}" alt="{{ soloArticle.posterAlt }}"/>
-                      </a>
-                    </div>
-                    <div class="mt1">
-                      {{ soloArticle.title }}
-                    </div>
-                    <div class="journalDate small light-green mt-5">
-                      {{ soloArticle.date }}
-                    </div>
-                    <div class="mt1">
-                      {% for tag in soloArticle.allTags %}
-                        <a class="articleTag light-green mr1" href="/news/{{ tag.slug.current }}">
-                          {{ tag.title }}
-                        </a>
-                      {% endfor %}
-                    </div>
-                  </div>
-                {% endif %}
-              {% endfor %}
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
-      </div>
     </div>
     {% if article.relatedArticleLeft %}
       <div class="ph15 s:ph15 l:pr0 mt120 l:mt200 s:mt150">

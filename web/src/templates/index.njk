@@ -58,7 +58,7 @@ title: Home
     </div>
   {% endfor %}
 
-  <div class="fLine df fw aic x max-w300 s:max-w550 l:max-w880 ma pt60 pb80 s:pt120 s:pb160 l:pb160 l:pt160">
+  <div class="fLine df fw aic x max-w300 s:max-w550 l:max-w750 ma pt60 pb80 s:pt120 s:pb160 l:pb160 l:pt160">
     <div class="{% if homeContent.aboutText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %}  c-tan" data-component="splitText">
       {% for text in homeContent.aboutText.content %}
         {{ text | blocksToHtml | safe }}
@@ -139,7 +139,7 @@ title: Home
     </div>
   </div>
 
-  <div class="df aic jcc x max-w280 s:max-w550 l:max-w880 ma pt60">
+  <div class="df aic jcc x max-w280 s:max-w550 l:max-w750 ma pt60">
     <div class="{% if homeContent.finalText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
       {% for text in homeContent.finalText.content %}
         {{ text | blocksToHtml | safe }}
