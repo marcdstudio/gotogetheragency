@@ -9,6 +9,7 @@ module.exports = async function() {
         title,
         "slug": slug.current,
         'poster': poster.image.asset->url,
+        'video': projectVideo.video,
         projectSection[]{
             'image': image.asset->url,
             ...,

@@ -21,19 +21,28 @@ export default {
     },
     {
       title: 'Thumbnail Image',
-      description: 'Appears when hovering a project title on the homepage.',
+      description:
+        'Thumbnail image that appears on the home page selected work section.',
       name: 'thumbnail',
       type: 'a11yImage',
     },
     {
       title: 'Poster Image',
-      description: 'Appears when hovering a project title on the homepage.',
+      description:
+        'Prmary image that appears in the following places: Home page featured project thumbnail image, Work page thumbnail image, Project page header image and related project thumbnail image.',
       name: 'poster',
       type: 'a11yImage',
     },
     {
+      title: 'Poster Video',
+      description:
+        'If a video is added, it will show in place of the Poster Image on the home page if this project is the featured project.',
+      name: 'projectVideo',
+      type: 'video',
+    },
+    {
       title: 'Is project live?',
-      description: 'Turn this on if the project can be viewed',
+      description: 'Turn this on if the project should be visible to visitors',
       name: 'isLive',
       type: 'boolean',
     },

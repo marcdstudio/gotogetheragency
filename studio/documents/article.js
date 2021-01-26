@@ -68,7 +68,7 @@ export default {
         },
         { type: 'articleImage' },
         { type: 'spacer' },
-        { type: 'articleCarousel' },
+        { type: 'video' },
       ],
     },
     {

@@ -36,10 +36,5 @@ export default {
     select: {
       title: 'title',
     },
-    // prepare: ({ caption, ...selection }) => ({
-    //   ...selection,
-    //   title: 'Project Section',
-    //   subtitle: caption && caption.content ? toPlainText(caption.content) : '',
-    // }),
   },
 }

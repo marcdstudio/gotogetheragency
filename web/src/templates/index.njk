@@ -2,6 +2,7 @@
 layout: base.njk
 title: Home
 ---
+{% set videoType = 'home' %}
 <div class="modules home full" data-router-view="default" data-component="home">
   <div class="df aic jcc x max-w300 s:max-w550 l:max-w880 ma pt150 pb60 s:pt200 s:pb100 l:pb160 l:pt160">
     <div class="{% if homeContent.heroText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan introTitle">
@@ -16,19 +17,23 @@ title: Home
       <div class="dib s:dn tag mr20 l:mr100 f10 s:f12 l:f14 mb15">
         Feature
       </div>
-      <div class="x featureImg">
-        {% if project.isLive %}
-          <div class="x homeThumb oh">
-            <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
+      {% if project.projectVideo %}
+        {% include 'video.njk' %}
+      {% else %}
+        <div class="x featureImg">
+          {% if project.isLive %}
+            <div class="x homeThumb oh">
+              <a href="/work/{{ project.slug.current }}" style="cursor:none!important">
+                <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
+              </a>
+            </div>
+          {% else %}
+            <div class="x homeThumb oh csn">
               <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
-            </a>
-          </div>
-        {% else %}
-          <div class="x homeThumb oh csn">
-            <img class="x" src="{{ project.image }}" alt="{{ project.altText }}"/>
-          </div>
-        {% endif %}
-      </div>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
       <div class="df ais jcs rel mt15 l:mt30 x">
         <div class="dn s:dib tag f10 s:f12 l:f14">
           Feature

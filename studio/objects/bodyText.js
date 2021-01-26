@@ -22,7 +22,7 @@ export default {
     },
     {
       title: 'Byline',
-      description: 'Add byline if text is quote',
+      description: 'Add byline if text is a quote',
       name: 'byline',
       type: 'string',
     },

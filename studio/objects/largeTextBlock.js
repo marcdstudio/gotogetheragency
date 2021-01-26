@@ -1,7 +1,6 @@
 export default {
   title: 'Large Text Block',
   name: 'largeTextBlock',
-  description: 'Text should be short and sweet.',
   type: 'object',
   fields: [
     {
@@ -33,13 +32,6 @@ export default {
         },
       ],
     },
-    // {
-    //   title: 'Link Url',
-    //   description: 'Add a link if this block includes one',
-    //   name: 'pageLink',
-    //   type: 'array',
-    //   of: [{ type: 'reference', to: { type: 'project' } }],
-    // },
     {
       title: 'Link Text',
       description: 'Add the link text',

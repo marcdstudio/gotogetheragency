@@ -1,9 +1,17 @@
+{% if videoType == 'article' %}
+    {% set video = block.video %}
+{% elseif videoType == 'home' %}
+    {% set video = project.projectVideo.video %}
+{% else %}
+    {% set video = module.video %}
+{% endif %}
+
 {% if module.hasControls %}
     <div class="videoBg x ma fade mb40" data-component="reveal">
-        <iframe class="x pen usn" src="{{ module.video }}" width="100%" height="750" frameborder="0" allow="autoplay;" allowfullscreen="false"></iframe>
+        <iframe class="x pen usn" src="https://player.vimeo.com/video/{{ video }}" width="100%" height="750" frameborder="0" allow="autoplay;" allowfullscreen="false"></iframe>
     </div>
 {% else %}
     <div class="videoBg x ma fade mb40" data-component="reveal">
-        <iframe class="x pen usn" src="{{ module.video }}?background=1&muted=1&autoplay=1&loop=1" width="100%" height="750" frameborder="0" allow="autoplay;" allowfullscreen="false"></iframe>
+        <iframe class="x pen usn" src="https://player.vimeo.com/video/{{ video }}?background=1&muted=1&autoplay=1&loop=1" width="100%" height="750" frameborder="0" allow="autoplay;" allowfullscreen="false"></iframe>
     </div>
 {% endif %}

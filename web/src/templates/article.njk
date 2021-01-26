@@ -8,7 +8,7 @@ pagination:
 renderData:
   title: "{{ article.title }}"
 ---
-
+{% set videoType = 'article' %}
 <div class="article rel" data-router-view="default" data-component="article">
   <div class="dn l:df socialWrap l:fix left aic jcc fc" style="width: 24rem;" data-component="socials">
     <a class="facebook mb30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
@@ -82,7 +82,7 @@ renderData:
         {% for block in article.aboutContent %}
           {% if block.children %}
             {{ block | blocksToHtml | safe }}
-          {% else %}
+          {% elseif block._type == 'articleImage'%}
             {% if block.wideImg %}
               <div class="articleImgWide" data-component="reveal">
                 <img alt="{{ block.altText }}" class="x" src="{{ block.image }}"/>
@@ -92,6 +92,10 @@ renderData:
                 <img alt="{{ block.altText }}" class="x" src="{{ block.image }}"/>
               </div>
             {% endif %}
+          {% elseif block._type == 'video'%}
+            {% include 'video.njk' %}
+          {% elseif block._type == 'spacer'%}
+            {% include 'spacer.njk' %}
           {% endif %}
         {% endfor %}
       </div>

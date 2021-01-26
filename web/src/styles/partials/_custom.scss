@@ -61,6 +61,10 @@ img {
 
 //========== ELEMENTS ==========//
 
+.spacer {
+  height: 3rem;
+}
+
 .projectFull {
   padding-left: 0;
   height: 100vh;
@@ -625,6 +629,12 @@ nav {
   }
 }
 
+.article {
+  h2 {
+    letter-spacing: -0.15rem;
+  }
+}
+
 .articleContent {
   h3,
   h2 {
@@ -642,6 +652,15 @@ nav {
   .articleImgWide {
     margin-top: 3rem;
     max-width: 80rem;
+  }
+  .articleImg {
+    margin-top: 3rem;
+  }
+  em {
+    font-style: italic;
+  }
+  strong {
+    font-weight: bold;
   }
 }
 
@@ -833,6 +852,28 @@ nav {
     height: calc(100% + 2px);
     border: none;
   }
+}
+
+.articleContent .videoBg {
+  position: relative;
+  overflow: hidden;
+  width: calc(100vw - 28rem);
+  height: calc((100vw - 28rem) * 0.5625);
+  transform: translateX(0rem);
+  iframe {
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    width: calc(100% + 2px);
+    height: calc(100% + 2px);
+    border: none;
+  }
+  max-width: 78rem;
+  max-height: 43.875rem;
+  margin-top: 3rem;
 }
 
 .homeThumb,
@@ -1040,6 +1081,19 @@ nav {
     }
   }
 
+  .articleContent .videoBg {
+    width: 60rem;
+    height: 33.75rem;
+    max-width: 60rem;
+    max-height: 33.75rem;
+    margin: initial;
+    margin-top: 3rem;
+  }
+
+  .home .videoBg {
+    margin: initial;
+  }
+
   .wtFull {
     height: 75vh;
     margin: 0;
@@ -1178,6 +1232,9 @@ nav {
       margin-top: 3rem;
       max-width: 65rem;
     }
+    .articleImg {
+      margin-top: 3rem;
+    }
   }
   .youTrans {
     width: 8rem;
@@ -1272,6 +1329,18 @@ nav {
     width: calc(100vw - 6rem);
     height: calc((100vw - 6rem) * 0.5625);
     transform: none;
+  }
+
+  .home .videoBg {
+    width: calc(100vw - 4rem);
+    height: calc((100vw - 4rem) * 0.5625);
+  }
+
+  .articleContent .videoBg {
+    width: calc(100vw - 4rem);
+    height: calc((100vw - 4rem) * 0.5625);
+    max-width: 65rem;
+    max-height: 36.56rem;
   }
 
   .about {
