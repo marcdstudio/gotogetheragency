@@ -631,7 +631,7 @@ nav {
 
 .article {
   h2 {
-    letter-spacing: -0.15rem;
+    letter-spacing: -0.1rem;
   }
 }
 
@@ -1410,6 +1410,12 @@ nav {
   .blog h3,
   .blog-tag h3 {
     font-size: 2.2rem;
+  }
+
+  .article {
+    h2 {
+      font-size: 4rem !important;
+    }
   }
 
   .articleContent {
