@@ -40,12 +40,12 @@ module.exports = function(eleventyConfig) {
       const h = blocksToHtml.h
       const serializers = {
         marks: {
-          externalLink: ({ children, mark }) =>
+          link: ({ children, mark }) =>
             h(
               'a',
               {
                 className: 'inline-link',
-                href: mark.url,
+                href: mark.href,
                 target: '_blank',
                 rel: 'noopener noreferrer',
               },
