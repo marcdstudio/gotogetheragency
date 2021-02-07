@@ -19,6 +19,7 @@ import article from '@/components/article'
 import blog from '@/components/blog'
 import projectSection from '@/components/projectSection'
 import parallax from '@/components/parallax'
+import copyright from '@/components/copyright'
 
 const components = {
   subscribe,
@@ -40,6 +41,7 @@ const components = {
   project,
   home,
   parallax,
+  copyright,
 }
 
 const state = {
