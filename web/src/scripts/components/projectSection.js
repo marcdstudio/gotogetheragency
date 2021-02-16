@@ -86,7 +86,6 @@ export default component((node, ctx) => {
         gsap.to('main', { backgroundColor: '#0f0e0e', overwrite: 'auto' })
         $('.wordmark').removeClass('wordmarkBlack')
         $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
-        console.log('related enter')
       },
     })
   })
@@ -95,7 +94,6 @@ export default component((node, ctx) => {
     img.onload = () => {
       ScrollTrigger.refresh()
       img.onload = null
-      console.log('load')
     }
   })
 
