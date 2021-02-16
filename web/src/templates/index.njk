@@ -18,7 +18,11 @@ title: Home
         Feature
       </div>
       {% if project.projectVideo.video %}
-        {% include 'video.njk' %}
+        <div class="homeThumb x">
+          <a class="x" href="/work/{{ project.slug.current }}" style="cursor:none!important">
+            {% include 'video.njk' %}
+          </a>
+        </div>
       {% else %}
         <div class="x featureImg">
           {% if project.isLive %}

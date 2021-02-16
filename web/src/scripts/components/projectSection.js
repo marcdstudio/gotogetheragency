@@ -26,26 +26,19 @@ export default component((node, ctx) => {
 
   $('.colBlock').removeClass('fadeUp')
 
-  document.querySelectorAll('img').forEach((img) => {
-    img.onload = () => {
-      ScrollTrigger.refresh()
-      img.onload = null
-    }
-  })
-
-  gsap.utils.toArray('.colorStick').forEach((stick) => {
-    var bgColor = $(stick).attr('data-color')
+  gsap.utils.toArray('.section').forEach((colorSection) => {
     ScrollTrigger.create({
-      trigger: stick,
-      start: '-=500',
-      end: 'bottom 50%+=100px',
-      onToggle: (self) => {
-        if (self.isActive) {
-          $('main').css('background-color', bgColor)
+      trigger: colorSection,
+      start: 'top bottom',
+      onEnter: () => {
+        gsap.to('main', {
+          backgroundColor: colorSection.dataset.color,
+          overwrite: 'auto',
+        })
+        if ($(colorSection).hasClass('c-oblack')) {
           $('.wordmark').addClass('wordmarkBlack')
           $('.menuIcon, .mblIcon').addClass('menuIconBlack')
         } else {
-          $('main').css('background-color', '#0f0e0e')
           $('.wordmark').removeClass('wordmarkBlack')
           $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
         }
@@ -53,19 +46,57 @@ export default component((node, ctx) => {
     })
   })
 
-  ScrollTrigger.create({
-    trigger: '.c-oblack',
-    start: '-=300',
-    end: '=+100%',
-    onToggle: (self) => {
-      if (self.isActive) {
-        $('.wordmark').addClass('wordmarkBlack')
-        $('.menuIcon, .mblIcon').addClass('menuIconBlack')
-      } else {
+  gsap.utils.toArray('.section').forEach((colorSection) => {
+    ScrollTrigger.create({
+      trigger: colorSection,
+      start: 'bottom =+700',
+      onLeaveBack: () => {
+        gsap.to('main', {
+          backgroundColor: colorSection.dataset.color,
+          overwrite: 'auto',
+        })
+        if ($(colorSection).hasClass('c-oblack')) {
+          $('.wordmark').addClass('wordmarkBlack')
+          $('.menuIcon, .mblIcon').addClass('menuIconBlack')
+        } else {
+          $('.wordmark').removeClass('wordmarkBlack')
+          $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
+        }
+      },
+    })
+  })
+
+  gsap.utils.toArray('.colophon').forEach((colophon) => {
+    ScrollTrigger.create({
+      trigger: colophon,
+      start: 'bottom top',
+      onLeaveBack: () => {
+        gsap.to('main', { backgroundColor: '#0f0e0e', overwrite: 'auto' })
         $('.wordmark').removeClass('wordmarkBlack')
         $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
-      }
-    },
+      },
+    })
+  })
+
+  gsap.utils.toArray('.project-related').forEach((related) => {
+    ScrollTrigger.create({
+      trigger: related,
+      start: 'top bottom',
+      onEnter: () => {
+        gsap.to('main', { backgroundColor: '#0f0e0e', overwrite: 'auto' })
+        $('.wordmark').removeClass('wordmarkBlack')
+        $('.menuIcon, .mblIcon').removeClass('menuIconBlack')
+        console.log('related enter')
+      },
+    })
+  })
+
+  document.querySelectorAll('img').forEach((img) => {
+    img.onload = () => {
+      ScrollTrigger.refresh()
+      img.onload = null
+      console.log('load')
+    }
   })
 
   return () => {

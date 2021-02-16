@@ -1,5 +1,5 @@
 {% set modules = section.content %}
-<div class="rel s:df jcc {% if section.isSticky %} isSticky ais {% else %} aic {% endif %} section {% if section.color %} bgSolid c-oblack {% endif %} {% if section.isSticky and section.color %} colorStick {% endif %}" {% if section.isSticky and section.color %} data-color="{{ section.color }}" {% elseif section.color %} style="background-color:{{ section.color }};" {% endif %}>
+<div class="rel s:df jcc{% if section.isSticky %} isSticky ais {% else %} isStatic aic {% endif %}section {% if section.color %} bgSolid c-oblack {% endif %}" data-color="{% if section.color %}{{ section.color }}{% else %}#0f0e0e{% endif %}" {% if not section.isSticky %} style="background-color:{{ section.color }};" {% endif %}>
     {% if section.isVisible %}
         <div class="stickyWrap nowrap s:df s:aic s:jcc{% if section.isSticky %} s:abs l:sticky l:mb80 l:top s:left{% endif %}" {% if section.isSticky %} data-color="{{ section.color }}" {% endif %}>
             <div class="stickyTitle r-90 dib f10 s:f12 l:f14 z9 l:df aic">
@@ -11,3 +11,17 @@
         {% include 'contentModules.njk' %}
     </div>
 </div>
+
+{# {% set modules = section.content %}
+<div class="rel s:df jcc{% if section.isSticky %} isSticky ais {% else %} isStatic aic {% endif %}section {% if section.color %} bgSolid c-oblack {% endif %}" {% if section.isSticky %} data-color="{% if section.color %}{{ section.color }}{% else %}#0f0e0e{% endif %}" {% elseif section.color %} style="background-color:{{ section.color }};" {% endif %}>
+    {% if section.isVisible %}
+        <div class="stickyWrap nowrap s:df s:aic s:jcc{% if section.isSticky %} s:abs l:sticky l:mb80 l:top s:left{% endif %}" {% if section.isSticky %} data-color="{{ section.color }}" {% endif %}>
+            <div class="stickyTitle r-90 dib f10 s:f12 l:f14 z9 l:df aic">
+                <div class="s:abs s:right l:static {% if section.color == '#D5B49E' %} tagWhite {% else %} tag {% endif %}">{{ section.title }}</div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="contentModules x l:wa">
+        {% include 'contentModules.njk' %}
+    </div>
+</div> #}
