@@ -45,7 +45,7 @@ title: Home
         <div class="df jcb aic x s:pl60 l:pl110">
           <div class="db featureDetails">
             <h3 class="lh10 graphm" style="line-height:1;">{{ project.title }}</h3>
-            <div class="h3g c-grey mt5 l:mt10 pr20 s:pr40 l:pr0" style="line-height:1.3;">
+            <div class="h3g c-grey mt5 l:mt10 pr20 s:pr40 l:pr0 rte" style="line-height:1.3;">
               {% for text in project.introText.content %}
                 {{ text | blocksToHtml | safe }}
               {% endfor %}
@@ -68,7 +68,7 @@ title: Home
   {% endfor %}
 
   <div class="fLine df fw aic x max-w300 s:max-w550 l:max-w750 ma pt60 pb80 s:pt120 s:pb160 l:pb160 l:pt160">
-    <div class="{% if homeContent.aboutText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %}  c-tan" data-component="splitText">
+    <div class="{% if homeContent.aboutText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %}c-tan rte" data-component="splitText">
       {% for text in homeContent.aboutText.content %}
         {{ text | blocksToHtml | safe }}
       {% endfor %}
@@ -109,7 +109,7 @@ title: Home
           <div class="df ais jcs rel mt10 s:mt20 x">
             <div class="db">
               <h3 class="graphm" style="line-height:1;">{{ project.title }}</h3>
-              <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
+              <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0 rte" style="line-height:1.3;">
                 {% for text in project.introText.content %}
                   {{ text | blocksToHtml | safe }}
                 {% endfor %}
@@ -136,7 +136,7 @@ title: Home
           <div class="df ais jcs rel mt10 s:mt20 x">
             <div class="db">
               <h3 class="graphm" style="line-height:1;">{{ project.title }}</h3>
-              <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0" style="line-height:1.3;">
+              <div class="c-grey s:mt10 f14 s:f18 mt5 pr50 s:pr0 rte" style="line-height:1.3;">
                 {% for text in project.introText.content %}
                   {{ text | blocksToHtml | safe }}
                 {% endfor %}
@@ -149,7 +149,7 @@ title: Home
   </div>
 
   <div class="df aic jcc x max-w280 s:max-w550 l:max-w750 ma pt60">
-    <div class="{% if homeContent.finalText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
+    <div class="{% if homeContent.finalText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan rte" data-component="splitText">
       {% for text in homeContent.finalText.content %}
         {{ text | blocksToHtml | safe }}
       {% endfor %}

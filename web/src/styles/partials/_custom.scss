@@ -183,6 +183,16 @@ img {
   }
 }
 
+/* HOME */
+
+.home {
+  .rte {
+    p:not(last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+}
+
 /* CONTACT */
 
 .backBtn {
@@ -298,6 +308,8 @@ img {
     border: 1px solid $red;
   }
 }
+
+/* HOME */
 
 /* WORK */
 
