@@ -670,6 +670,9 @@ nav {
   }
   em {
     font-style: italic;
+    a {
+      text-decoration: underline !important;
+    }
   }
   strong {
     font-weight: bold;
