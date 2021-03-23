@@ -5,7 +5,7 @@ const fragments = require('../util/fragments')
 module.exports = async function() {
   return await client.fetch(
     groq`
-      *[_type == 'article'][0...3] | order(date desc) {
+      *[_type == 'article'] | order(date desc) {
         ...,
         title,
         "slug": slug.current,
@@ -22,7 +22,6 @@ module.exports = async function() {
           'alt': image.altText,
           }
         },
-        
     }`,
   )
 }

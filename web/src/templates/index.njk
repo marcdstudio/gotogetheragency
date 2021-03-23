@@ -165,25 +165,27 @@ title: Home
     </div>
 
     {% for article in articles %}
-      <div class="df aic rel x bbhalf pb35 pt35">
-        <span class="ls1em featureDate graphm ttu l:f14 c-tan s:f12 f10" data-component="date">
-          {{ article.date }}
-        </span>
-        <a class="fg1 arrowSpan" href="/blog/{{ article.slug }}">
-          <span class="fg1 df jcb aic">
-            <h3 class="graph">{{ article.title }}</h3>
-            <div id="magBtn" data-component="magneticButton">
-              <span class="circle ml0 mr20 s:mr60">
-                <svg class="arrow" fill="none" viewbox="0 0 15 12">
-                  <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
-                </svg>
-              </span>
-            </div>
+      {% if loop.index < 4 %}
+        <div class="df aic rel x bbhalf pb35 pt35">
+          <span class="ls1em featureDate graphm ttu l:f14 c-tan s:f12 f10" data-component="date">
+            {{ article.date }}
           </span>
-        </a>
-      </div>
+          <a class="fg1 arrowSpan" href="/blog/{{ article.slug }}">
+            <span class="fg1 df jcb aic">
+              <h3 class="graph">{{ article.title }}</h3>
+              <div id="magBtn" data-component="magneticButton">
+                <span class="circle ml0 mr20 s:mr60">
+                  <svg class="arrow" fill="none" viewbox="0 0 15 12">
+                    <path d="M.25 5.99988h13.5M8.34998.599854L13.75 5.99985 8.34998 11.3999" stroke="#D5B49E"/>
+                  </svg>
+                </span>
+              </div>
+            </span>
+          </a>
+        </div>
+      {% endif %}
     {% endfor %}
-  </div>
+  </div> 
 
   <div class="x max-w300 s:max-w550 l:max-w880 ma pb100 pt100 s:pv160">
     <div class="{% if homeContent.contactText.textLarge %} h1 fadettb {% else %} h2 fadeltr {% endif %} c-tan" data-component="splitText">
