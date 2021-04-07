@@ -29,6 +29,11 @@ export default {
       type: 'text',
     },
     {
+      title: 'Share Description',
+      name: 'sharing',
+      type: 'text',
+    },
+    {
       name: 'allTags',
       title: 'Tags',
       type: 'array',

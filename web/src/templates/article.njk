@@ -11,12 +11,12 @@ renderData:
 {% set videoType = 'article' %}
 <div class="article rel" data-router-view="default" data-component="article">
   <div class="dn l:df socialWrap l:fix left aic jcc fc" style="width: 24rem;" data-component="socials">
-    <a class="facebook mb30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+    <a class="facebook mb30" href="#0" data-social="facebook" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
       <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
     </a>
-    <a class="twitter mb30" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+    <a class="twitter mb30" href="#0" data-social="twitter" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
       <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-    <a class="linkedin" href="https://www.linkedin.com/" target="_blank">
+    <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://gotogether.agency/blog/{{ article.slug }}&title={{article.title | replace(' ', '-')}}&summary={{ article.sharing | replace(' ', '-') }}&source=gotogether.agency" target="_blank">
       <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="LinkedIn Icon"/>
     </a>
   </div>
@@ -45,12 +45,12 @@ renderData:
     </div>
 
     <div class="dn s:df l:dn abs l:fix left aic jcc fc mt230" style="width: 18rem;">
-      <a class="facebook" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+      <a class="facebook" href="#0" data-social="facebook" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
         <img class="articleIcon mb30 l:mb0" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
       </a>
-      <a class="twitter" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+      <a class="twitter" href="#0" data-social="twitter" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
         <img class="articleIcon mb30" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-      <a class="linkedin" href="https://www.linkedin.com/" target="_blank">
+      <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://gotogether.agency/blog/{{ article.slug }}&title={{article.title | replace(' ', '-')}}&summary={{ article.sharing | replace(' ', '-') }}&source=gotogether.agency" target="_blank">
         <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="LinkedIn Icon"/>
       </a>
     </div>
@@ -68,12 +68,12 @@ renderData:
       </div>
 
       <div class="db s:dn df mt40 ph20">
-        <a class="facebook mr30" href="#0" data-social="facebook" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+        <a class="facebook mr30" href="#0" data-social="facebook" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
           <img class="articleIcon" src="/assets/icons/fb_icon.svg" alt="Facebook Icon"/>
         </a>
-        <a class="twitter mr30" href="#0" data-social="twitter" data-description="Check out this article by Together Agency!" data-url="https:gotogether.agency/{{ article.slug }}">
+        <a class="twitter mr30" href="#0" data-social="twitter" data-description="{{ article.sharing}}" data-url="https://gotogether.agency/blog/{{ article.slug }}">
           <img class="articleIcon" src="/assets/icons/tw_icon.svg" alt="Twitter Icon"/></a>
-        <a class="linkedin" href="mailto:?subject={{article.title}}&body=https://gotogether.agency/blog/{{article.slug}}">
+        <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https://gotogether.agency/blog/{{ article.slug }}&title={{article.title | replace(' ', '-')}}&summary={{ article.sharing | replace(' ', '-') }}&source=gotogether.agency" target="_blank">
           <img class="articleIcon" src="/assets/icons/li_icon_tan.svg" alt="Mail Icon"/>
         </a>
       </div>
